@@ -44,8 +44,8 @@ i{
 }
 
 
-.border{
-  border: solid;
+.brd{
+  border: 2px solid grey;
 }
 
 #facebook:hover{     color: #3b5998; }  
@@ -55,3 +55,4 @@ i{
 footer{
   margin-top: 2em;
 }
+
