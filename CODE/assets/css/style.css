@@ -12,11 +12,14 @@ body {
     width: 7em;
 }
 
-#connexion{
+#connexionPage{
   position: absolute;
   z-index: 100;
   background-color: #f1f1f1;
   position: fixed;
+  margin-left: 65%;
+  margin-top: 7%;
+  display: none;
 }
 
 
