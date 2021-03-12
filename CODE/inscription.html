@@ -66,177 +66,48 @@
 </br>
 </br>
 </br>
-      <form action="">
-        <div class="row justify-content-center">
+        <form action="">
+          <div class="row justify-content-center">
 <!-- Choix de l'identifiant -->
-          <div class="col-auto">
-            <label for="pseudo">Identifiant : </label>
-            <input type="text" id="pseudo">
-          </div>
+            <div class="col-auto">
+              <label for="pseudo">Identifiant : </label>
+              <input type="text" id="pseudo">
+            </div>
 <!-- Choix du mot de passe -->
-          <div class="col-auto">
-            <label for="password">Mot de passe : </label>
-            <input type="text" id="password">
+            <div class="col-auto">
+              <label for="password">Mot de passe : </label>
+              <input type="text" id="password">
+            </div>
           </div>
-        </div>
-        <div class="row justify-content-center">
+          <div class="row justify-content-center">
 <!-- Choix du niveau de compte -->
-          <div class="col-auto">
-            <label for="niveau">niveau du compte : </label>
-            <select id="niveau">
-              <option value="aucun">aucun</option>
-              <option value="etudiant">étudiant</option>
-              <option value="entreprise">entreprise</option>
-              <option value="pilote">pilote</option>
-              <option value="administrateur">administrateur</option>
+            <div class="col-auto">
+              <label for="niveau">niveau du compte : </label>
+              <select id="niveau">
+                <option value="aucun">aucun</option>
+                <option value="etudiant">étudiant</option>
+                <option value="entreprise">entreprise</option>
+                <option value="pilote">pilote</option>
+                <option value="administrateur">administrateur</option>
               <!-- refaire les options avec du php en fonction de connexion -->
-            </select>
-          </div>
+              </select>
+            </div>
 <!-- Comfirmation du mot de passe -->
-          <div class="col-auto">
-            <label for="confirmpassword">Confirmez le mot de passe : </label>
-            <input type="text" id="confirmpassword">
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-auto">
-            <button type="">Valider</button>
-          </div>
-        </div>
-      </form>
-        <!-- fin recherche d'une offre -->
-        <!-- debut resultats -->
-        <div class="row">
-          <!-- debut choix filtres -->
-          <div class="container col-2">
-            <!-- choix niveau etudes -->
-            <div class="row"> 
-              <div class="container col brd orange">
-                <div class="row justify-content-center">
-                  <div class="col-auto"><h2>Niveau Etudes</h2></div>
-                </div>
-                <div class="row justify-content-center">
-                  <div class="col-auto">
-                    <input type="checkbox" id="a1">
-                    <label for="a1">A1</label>
-                  </div>
-                </div>
-                <div class="row justify-content-center">
-                  <div class="col-auto">
-                    <input type="checkbox" id="a2">
-                    <label for="a2">A2</label>
-                  </div>
-                </div>
-                <div class="row justify-content-center">
-                  <div class="col-auto">
-                    <input type="checkbox" id="a3">
-                    <label for="a3">A3</label>
-                  </div>
-                </div>
-                <div class="row justify-content-center">
-                  <div class="col-auto">
-                    <input type="checkbox" id="a4">
-                    <label for="a4">A4</label>
-                  </div>
-                </div>
-                <div class="row justify-content-center">
-                  <div class="col-auto">
-                    <input type="checkbox" id="a5">
-                    <label for="a5">A5</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- choix temporalité -->
-            <div class="row"> 
-              <div class="container col brd orange">
-                <div class="row justify-content-center">
-                  <div class="col-auto"><h2>Durée</h2></div>
-                </div>
-                <div class="row justify-content-center">
-                  <div class="col-auto">
-                    <input type="checkbox" id="1mois">
-                    <label for="1mois">-1mois</label>
-                  </div>
-                </div>
-                <div class="row justify-content-center">
-                  <div class="col-auto">
-                    <input type="checkbox" id="3mois">
-                    <label for="3mois">1-3 mois</label>
-                  </div>
-                </div>
-                <div class="row justify-content-center">
-                  <div class="col-auto">
-                    <input type="checkbox" id="6mois">
-                    <label for="6mois">3-6 mois</label>
-                  </div>
-                </div>
-                <div class="row justify-content-center">
-                  <div class="col-auto">
-                    <input type="checkbox" id="maxmois">
-                    <label for="maxmois">+6 mois</label>
-                  </div>
-                </div>
-                <div class="row justify-content-center">
-                  <div class="col-auto"><h2>Date de Début</h2></div>
-                </div>
-                <div class="row justify-content-center">
-                  <div class="col-auto">
-                    <input type="date" id="date" min="2021-01-01" max="2025-12-30">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- choix remunération -->
-            <div class="row"> 
-              <div class="container col brd orange">
-                <div class="row justify-content-center">
-                  <div class="col-auto"><h2>Salaire</h2></div>
-                </div>
-                <div class="row justify-content-center">
-                  <div class="col-auto">
-                    <input type="checkbox" id="0€">
-                    <label for="0€">0€</label>
-                  </div>
-                </div>
-                <div class="row justify-content-center">
-                  <div class="col-auto">
-                    <input type="checkbox" id="200€">
-                    <label for="200€">0-200€</label>
-                  </div>
-                </div>
-                <div class="row justify-content-center">
-                  <div class="col-auto">
-                    <input type="checkbox" id="500€">
-                    <label for="500€">200-500€</label>
-                  </div>
-                </div>
-                <div class="row justify-content-center">
-                  <div class="col-auto">
-                    <input type="checkbox" id="max€">
-                    <label for="max€">+500€</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- choix Entreprises -->
-            <div class="row">
-              <div class="container col brd orange">
-                <div class="row justify-content-center">
-                  <div class="col-auto"><h2>Entreprise</h2></div>
-                </div>
-              </div>
+            <div class="col-auto">
+              <label for="confirmpassword">Confirmez le mot de passe : </label>
+              <input type="text" id="confirmpassword">
             </div>
           </div>
-          <!-- fin choix filtres -->
-          <div class="container col-10">
-            <!-- AFFICHER LES OFFRES -->
+          <div class="row justify-content-center">
+            <div class="col-auto">
+              <button type="">Valider</button>
+            </div>
           </div>
-        </div>
-        <!-- fin resultats -->
+        </form>
+        
       </div>
-
     </main>
+
 
 
     <footer class="row justify-content-around brd">
