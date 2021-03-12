@@ -5,6 +5,7 @@ li{
 body { 
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #f1f7ff;
 }
 
 #titre{
@@ -15,7 +16,7 @@ body {
 #connexionPage{
   position: absolute;
   z-index: 100;
-  background-color: #f1f1f1;
+  background-color: #e2b286;
   position: fixed;
   padding: 1em;
   margin-top: 10em;
@@ -26,7 +27,7 @@ body {
 
 #navbar {
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color: #e2b286;
   padding: 40px 10px;
   transition: 0.4s;
   position: fixed;
@@ -57,13 +58,19 @@ i{
 
 
 .brd{
-  border: 2px solid grey;
+  border: 2px solid black;
 }
 
 #facebook:hover{     color: #3b5998; }  
 #linkedin:hover{     color: #066686; }  
 #instagram:hover{     color: rgb(226, 7, 117); }
 
+.orange{
+  background-color: #e2b286;
+}
+
+
 footer{
   margin-top: 2em;
+  background-color: #e2b286;
 }
