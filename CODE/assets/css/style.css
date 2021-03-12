@@ -17,8 +17,9 @@ body {
   z-index: 100;
   background-color: #f1f1f1;
   position: fixed;
-  margin-left: 65%;
-  margin-top: 7%;
+  padding: 1em;
+  margin-top: 10em;
+  margin-left: 50%;
   display: none;
 }
 
@@ -46,7 +47,7 @@ body {
 }
 
 .marge{
-  margin-top: 11em;
+  margin-top: 15em;
   margin-bottom: 2em;
 }
 
