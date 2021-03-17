@@ -1,3 +1,4 @@
+//NAVBAR
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
@@ -7,3 +8,17 @@ function scrollFunction() {
     document.getElementById("navbar").style.padding = "40px 10px";
   }
 }
+
+//Connect Button
+var conButton = document.getElementById("connexionButton");
+var conPage = document.getElementById("connexionPage");
+function afficherConPage(){
+  if(conPage.style.display=="none")
+  {
+    conPage.style.display="block";
+  }
+  else{
+    conPage.style.display="none";
+  }
+}
+conButton.addEventListener('click', function(){afficherConPage()});
