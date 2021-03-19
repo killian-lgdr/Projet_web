@@ -19,5 +19,18 @@
             </div>
           </div>
         </div>
-
     </header>
+
+    <div class="row justify-content-center">
+        <div class="col-1.8 brd" id="connexionPage">
+            <div>
+                <label for="pseudo">Nom Utilisateur</label>
+                <input type="text" id="pseudo">
+            </div>
+            <div>
+                <label for="password">Mot de Passe</label>
+                <input type="password" id="password">
+            </div>
+            <button type="submit">connexion</button>
+        </div>
+    </div>
