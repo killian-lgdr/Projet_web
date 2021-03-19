@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-19 15:06:45
-  from 'C:\Users\killi\Desktop\A2\4- developpement Web\Projet_web\CODE\templates\header.tpl' */
+/* Smarty version 3.1.39, created on 2021-03-19 16:32:06
+  from 'C:\Users\killi\Desktop\A2\4- developpement Web\Projet_web\CODE\www\public\tpl\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6054aff5423210_49932553',
+  'unifunc' => 'content_6054c3f63fd8e8_46626074',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'c47e13ad43e94537d31f034f2b753d41cf2629eb' => 
+    'ead255f154b0708a263881a76c6e720e85694d4f' => 
     array (
-      0 => 'C:\\Users\\killi\\Desktop\\A2\\4- developpement Web\\Projet_web\\CODE\\templates\\header.tpl',
-      1 => 1616162802,
+      0 => 'C:\\Users\\killi\\Desktop\\A2\\4- developpement Web\\Projet_web\\CODE\\www\\public\\tpl\\header.tpl',
+      1 => 1616167905,
       2 => 'file',
     ),
   ),
@@ -20,12 +20,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6054aff5423210_49932553 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6054c3f63fd8e8_46626074 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <header class="row">
       <div class="col">
           <div id="navbar" class="container-fluid brd">
             <div class="row">
-                <div class="col-lg-1 col-sm-2 align-self-center"><img src="./assets/logo.PNG" alt="logo"></div>
+                <div class="col-lg-1 col-sm-2 align-self-center"><img src="../public/img/logo.PNG" alt="logo"></div>
                 <div class="col-lg-3 col-sm-2 align-self-center">
                     <a class="active" href="#home">Accueil</a>
                     <a href="#contact">Entreprises</a>

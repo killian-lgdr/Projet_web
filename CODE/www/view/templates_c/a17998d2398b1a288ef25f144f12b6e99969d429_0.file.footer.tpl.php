@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-19 14:52:04
-  from 'C:\Users\killi\Desktop\A2\4- developpement Web\Projet_web\CODE\templates\footer.tpl' */
+/* Smarty version 3.1.39, created on 2021-03-19 16:18:39
+  from 'C:\Users\killi\Desktop\A2\4- developpement Web\Projet_web\CODE\www\public\tpl\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6054ac84e47a31_52210806',
+  'unifunc' => 'content_6054c0cf2c2b47_41888144',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '97806c6b242744972e155bd61fa170509ff1756b' => 
+    'a17998d2398b1a288ef25f144f12b6e99969d429' => 
     array (
-      0 => 'C:\\Users\\killi\\Desktop\\A2\\4- developpement Web\\Projet_web\\CODE\\templates\\footer.tpl',
-      1 => 1616160742,
+      0 => 'C:\\Users\\killi\\Desktop\\A2\\4- developpement Web\\Projet_web\\CODE\\www\\public\\tpl\\footer.tpl',
+      1 => 1616166103,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6054ac84e47a31_52210806 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6054c0cf2c2b47_41888144 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <footer class="row justify-content-around brd">
       <!-- reseaux sociaux -->
       <div class="col align-self-center">
