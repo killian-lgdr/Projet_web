@@ -7,7 +7,7 @@
     <html lang="fr">
 
         <?php
-            $obj->assign()
+            $obj->assign('titre','Accueil');
             $obj->display('./tpl/head.tpl');
         ?>
 
@@ -16,6 +16,7 @@
 
             <?php  
                 $obj->display('./tpl/header.tpl');
+                
                 $obj->display('./tpl/footer.tpl');
             ?>
 
