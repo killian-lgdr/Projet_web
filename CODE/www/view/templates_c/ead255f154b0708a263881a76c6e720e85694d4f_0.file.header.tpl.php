@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-19 16:32:06
+/* Smarty version 3.1.39, created on 2021-03-19 16:36:11
   from 'C:\Users\killi\Desktop\A2\4- developpement Web\Projet_web\CODE\www\public\tpl\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6054c3f63fd8e8_46626074',
+  'unifunc' => 'content_6054c4ebb899b1_75142327',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ead255f154b0708a263881a76c6e720e85694d4f' => 
     array (
       0 => 'C:\\Users\\killi\\Desktop\\A2\\4- developpement Web\\Projet_web\\CODE\\www\\public\\tpl\\header.tpl',
-      1 => 1616167905,
+      1 => 1616168062,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6054c3f63fd8e8_46626074 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6054c4ebb899b1_75142327 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <header class="row">
       <div class="col">
           <div id="navbar" class="container-fluid brd">
