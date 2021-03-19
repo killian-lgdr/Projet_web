@@ -52,6 +52,10 @@ body {
   margin-bottom: 2em;
 }
 
+.littleMarge{
+  margin: 1em;
+}
+
 i{
   font-size: 3em;
 }
@@ -75,3 +79,4 @@ footer{
   margin-top: 2em;
   background-color: #e2b286;
 }
+
