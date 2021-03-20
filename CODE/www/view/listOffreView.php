@@ -171,8 +171,30 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-
+                                    <p>Entreprise : aaaaa</p>
                                 </div>
+                                <div class="col">
+                                    <p>Domaine : aaaaa</p>
+                                </div>
+                                <div class="col">
+                                    <p>Niveau Etudes min : aaaaa</p>
+                                </div>
+                                <div class="col">
+                                    <p>Duree : aaaaa</p>
+                                </div>
+                                <div class="col">
+                                    <p>Date de Debut : aaaaa</p>
+                                </div>
+                                <div class="col">
+                                    <p>Adresse : aaaaa</p>
+                                </div>
+                                <div class="col">
+                                    <p>Salaire : aaaaa</p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-auto"><button>Ajouter à la wish-list</button></div>
+                                <div class="col-auto"><button>J'ai postulé</button></div>
                             </div>
                         </div>
                     </div>
