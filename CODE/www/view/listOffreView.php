@@ -1,5 +1,5 @@
 <?php
-    include_once('../public/vendors/libs/Smarty.class.php');
+    include_once('./public/vendors/libs/Smarty.class.php');
     $obj = new smarty; 
 ?>
 
@@ -164,32 +164,36 @@
                 <!-- fin choix filtres -->
                 <div class="container col-9 littleMarge">
                 <!-- AFFICHER LES OFFRES -->
-                    <div class="row">
+                <?php
+                    while ($donnees = $offre->fetch(PDO::FETCH_LAZY))
+                    {
+                ?>
+                        <div class="row">
                         <div class="col-12 container brd">
                             <div class="row justify-content-center">
-                                <div class="col-auto"><h2>Titre de l'Offre</h2></div>
+                                <div class="col-auto"><h2><?= $donnees[0]?></h2></div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <p>Entreprise : aaaaa</p>
+                                    <p>Entreprise : <?= $donnees[6]?></p>
                                 </div>
                                 <div class="col">
-                                    <p>Domaine : aaaaa</p>
+                                    <p>Domaine : <?= $donnees[7]?></p>
                                 </div>
                                 <div class="col">
                                     <p>Niveau Etudes min : aaaaa</p>
                                 </div>
                                 <div class="col">
-                                    <p>Duree : aaaaa</p>
+                                    <p>Duree : <?= $donnees[1]?></p>
                                 </div>
                                 <div class="col">
-                                    <p>Date de Debut : aaaaa</p>
+                                    <p>Date de Debut : <?= $donnees[3]?></p>
                                 </div>
                                 <div class="col">
-                                    <p>Adresse : aaaaa</p>
+                                    <p>Adresse : <?= $donnees[5]?></p>
                                 </div>
                                 <div class="col">
-                                    <p>Salaire : aaaaa</p>
+                                    <p>Salaire : <?= $donnees[2]?></p>
                                 </div>
                             </div>
                             <div class="row justify-content-center">
@@ -198,6 +202,13 @@
                             </div>
                         </div>
                     </div>
+                <?php
+                    }
+                ?>
+
+
+                    
+                    <!-- fin afficher offre -->
                 </div>
                 </div>
                 <!-- fin resultats -->
