@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : Dim 21 mars 2021 à 13:43
+-- Généré le : Dim 21 mars 2021 à 14:31
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 7.4.14
 
@@ -52,7 +52,7 @@ CREATE TABLE `attribue` (
 CREATE TABLE `a_postule` (
   `ID_Etudiant` bigint(20) NOT NULL,
   `ID_Offre` bigint(20) NOT NULL,
-  `Etat` bigint(20) DEFAULT NULL
+  `Etat_a_postule` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -74,7 +74,7 @@ CREATE TABLE `a_wishlist` (
 
 CREATE TABLE `competence` (
   `ID_Competence` bigint(20) NOT NULL,
-  `nom_competence` varchar(50) DEFAULT NULL
+  `nom_Competence` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -85,21 +85,10 @@ CREATE TABLE `competence` (
 
 CREATE TABLE `delegue` (
   `ID_Delegue` bigint(20) NOT NULL,
-  `nom_delegue` varchar(50) DEFAULT NULL,
-  `prenom_delegue` varchar(50) DEFAULT NULL,
+  `nom_Delegue` varchar(50) DEFAULT NULL,
+  `prenom_Delegue` varchar(50) DEFAULT NULL,
   `ID_Localisation` bigint(20) DEFAULT NULL,
   `id_identifiant` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `demande`
---
-
-CREATE TABLE `demande` (
-  `ID_Offre` bigint(20) NOT NULL,
-  `ID_NiveauEtudes` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -110,7 +99,7 @@ CREATE TABLE `demande` (
 
 CREATE TABLE `droits` (
   `ID_droits` bigint(20) NOT NULL,
-  `nom_offre` varchar(50) DEFAULT NULL
+  `nom_Droits` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -132,7 +121,7 @@ CREATE TABLE `enseigne_a` (
 
 CREATE TABLE `entreprise` (
   `ID_Entreprise` bigint(20) NOT NULL,
-  `nom_entreprise` varchar(50) DEFAULT NULL,
+  `nom_Entreprise` varchar(50) DEFAULT NULL,
   `secteurActivité` varchar(50) DEFAULT NULL,
   `nbStagiaireCesi` bigint(20) DEFAULT NULL,
   `ID_Localisation` bigint(20) DEFAULT NULL
@@ -161,8 +150,8 @@ CREATE TABLE `etudiant` (
 
 CREATE TABLE `identifiants` (
   `ID_Identifiant` bigint(20) NOT NULL,
-  `nom_identifiants` varchar(50) DEFAULT NULL,
-  `mdp` varchar(50) DEFAULT NULL,
+  `nom_Identifiant` varchar(50) DEFAULT NULL,
+  `mdp_Identifiant` varchar(50) DEFAULT NULL,
   `id_pilote` bigint(20) DEFAULT NULL,
   `id_delegue` bigint(20) DEFAULT NULL,
   `id_administrateur` bigint(20) DEFAULT NULL
@@ -176,7 +165,7 @@ CREATE TABLE `identifiants` (
 
 CREATE TABLE `localisation` (
   `ID_Localisation` bigint(20) NOT NULL,
-  `nom_localisation` varchar(50) DEFAULT NULL
+  `nom_Localisation` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -198,13 +187,14 @@ CREATE TABLE `niveauetudes` (
 
 CREATE TABLE `offre` (
   `ID_Offre` bigint(20) NOT NULL,
-  `nom_offre` varchar(50) DEFAULT NULL,
+  `nom_Offre` varchar(50) DEFAULT NULL,
   `duree` bigint(20) DEFAULT NULL,
   `salaire` bigint(20) DEFAULT NULL,
   `date` date DEFAULT NULL,
   `nombrePlace` bigint(20) DEFAULT NULL,
   `ID_Localisation` bigint(20) DEFAULT NULL,
-  `ID_Entreprise` bigint(20) DEFAULT NULL
+  `ID_Entreprise` bigint(20) DEFAULT NULL,
+  `ID_NiveauEtudes` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -215,8 +205,8 @@ CREATE TABLE `offre` (
 
 CREATE TABLE `pilote` (
   `ID_Pilote` bigint(20) NOT NULL,
-  `nom_pilotes` varchar(50) DEFAULT NULL,
-  `prenom` varchar(50) DEFAULT NULL,
+  `nom_Pilote` varchar(50) DEFAULT NULL,
+  `prenom_Pilote` varchar(50) DEFAULT NULL,
   `ID_Localisation` bigint(20) DEFAULT NULL,
   `id_identifiant` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -241,7 +231,7 @@ CREATE TABLE `possede` (
 CREATE TABLE `possedenoteetudiant` (
   `ID_Entreprise` bigint(20) NOT NULL,
   `ID_Etudiant` bigint(20) NOT NULL,
-  `valeur` bigint(20) DEFAULT NULL
+  `valeur_NoteEtudiant` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -253,7 +243,7 @@ CREATE TABLE `possedenoteetudiant` (
 CREATE TABLE `possedenotepilote` (
   `ID_Entreprise` bigint(20) NOT NULL,
   `ID_Pilote` bigint(20) NOT NULL,
-  `valeur` bigint(20) DEFAULT NULL
+  `valeur_NotePilote` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -283,7 +273,7 @@ ALTER TABLE `administrateur`
 --
 ALTER TABLE `attribue`
   ADD PRIMARY KEY (`ID_Identifiant`,`ID_droits`),
-  ADD KEY `FK_Attribue_ID_droits_droits` (`ID_droits`);
+  ADD KEY `FK_Attribue_ID_droits` (`ID_droits`);
 
 --
 -- Index pour la table `a_postule`
@@ -312,13 +302,6 @@ ALTER TABLE `delegue`
   ADD PRIMARY KEY (`ID_Delegue`),
   ADD KEY `FK_Delegue_ID_Localisation` (`ID_Localisation`),
   ADD KEY `FK_Delegue_id_identifiant` (`id_identifiant`);
-
---
--- Index pour la table `demande`
---
-ALTER TABLE `demande`
-  ADD PRIMARY KEY (`ID_Offre`,`ID_NiveauEtudes`),
-  ADD KEY `FK_Demande_ID_NiveauEtudes` (`ID_NiveauEtudes`);
 
 --
 -- Index pour la table `droits`
@@ -354,7 +337,7 @@ ALTER TABLE `etudiant`
 --
 ALTER TABLE `identifiants`
   ADD PRIMARY KEY (`ID_Identifiant`),
-  ADD KEY `FK_Identifiants_pilote_id_pilote` (`id_pilote`),
+  ADD KEY `FK_Identifiants_id_pilote` (`id_pilote`),
   ADD KEY `FK_Identifiants_id_delegue` (`id_delegue`),
   ADD KEY `FK_Identifiants_id_administrateur` (`id_administrateur`);
 
@@ -376,7 +359,8 @@ ALTER TABLE `niveauetudes`
 ALTER TABLE `offre`
   ADD PRIMARY KEY (`ID_Offre`),
   ADD KEY `FK_Offre_ID_Localisation` (`ID_Localisation`),
-  ADD KEY `FK_Offre_ID_Entreprise` (`ID_Entreprise`);
+  ADD KEY `FK_Offre_ID_Entreprise` (`ID_Entreprise`),
+  ADD KEY `FK_Offre_ID_NiveauEtudes` (`ID_NiveauEtudes`);
 
 --
 -- Index pour la table `pilote`
@@ -453,12 +437,6 @@ ALTER TABLE `competence`
 --
 ALTER TABLE `delegue`
   MODIFY `ID_Delegue` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `demande`
---
-ALTER TABLE `demande`
-  MODIFY `ID_Offre` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `droits`
@@ -553,7 +531,7 @@ ALTER TABLE `administrateur`
 --
 ALTER TABLE `attribue`
   ADD CONSTRAINT `FK_Attribue_ID_Identifiant` FOREIGN KEY (`ID_Identifiant`) REFERENCES `identifiants` (`ID_Identifiant`),
-  ADD CONSTRAINT `FK_Attribue_ID_droits_droits` FOREIGN KEY (`ID_droits`) REFERENCES `droits` (`ID_droits`);
+  ADD CONSTRAINT `FK_Attribue_ID_droits` FOREIGN KEY (`ID_droits`) REFERENCES `droits` (`ID_droits`);
 
 --
 -- Contraintes pour la table `a_postule`
@@ -575,13 +553,6 @@ ALTER TABLE `a_wishlist`
 ALTER TABLE `delegue`
   ADD CONSTRAINT `FK_Delegue_ID_Localisation` FOREIGN KEY (`ID_Localisation`) REFERENCES `localisation` (`ID_Localisation`),
   ADD CONSTRAINT `FK_Delegue_id_identifiant` FOREIGN KEY (`id_identifiant`) REFERENCES `identifiants` (`ID_Identifiant`);
-
---
--- Contraintes pour la table `demande`
---
-ALTER TABLE `demande`
-  ADD CONSTRAINT `FK_Demande_ID_NiveauEtudes` FOREIGN KEY (`ID_NiveauEtudes`) REFERENCES `niveauetudes` (`ID_NiveauEtudes`),
-  ADD CONSTRAINT `FK_Demande_ID_Offre` FOREIGN KEY (`ID_Offre`) REFERENCES `offre` (`ID_Offre`);
 
 --
 -- Contraintes pour la table `enseigne_a`
@@ -610,14 +581,15 @@ ALTER TABLE `etudiant`
 ALTER TABLE `identifiants`
   ADD CONSTRAINT `FK_Identifiants_id_administrateur` FOREIGN KEY (`id_administrateur`) REFERENCES `administrateur` (`ID_Administrateur`),
   ADD CONSTRAINT `FK_Identifiants_id_delegue` FOREIGN KEY (`id_delegue`) REFERENCES `delegue` (`ID_Delegue`),
-  ADD CONSTRAINT `FK_Identifiants_pilote_id_pilote` FOREIGN KEY (`id_pilote`) REFERENCES `pilote` (`ID_Pilote`);
+  ADD CONSTRAINT `FK_Identifiants_id_pilote` FOREIGN KEY (`id_pilote`) REFERENCES `pilote` (`ID_Pilote`);
 
 --
 -- Contraintes pour la table `offre`
 --
 ALTER TABLE `offre`
   ADD CONSTRAINT `FK_Offre_ID_Entreprise` FOREIGN KEY (`ID_Entreprise`) REFERENCES `entreprise` (`ID_Entreprise`),
-  ADD CONSTRAINT `FK_Offre_ID_Localisation` FOREIGN KEY (`ID_Localisation`) REFERENCES `localisation` (`ID_Localisation`);
+  ADD CONSTRAINT `FK_Offre_ID_Localisation` FOREIGN KEY (`ID_Localisation`) REFERENCES `localisation` (`ID_Localisation`),
+  ADD CONSTRAINT `FK_Offre_ID_NiveauEtudes` FOREIGN KEY (`ID_NiveauEtudes`) REFERENCES `niveauetudes` (`ID_NiveauEtudes`);
 
 --
 -- Contraintes pour la table `pilote`
