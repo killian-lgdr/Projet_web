@@ -74,7 +74,7 @@ CREATE TABLE `a_wishlist` (
 
 CREATE TABLE `competence` (
   `ID_Competence` bigint(20) NOT NULL,
-  `nom` varchar(50) DEFAULT NULL
+  `nom_competence` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -85,8 +85,8 @@ CREATE TABLE `competence` (
 
 CREATE TABLE `delegue` (
   `ID_Delegue` bigint(20) NOT NULL,
-  `nom` varchar(50) DEFAULT NULL,
-  `prenom` varchar(50) DEFAULT NULL,
+  `nom_delegue` varchar(50) DEFAULT NULL,
+  `prenom_delegue` varchar(50) DEFAULT NULL,
   `ID_Localisation` bigint(20) DEFAULT NULL,
   `id_identifiant` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -110,7 +110,7 @@ CREATE TABLE `demande` (
 
 CREATE TABLE `droits` (
   `ID_droits` bigint(20) NOT NULL,
-  `nom` varchar(50) DEFAULT NULL
+  `nom_offre` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -132,7 +132,7 @@ CREATE TABLE `enseigne_a` (
 
 CREATE TABLE `entreprise` (
   `ID_Entreprise` bigint(20) NOT NULL,
-  `nom` varchar(50) DEFAULT NULL,
+  `nom_entreprise` varchar(50) DEFAULT NULL,
   `secteurActivité` varchar(50) DEFAULT NULL,
   `nbStagiaireCesi` bigint(20) DEFAULT NULL,
   `ID_Localisation` bigint(20) DEFAULT NULL
@@ -161,7 +161,7 @@ CREATE TABLE `etudiant` (
 
 CREATE TABLE `identifiants` (
   `ID_Identifiant` bigint(20) NOT NULL,
-  `nom` varchar(50) DEFAULT NULL,
+  `nom_identifiants` varchar(50) DEFAULT NULL,
   `mdp` varchar(50) DEFAULT NULL,
   `id_pilote` bigint(20) DEFAULT NULL,
   `id_delegue` bigint(20) DEFAULT NULL,
@@ -176,7 +176,7 @@ CREATE TABLE `identifiants` (
 
 CREATE TABLE `localisation` (
   `ID_Localisation` bigint(20) NOT NULL,
-  `nom` varchar(50) DEFAULT NULL
+  `nom_localisation` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -198,7 +198,7 @@ CREATE TABLE `niveauetudes` (
 
 CREATE TABLE `offre` (
   `ID_Offre` bigint(20) NOT NULL,
-  `nom` varchar(50) DEFAULT NULL,
+  `nom_offre` varchar(50) DEFAULT NULL,
   `duree` bigint(20) DEFAULT NULL,
   `salaire` bigint(20) DEFAULT NULL,
   `date` date DEFAULT NULL,
@@ -215,7 +215,7 @@ CREATE TABLE `offre` (
 
 CREATE TABLE `pilote` (
   `ID_Pilote` bigint(20) NOT NULL,
-  `nom` varchar(50) DEFAULT NULL,
+  `nom_pilotes` varchar(50) DEFAULT NULL,
   `prenom` varchar(50) DEFAULT NULL,
   `ID_Localisation` bigint(20) DEFAULT NULL,
   `id_identifiant` bigint(20) DEFAULT NULL
