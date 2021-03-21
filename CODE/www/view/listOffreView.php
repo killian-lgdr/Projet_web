@@ -168,7 +168,7 @@
                     while ($donnees = $offre->fetch(PDO::FETCH_LAZY))
                     {
                 ?>
-                        <div class="row">
+                        <div class="row littleMarge">
                         <div class="col-12 container brd">
                             <div class="row justify-content-center">
                                 <div class="col-auto"><h2><?= $donnees[0]?></h2></div>
@@ -181,7 +181,7 @@
                                     <p>Domaine : <?= $donnees[7]?></p>
                                 </div>
                                 <div class="col">
-                                    <p>Niveau Etudes min : aaaaa</p>
+                                    <p>Niveau Etudes min : <?= $donnees[8]?></p>
                                 </div>
                                 <div class="col">
                                     <p>Duree : <?= $donnees[1]?></p>
@@ -196,7 +196,7 @@
                                     <p>Salaire : <?= $donnees[2]?></p>
                                 </div>
                             </div>
-                            <div class="row justify-content-center onHover">
+                            <div class="row justify-content-center">
                                 <div class="col-auto"><button>Ajouter à la wish-list</button></div>
                                 <div class="col-auto"><button>J'ai postulé</button></div>
                             </div>
