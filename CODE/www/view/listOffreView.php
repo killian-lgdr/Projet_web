@@ -196,7 +196,7 @@
                                     <p>Salaire : <?= $donnees[2]?></p>
                                 </div>
                             </div>
-                            <div class="row justify-content-center">
+                            <div class="row justify-content-center onHover">
                                 <div class="col-auto"><button>Ajouter à la wish-list</button></div>
                                 <div class="col-auto"><button>J'ai postulé</button></div>
                             </div>
