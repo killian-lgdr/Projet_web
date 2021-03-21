@@ -8,20 +8,20 @@
 
         <?php
             $obj->assign('titre','Accueil');
-            $obj->display('../public/tpl/head.tpl');
+            $obj->display('./public/tpl/head.tpl');
         ?>
 
 
         <body>
 
             <?php  
-                $obj->display('../public/tpl/header.tpl');
+                $obj->display('./public/tpl/header.tpl');
             ?>
 
             <main class="row">
                 <div class="col container-fluid">
 
-                <?php $obj->display('../public/tpl/carroussel.tpl') ?>
+                <?php $obj->display('./public/tpl/carroussel.tpl') ?>
 
                 <!-- debut recherche d'une offre -->
                 <div class="row">
@@ -156,8 +156,18 @@
                     <div class="row">
                     <div class="container col brd orange">
                         <div class="row justify-content-center">
-                        <div class="col-auto"><h2>Entreprise</h2></div>
+                            <div class="col-auto"><h2>Entreprise</h2></div>
                         </div>
+                        <?php
+                            while ($donnees = $entreprise->fetch(PDO::FETCH_LAZY))
+                            {
+                        ?>
+                        <div class="row justify-content-center">
+                            <div class="col-auto"><input type="checkbox"><?= $donnees[0]?></input></div>
+                        </div>
+                        <?php
+                            }
+                        ?>
                     </div>
                     </div>
                 </div>
@@ -168,8 +178,8 @@
                     while ($donnees = $offre->fetch(PDO::FETCH_LAZY))
                     {
                 ?>
-                        <div class="row littleMarge">
-                        <div class="col-12 container brd">
+                        <div class="row littleMarge" id="division<?= $donnees[9]?>">
+                        <div class="col-12 container brd blue">
                             <div class="row justify-content-center">
                                 <div class="col-auto"><h2><?= $donnees[0]?></h2></div>
                             </div>
@@ -196,15 +206,27 @@
                                     <p>Salaire : <?= $donnees[2]?></p>
                                 </div>
                             </div>
-                            <div class="row justify-content-center">
+                            <div class="row justify-content-center" id="buttonsHover<?= $donnees[9]?>">
                                 <div class="col-auto"><button>Ajouter à la wish-list</button></div>
                                 <div class="col-auto"><button>J'ai postulé</button></div>
                             </div>
                         </div>
                     </div>
+                    <script>
+                        var division<?= $donnees[9]?> = document.getElementById("division<?= $donnees[9]?>");
+                        var buttons<?= $donnees[9]?> = document.getElementById("buttonsHover<?= $donnees[9]?>");
+                        buttons<?= $donnees[9]?>.style.display = "none";
+                        division<?= $donnees[9]?>.addEventListener('mouseover', function(){
+                        buttons<?= $donnees[9]?>.style.display = "block";
+                        });
+                        division<?= $donnees[9]?>.addEventListener('mouseleave', function(){
+                        buttons<?= $donnees[9]?>.style.display = "none";
+                        });
+                    </script>
                 <?php
                     }
                 ?>
+                
 
 
                     

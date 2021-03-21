@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-20 19:11:15
+/* Smarty version 3.1.39, created on 2021-03-21 15:18:48
   from 'D:\Ordinateur\CESI\A2\4_WEB\Projet\Projet_web\CODE\www\public\tpl\carroussel.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60563ac3a5b850_73712452',
+  'unifunc' => 'content_605755c8164018_95928605',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60563ac3a5b850_73712452 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605755c8164018_95928605 (Smarty_Internal_Template $_smarty_tpl) {
 ?>        <div class="row justify-content-center marge" id="carousel">
             <div class="col-10">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
