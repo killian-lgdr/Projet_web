@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 19 mars 2021 à 15:22
+-- Généré le : Dim 21 mars 2021 à 13:43
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 7.4.14
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `Projet_WEB`
+-- Base de données : `wsp7`
 --
 
 -- --------------------------------------------------------
@@ -52,7 +52,7 @@ CREATE TABLE `attribue` (
 CREATE TABLE `a_postule` (
   `ID_Etudiant` bigint(20) NOT NULL,
   `ID_Offre` bigint(20) NOT NULL,
-  `Etat_a_postule` bigint(20) DEFAULT NULL
+  `Etat` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -89,6 +89,17 @@ CREATE TABLE `delegue` (
   `prenom` varchar(50) DEFAULT NULL,
   `ID_Localisation` bigint(20) DEFAULT NULL,
   `id_identifiant` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `demande`
+--
+
+CREATE TABLE `demande` (
+  `ID_Offre` bigint(20) NOT NULL,
+  `ID_NiveauEtudes` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -135,8 +146,8 @@ CREATE TABLE `entreprise` (
 
 CREATE TABLE `etudiant` (
   `ID_Etudiant` bigint(20) NOT NULL,
-  `nom` varchar(50) DEFAULT NULL,
-  `prenom` varchar(50) DEFAULT NULL,
+  `nom_Etudiant` varchar(50) DEFAULT NULL,
+  `prenom_Etudiant` varchar(50) DEFAULT NULL,
   `ID_Localisation` bigint(20) DEFAULT NULL,
   `ID_NiveauEtudes` bigint(20) DEFAULT NULL,
   `ID_Pilote` bigint(20) DEFAULT NULL
@@ -230,7 +241,7 @@ CREATE TABLE `possede` (
 CREATE TABLE `possedenoteetudiant` (
   `ID_Entreprise` bigint(20) NOT NULL,
   `ID_Etudiant` bigint(20) NOT NULL,
-  `valeur_NoteEtudiant` bigint(20) DEFAULT NULL
+  `valeur` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -242,7 +253,7 @@ CREATE TABLE `possedenoteetudiant` (
 CREATE TABLE `possedenotepilote` (
   `ID_Entreprise` bigint(20) NOT NULL,
   `ID_Pilote` bigint(20) NOT NULL,
-  `valeur_NotePilote` bigint(20) DEFAULT NULL
+  `valeur` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -272,7 +283,7 @@ ALTER TABLE `administrateur`
 --
 ALTER TABLE `attribue`
   ADD PRIMARY KEY (`ID_Identifiant`,`ID_droits`),
-  ADD KEY `FK_Attribue_ID_droits` (`ID_droits`);
+  ADD KEY `FK_Attribue_ID_droits_droits` (`ID_droits`);
 
 --
 -- Index pour la table `a_postule`
@@ -301,6 +312,13 @@ ALTER TABLE `delegue`
   ADD PRIMARY KEY (`ID_Delegue`),
   ADD KEY `FK_Delegue_ID_Localisation` (`ID_Localisation`),
   ADD KEY `FK_Delegue_id_identifiant` (`id_identifiant`);
+
+--
+-- Index pour la table `demande`
+--
+ALTER TABLE `demande`
+  ADD PRIMARY KEY (`ID_Offre`,`ID_NiveauEtudes`),
+  ADD KEY `FK_Demande_ID_NiveauEtudes` (`ID_NiveauEtudes`);
 
 --
 -- Index pour la table `droits`
@@ -336,7 +354,7 @@ ALTER TABLE `etudiant`
 --
 ALTER TABLE `identifiants`
   ADD PRIMARY KEY (`ID_Identifiant`),
-  ADD KEY `FK_pilote_id_pilote` (`id_pilote`),
+  ADD KEY `FK_Identifiants_pilote_id_pilote` (`id_pilote`),
   ADD KEY `FK_Identifiants_id_delegue` (`id_delegue`),
   ADD KEY `FK_Identifiants_id_administrateur` (`id_administrateur`);
 
@@ -437,6 +455,12 @@ ALTER TABLE `delegue`
   MODIFY `ID_Delegue` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT pour la table `demande`
+--
+ALTER TABLE `demande`
+  MODIFY `ID_Offre` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `droits`
 --
 ALTER TABLE `droits`
@@ -529,7 +553,7 @@ ALTER TABLE `administrateur`
 --
 ALTER TABLE `attribue`
   ADD CONSTRAINT `FK_Attribue_ID_Identifiant` FOREIGN KEY (`ID_Identifiant`) REFERENCES `identifiants` (`ID_Identifiant`),
-  ADD CONSTRAINT `FK_Attribue_ID_droits` FOREIGN KEY (`ID_droits`) REFERENCES `droits` (`ID_droits`);
+  ADD CONSTRAINT `FK_Attribue_ID_droits_droits` FOREIGN KEY (`ID_droits`) REFERENCES `droits` (`ID_droits`);
 
 --
 -- Contraintes pour la table `a_postule`
@@ -551,6 +575,13 @@ ALTER TABLE `a_wishlist`
 ALTER TABLE `delegue`
   ADD CONSTRAINT `FK_Delegue_ID_Localisation` FOREIGN KEY (`ID_Localisation`) REFERENCES `localisation` (`ID_Localisation`),
   ADD CONSTRAINT `FK_Delegue_id_identifiant` FOREIGN KEY (`id_identifiant`) REFERENCES `identifiants` (`ID_Identifiant`);
+
+--
+-- Contraintes pour la table `demande`
+--
+ALTER TABLE `demande`
+  ADD CONSTRAINT `FK_Demande_ID_NiveauEtudes` FOREIGN KEY (`ID_NiveauEtudes`) REFERENCES `niveauetudes` (`ID_NiveauEtudes`),
+  ADD CONSTRAINT `FK_Demande_ID_Offre` FOREIGN KEY (`ID_Offre`) REFERENCES `offre` (`ID_Offre`);
 
 --
 -- Contraintes pour la table `enseigne_a`
@@ -579,7 +610,7 @@ ALTER TABLE `etudiant`
 ALTER TABLE `identifiants`
   ADD CONSTRAINT `FK_Identifiants_id_administrateur` FOREIGN KEY (`id_administrateur`) REFERENCES `administrateur` (`ID_Administrateur`),
   ADD CONSTRAINT `FK_Identifiants_id_delegue` FOREIGN KEY (`id_delegue`) REFERENCES `delegue` (`ID_Delegue`),
-  ADD CONSTRAINT `FK_pilote_id_pilote` FOREIGN KEY (`id_pilote`) REFERENCES `pilote` (`ID_Pilote`);
+  ADD CONSTRAINT `FK_Identifiants_pilote_id_pilote` FOREIGN KEY (`id_pilote`) REFERENCES `pilote` (`ID_Pilote`);
 
 --
 -- Contraintes pour la table `offre`
