@@ -1,0 +1,63 @@
+Localisation :
+Insert into localisation (nom) select * FROM(SELECT VARIABLE as loc from DUAL) as temp where not exists(SELECT nom from localisation where nom = loc) ;
+Niveau d’etude :
+Insert into niveauetudes (promotion) select * FROM(SELECT VARIABLE as promo from DUAL) as temp where not exists(SELECT promotion from niveauetudes where promotion = promo) ;
+Identifiants :
+Insert into identifiants (nom, mdp) Select 'VARIABLE', 'VARIABLE' Where not exists(select * from identifiants where nom='VARIABLE' AND mdp='VARIABLE')
+liste entreprise : 
+SELECT DISTINCT nom_Entreprise FROM entreprise
+
+Sfx2 : 
+AFFICHER ENTREPRISE :
+Select Nom, SecteurActivité, nbstagiaireCesi, localisation.nom from entreprise inner join( localisation where entreprise.ID_localisation = localisation.ID) 
+
+NOTE 
+Select AVG(valeur_NotePilote) from possedenotepilote inner join (entreprise where entreprise.ID = possedenotepilote.ID_entreprise) where entreprise.nom = VARIABLE
+Select AVG(valeur_NoteEtudiant) from possedenoteetudiant inner join (entreprise where entreprise.ID = possedenoteetudiant.ID_entreprise) where entreprise.nom = VARIABLE
+
+Sfx3 : 
+CREER ENTREPRISE :
+Insert into entreprise (nom_Entreprise, SecteurActivité, nbStagiaireCesi, ID_localisation ) VALUES ("VARIABLE", "VARIABLE",  CHIFFRE, (SELECT ID_localisation from localisation where localisation.nom_localisation= "VARIABLE »))
+
+Sfx4
+MODIFIER UNE ENTREPRISE :
+UPDATE entreprise 
+SET nom = ‘VARIABLE’
+SecteurActivité = ‘VARIABLE’
+nbStagiaire = ‘VARIABLE’
+where ID = . 
+
+ 
+Sfx5
+DONNER UNE NOTE ETUDIANT
+Etudiant
+insert into possedenoteetudiant(ID_entreprise, ID_etudiant, valeur_noteEtudiant) Values ((select id_entreprise from entreprise where nom = « CodePHP »),(select ID_etudiant from etudiant where ‘variable connexion’), ‘VARIABLE’)
+DONNER UNE NOTE PILOTE
+Pilote
+insert into possedenotepilote(ID_entreprise, ID_pilote, valeur_notePilote) Values ((select id_entreprise from entreprise where nom = « CodePHP »),(select ID_pilote from pilote where ‘variable connexion’), ‘VARIABLE’)
+
+Sfx8 
+AFFICHER UNE OFFRE
+Select nom, duree, salaire, date, nombreplace, localisation.nom, entreprise.nom competence.nom from offre inner join (localisation where offre.ID_localisation=localisation.ID_localisation) inner Join (entreprise where offre.ID_entreprise = entreprise.ID_entreprise) inner join((requiert where offre.Id_offre = requiert.ID_offre) inner join competence where requiert.ID_competence = competence.ID_competence)
+
+SFx9 
+CREER UNE OFFRE
+Insert into 
+
+
+
+
+SFx27 
+AJOUTER WISHLIST
+
+INSERT INTO a_wishlist(ID_offre, ID_etudiant) VALUES (VARIABLE, VARIABLE)
+
+SFx28 
+RETIRER WISHLIST
+
+DELETE FROM a_wishlist
+WHERE ID_Offre = VARIABLE and ID_ETUDIANT = VARIABLE
+
+SFx29
+POSTULER 
+INSERT INTO a_postulé(ID_offre, ID_etudiant, etat) VALUES ("VARIABLE", "VARIABLE", 1)
