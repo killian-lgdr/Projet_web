@@ -74,6 +74,14 @@ i{
   background-color: #e2b286;
 }
 
+.onHover{
+  display: none;
+}
+
+.onHover:hover{
+  display: block;
+  transition: 0.4s;
+}
 
 footer{
   margin-top: 2em;
