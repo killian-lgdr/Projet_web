@@ -32,5 +32,6 @@
 
     function listEntreprise(){
 
+        require_once('./view/listEntrepriseView.php');
     }
 ?>
