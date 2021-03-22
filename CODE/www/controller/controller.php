@@ -31,6 +31,9 @@
     }
 
     function listEntreprise(){
+        $entrepriseManager = new EntrepriseManager();
+        $ville = $entrepriseManager->getAllville();
+        $secteurAct = $entrepriseManager->getAllSecteurAct();
 
         require_once('./view/listEntrepriseView.php');
     }
