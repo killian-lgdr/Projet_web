@@ -65,3 +65,8 @@ SELECT nom_pilote, prenom_pilote, localisation.nom_localisation, niveauetudes.pr
 inner join localisation on pilote.ID_Localisation = localisation.ID_localisation
 inner join enseigne_a on pilote.ID_Pilote=enseigne_a.ID_Pilote
 inner join niveauetudes on enseigne_a.ID_NiveauEtudes=niveauetudes.ID_NiveauEtudes
+
+AFFICHER UN DELEGUES
+SELECT nom_delegue, prenom_delegues, localisation.nom_localisation from delegue 
+inner join localisation on delegue.ID_Localisation = localisation.ID_localisation
+
