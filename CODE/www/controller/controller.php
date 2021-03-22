@@ -1,6 +1,7 @@
 <?php
     require_once('./model/OffreManager.php');
     require_once('./model/PDManager.php');
+    require_once('./model/entrepriseManager.php');
 
     function listOffre(){
         $OffreManager = new OffreManager();
