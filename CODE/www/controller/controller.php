@@ -7,7 +7,7 @@
         $offre = $OffreManager->getAllOffres();
         $entreprise = $OffreManager->getAllEntreprise();
 
-        if(($_GET['domaine'] != null) || ($_GET['ville'] != null) ){
+        if (isset($_GET['domaine']) || isset($_GET['ville'])){
             
             $offre = $OffreManager->getOffre($_GET['domaine'], $_GET['ville']);
         }

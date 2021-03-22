@@ -164,7 +164,7 @@
                             {
                         ?>
                         <div class="row justify-content-center">
-                            <div class="col-auto"><input type="checkbox" name="salaire" value="<?= $donnees[0]?>"><?= $donnees[0]?></input></div>
+                            <div class="col-auto"><input type="checkbox" name="entreprise" value="<?= $donnees[0]?>"><?= $donnees[0]?></input></div>
                         </div>
                         <?php
                             }
