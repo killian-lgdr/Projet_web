@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-lg-1 col-sm-2 align-self-center"><img src="../public/img/logo.PNG" alt="logo"></div>
                 <div class="col-lg-3 col-sm-2 align-self-center">
-                    <a class="active" href="#home">Accueil</a>
+                    <a class="active" href="index.php">Accueil</a>
                     <a href="#contact">Entreprises</a>
                     <a href="#about">Etudiants</a>
                 </div>
