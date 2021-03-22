@@ -13,11 +13,11 @@
 
     function listPD(){
         
-        $OffreManager = new PDManager();
+        $PDManager = new PDManager();
 
         $delegue = $PDManager->getDelegue($nom,$prenom);
         $pilote = $PDManager->getPilote($nom,$prenom);
 
-        require_once('./view/pilote_delegue.php');
+        require_once('./view/PDview.php');
     }
 ?>
