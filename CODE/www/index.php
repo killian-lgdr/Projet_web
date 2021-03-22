@@ -10,6 +10,6 @@
     }
 
     else {
-        listOffre($_POST['domaine'], $_POST['ville']);
+        listOffre($_GET['domaine'], $_GET['ville']);
     }
 ?>

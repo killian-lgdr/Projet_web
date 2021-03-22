@@ -7,7 +7,8 @@
         $offre = $OffreManager->getAllOffres();
         $entreprise = $OffreManager->getAllEntreprise();
 
-        if(isset($domaine)){
+        if(($domaine != null) || ($ville != null) ){
+            
             $offre = $OffreManager->getOffre($domaine, $ville);
         }
 
