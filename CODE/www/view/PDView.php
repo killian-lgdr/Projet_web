@@ -43,11 +43,17 @@
                                         <input type="text" id="mdp_del">
                                     </div>
                                 </div>
+                                <?php
+                                if (isset($_POST['nom_del']) && isset($_POST['prenom_del'])) {
+                                
+                                    while($donnee=$pilote->fetch(PDO::FETCH_LAZY)){
+                                ?>
                                 <div class="row justify-content-between">
                                     <div class="col">
                                         <label for="ville_del">Centre : </label>
-                                        <input type="text" id="ville_del">
+                                        <input type="text" id="ville_del" value="<?= $donnee['nom_localisation'] ?>">
                                     </div>
+                                    <?php }} ?>
                                     <div class="col">
                                         <label for="confmdp_del">Confirmer mot de passe : </label>
                                         <input type="text" id="confmdp_del">
