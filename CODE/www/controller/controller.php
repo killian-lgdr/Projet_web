@@ -20,11 +20,11 @@
         $PDManager = new PDManager();
 
         if (isset($_POST['nom_del']) && isset($_POST['prenom_del'])) {
-            $delegue = $PDManager->getDelegue($nomdel, $prenomdel);
+            $delegue = $PDManager->getDelegue($$_POST['nom_del'], $_POST['prenom_del']);
         }
 
         if (isset($_POST['nom_pil']) && isset($_POST['prenom_pil'])) {
-            $pilote = $PDManager->getPilote($nompil, $prenompil);
+            $pilote = $PDManager->getPilote($_POST['nom_pil'], $_POST['prenom_pil']);
         }
             
         require_once('./view/PDview.php');
