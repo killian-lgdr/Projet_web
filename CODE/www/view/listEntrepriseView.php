@@ -10,7 +10,7 @@
             <?php $obj->display('./public/tpl/header.tpl');?>
 <main>
 
-
+<p>bite</p>
 
 </main>
                 <?php $obj->display('../public/tpl/footer.tpl');
