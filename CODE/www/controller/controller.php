@@ -19,11 +19,11 @@
         
         $PDManager = new PDManager();
 
-        if (isset($_GET['nom_del']) && isset($_GET['prenom_del'])) {
+        if (isset($_POST['nom_del']) && isset($_POST['prenom_del'])) {
             $delegue = $PDManager->getDelegue($nomdel, $prenomdel);
         }
 
-        if (isset($_GET['nom_pil']) && isset($_GET['prenom_pil'])) {
+        if (isset($_POST['nom_pil']) && isset($_POST['prenom_pil'])) {
             $pilote = $PDManager->getPilote($nompil, $prenompil);
         }
             
