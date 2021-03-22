@@ -15,15 +15,15 @@
         require_once('./view/listOffreView.php');
     }
 
-    function listPD($nomdel,$prenomdel,$nompil,$prenompil){
+    function listPD(){
         
         $PDManager = new PDManager();
 
-        if ($nomdel != null && $prenomdel != null) {
+        if (isset($_GET['nom_del']) && isset($_GET['prenom_del'])) {
             $delegue = $PDManager->getDelegue($nomdel, $prenomdel);
         }
 
-        if ($nompil != null && $prenompil != null) {
+        if (isset($_GET['nom_pil']) && isset($_GET['prenom_pil'])) {
             $pilote = $PDManager->getPilote($nompil, $prenompil);
         }
             
