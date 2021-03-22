@@ -19,9 +19,9 @@
             ?>
 <!--===============main================== -->
             <main class="row  justify-content-center marge">
-                <div class="col container-fluid rox">
+                <div class="col container-fluid">
                    
-                    <form action="index.php?action=PDView" method="get">
+                    <form action="?action=PDView" method="post">
 
                         <div class="row justify-content-center littleMarge brd">
                             <div class="col container-fluid">
@@ -80,7 +80,8 @@
                                 </div>
                             </div>  
                         </div>
-
+                    </form>
+                    <form action="?action=PDView" method="get">
                         <div class="row justify-content-center littleMarge brd">
                             <div class="col container-fluid">
                                 <div class="row justify-content-center">
