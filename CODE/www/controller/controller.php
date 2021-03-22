@@ -8,13 +8,26 @@
         $offre = $OffreManager->getAllOffres();
         $entreprise = $OffreManager->getAllEntreprise();
 
-        if (isset($_GET['domaine']) || isset($_GET['ville'])){
+        if (isset($_GET['domaine']) || isset($_GET['ville']) || isset($_GET['date']) || isset($_GET['nivetudes'])){
             $domaine = $_GET['domaine'];
             $ville = $_GET['ville'];
+            $date = $_GET['date'];
             
-            $offre = $OffreManager->getOffre($domaine, $ville);
+            $nivetudes = '';
+            $i = 0;
+            foreach($_GET['nivetudes'] as $selected){
+                if($i==0){
+                    $nivetudes = $selected;
+                }
+                else{
+                    $nivetudes = $nivetudes . ',' . $selected;
+                }
+                $i++;
+            }
+            
+            $offre = $OffreManager->getOffre($domaine, $ville, $date, $nivetudes);
         }
-
+        
         require_once('./view/listOffreView.php');
     }
 
