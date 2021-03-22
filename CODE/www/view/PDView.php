@@ -15,7 +15,7 @@
         <body class="container-fluid">
 
             <?php  
-                $obj->display('./public/tpl/header.tpl');
+                //$obj->display('./public/tpl/header.tpl');
             ?>
 <!--===============main================== -->
             <main class="row  justify-content-center marge">
@@ -33,9 +33,9 @@
                                 <div class="row justify-content-center">
                                     <div class="col">
                                         <label for="nom_del">Nom : </label>
-                                        <input type="text" id="nom_del">
+                                        <input type="text" name="nom_del" id="nom_del">
                                         <label for="prenom_del">Prénom : </label>
-                                        <input type="text" id="prenom_del">                                
+                                        <input type="text" name="prenom_del" id="prenom_del">                                
                                         <input type="submit" name="rechercher_del" value="Rechercher" ></input>
                                     </div>
                                     <div class="col">
@@ -45,13 +45,13 @@
                                 </div>
                                 <?php
                                 if (isset($_POST['nom_del']) && isset($_POST['prenom_del'])) {
-                                
                                     while($donnee=$delegue->fetch(PDO::FETCH_LAZY)){
+                                        echo $donnee['nom_Localisation'];
                                 ?>
                                 <div class="row justify-content-between">
                                     <div class="col">
                                         <label for="ville_del">Centre : </label>
-                                        <input type="text" id="ville_del" value="<?= $donnee['nom_localisation'] ?>">
+                                        <input type="text" id="ville_del" value="<?= $donnee['nom_Localisation'] ?>">
                                     </div>
                                     <?php }} ?>
                                     <div class="col">
@@ -87,7 +87,7 @@
                             </div>  
                         </div>
                     </form>
-                    <form action="?action=PDView" method="get">
+                    <form action="?action=PDView" method="post">
                         <div class="row justify-content-center littleMarge brd">
                             <div class="col container-fluid">
                                 <div class="row justify-content-center">
@@ -111,7 +111,7 @@
                                 <div class="row justify-content-between">
                                     <div class="col">
                                         <label for="ville_pil">Centre : </label>
-                                        <input type="text" id="ville_pil">
+                                        <input type="text" id="ville_pil" value="<?php if (isset($_POST['nom_del']) && isset($_POST['prenom_del'])) { $donnee['nom_localisation']; } ?>">
                                     </div>
                                     <div class="col">
                                         <label for="confmdp_pil">Confirmer mot de passe : </label>
@@ -131,7 +131,6 @@
                                 </div>
                             </div>  
                         </div>
- 
                     </form>
                 </div>
             </main>

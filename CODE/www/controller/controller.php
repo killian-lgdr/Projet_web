@@ -21,7 +21,7 @@
         $PDManager = new PDManager();
         
         if (isset($_POST['rechercher_del'])) {
-            $delegue = $PDManager->getDelegue($$_POST['nom_del'], $_POST['prenom_del']);
+            $delegue = $PDManager->getDelegue($_POST['nom_del'], $_POST['prenom_del']);
         }
 
         if (isset($_POST['rechercher_pil'])) {
