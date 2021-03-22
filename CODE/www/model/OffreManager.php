@@ -22,11 +22,14 @@
                                 inner join competence on requiert.ID_competence = competence.ID_competence 
                                 inner join niveauetudes on niveauetudes.ID_NiveauEtudes = offre.ID_NiveauEtudes 
 
-                                WHERE nom_Competence = :domaine AND SUBSTRING_INDEX(`nom_Localisation`,\'0 \',-1) = :ville
+                                WHERE nom_Competence = IF( :domaine =\'\', nom_Competence, :domaine2 ) AND SUBSTRING_INDEX(`nom_Localisation`,\'0 \',-1) = IF( :ville =\'\', SUBSTRING_INDEX(`nom_Localisation`,\'0 \',-1), :ville2 )
 
                                 GROUP BY offre.ID_Offre ');
             $req->execute(array('domaine' => $domaine,
-                                'ville' => $ville));
+                                'domaine2' => $domaine,
+                                'ville' => $ville,
+                                'ville2' => $ville
+                                ));
             return $req;
         }
     }

@@ -9,8 +9,10 @@
         $entreprise = $OffreManager->getAllEntreprise();
 
         if (isset($_GET['domaine']) || isset($_GET['ville'])){
+            $domaine = $_GET['domaine'];
+            $ville = $_GET['ville'];
             
-            $offre = $OffreManager->getOffre($_GET['domaine'], $_GET['ville']);
+            $offre = $OffreManager->getOffre($domaine, $ville);
         }
 
         require_once('./view/listOffreView.php');
