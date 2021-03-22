@@ -3,7 +3,7 @@
 
     if (isset($_GET['action'])) {
         switch ($_GET['action']){
-            case 'listEntreprise':
+            case 'PDView':
                 //listEntreprise();
                 break;
         }
