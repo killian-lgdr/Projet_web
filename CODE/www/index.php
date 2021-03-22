@@ -21,6 +21,6 @@
     }
 
     else {
-        listOffre($_GET['domaine'], $_GET['ville']);
+        listOffre();
     }
 ?>

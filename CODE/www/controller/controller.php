@@ -2,14 +2,14 @@
     require_once('./model/OffreManager.php');
     require_once('./model/PDManager.php');
 
-    function listOffre($domaine, $ville){
+    function listOffre(){
         $OffreManager = new OffreManager();
         $offre = $OffreManager->getAllOffres();
         $entreprise = $OffreManager->getAllEntreprise();
 
-        if(($domaine != null) || ($ville != null) ){
+        if(($_GET['domaine'] != null) || ($_GET['ville'] != null) ){
             
-            $offre = $OffreManager->getOffre($domaine, $ville);
+            $offre = $OffreManager->getOffre($_GET['domaine'], $_GET['ville']);
         }
 
         require_once('./view/listOffreView.php');
