@@ -22,11 +22,11 @@
         
         $PDManager = new PDManager();
         
-        if (isset($_POST['nom_del']) && isset($_POST['prenom_del'])) {
-            $delegue = $PDManager->getDelegue($$_POST['nom_del'], $_POST['prenom_del']);
+        if (isset($_POST['rechercher_del'])) {
+            $delegue = $PDManager->getDelegue($_POST['nom_del'], $_POST['prenom_del']);
         }
 
-        if (isset($_POST['nom_pil']) && isset($_POST['prenom_pil'])) {
+        if (isset($_POST['rechercher_pil'])) {
             $pilote = $PDManager->getPilote($_POST['nom_pil'], $_POST['prenom_pil']);
         }
             
