@@ -18,9 +18,19 @@
         
         $PDManager = new PDManager();
 
-        $delegue = $PDManager->getDelegue($nom,$prenom);
-        $pilote = $PDManager->getPilote($nom,$prenom);
+        $nomdel = $_GET['nom_del'];
+        $prenomdel = $_GET['prenom_del'];
+        $nompil = $_GET['nom_pil'];
+        $prenompil = $_GET['prenom_pil'];
 
+        if ($nomdel != null && $prenomdel != null) {
+            $delegue = $PDManager->getDelegue($nomdel, $prenomdel);
+        }
+
+        if ($nompil != null && $prenompil != null) {
+            $pilote = $PDManager->getPilote($nompil, $prenompil);
+        }
+            
         require_once('./view/PDview.php');
     }
 ?>
