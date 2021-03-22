@@ -4,12 +4,23 @@
     if (isset($_GET['action'])) {
         switch ($_GET['action']){
             case 'PDView':
-                listPD();
+                if(isset($_GET['nom_del']) && isset($_GET['prenom_del']) && !isset($_GET['nom_pil']) && !isset($_GET['prenom_pil']))
+                {
+                    listPD($_GET['nom_del'], $_GET['prenom_del'], null,null);
+                }
+                else if(!isset($_GET['nom_del']) && !isset($_GET['prenom_del']) && isset($_GET['nom_pil']) && isset($_GET['prenom_pil']))
+                {
+                    listPD(null, null, $_GET['nom_pil'], $_GET['prenom_pil']);
+                }
+                else
+                {
+                    listPD(null, null, null, null);
+                }
                 break;
         }
     }
 
     else {
-        listOffre($_POST['domaine'], $_POST['ville']);
+        listOffre($_GET['domaine'], $_GET['ville']);
     }
 ?>
