@@ -1,69 +1,69 @@
 li{
-    list-style-type: none; 
+  list-style-type: none; 
 }
 
 body { 
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f1f7ff;
+margin: 0;
+font-family: Arial, Helvetica, sans-serif;
+background-color: #ffffff;
 }
 
 #titre{
-    margin: 0 auto;
-    width: 7em;
+  margin: 0 auto;
+  width: 7em;
 }
 
 #connexionPage{
-  position: absolute;
-  z-index: 100;
-  background-color: #e2b286;
-  position: fixed;
-  padding: 1em;
-  margin-top: 10em;
-  margin-left: 50%;
-  display: none;
+position: absolute;
+z-index: 100;
+background-color: #e2b286;
+position: fixed;
+padding: 1em;
+margin-top: 10em;
+margin-left: 50%;
+display: none;
 }
 
 
 #navbar {
-  overflow: hidden;
-  background-color: #e2b286;
-  padding: 40px 10px;
-  transition: 0.4s;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 99;
+overflow: hidden;
+background-color: #e2b286;
+padding: 40px 10px;
+transition: 0.4s;
+position: fixed;
+width: 100%;
+top: 0;
+z-index: 99;
 }
 
 #navbar a {
-  float: left;
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px; 
-  line-height: 25px;
-  border-radius: 4px;
+float: left;
+color: black;
+text-align: center;
+padding: 12px;
+text-decoration: none;
+font-size: 18px; 
+line-height: 25px;
+border-radius: 4px;
 }
 
 .marge{
-  margin-top: 15em;
-  margin-bottom: 2em;
+margin-top: 15em;
+margin-bottom: 2em;
 }
 
 .littleMarge{
-  margin: 1em;
+margin: 1em;
 }
 
 i{
-  font-size: 3em;
+font-size: 3em;
 }
 
 
 .brd{
-  border: 1px solid black;
-  border-radius: 12px;
+border: 1px solid black;
+border-radius: 12px;
 }
 
 #facebook:hover{     color: #3b5998; }  
@@ -71,20 +71,24 @@ i{
 #instagram:hover{     color: rgb(226, 7, 117); }
 
 .orange{
-  background-color: #e2b286;
+background-color: #e2b286;
 }
 
-.onHover{
-  display: none;
+.blue{
+  background-color: #f1f7ff;
 }
 
-.onHover:hover{
-  display: block;
-  transition: 0.4s;
-}
 
 footer{
-  margin-top: 2em;
-  background-color: #e2b286;
+margin-top: 2em;
+background-color: #e2b286;
 }
 
+button{
+  background-color: #e2b286;
+  border: 1px solid black;
+  color: black;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 12px;
+}

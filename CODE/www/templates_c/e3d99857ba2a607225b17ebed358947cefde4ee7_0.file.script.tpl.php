@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-19 17:42:29
-  from 'D:\Ordinateur\CESI\A2\4_WEB\Projet\Projet_web\CODE\www\public\tpl\script.tpl' */
+/* Smarty version 3.1.39, created on 2021-03-22 09:19:20
+  from 'C:\Users\killi\Desktop\A2\4- developpement Web\Projet_web\CODE\www\public\tpl\script.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6054d47544ad24_96181791',
+  'unifunc' => 'content_605853088c5128_64683142',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '614150d2ad0d8cff0c416c16be5a2123dd206ffe' => 
+    'e3d99857ba2a607225b17ebed358947cefde4ee7' => 
     array (
-      0 => 'D:\\Ordinateur\\CESI\\A2\\4_WEB\\Projet\\Projet_web\\CODE\\www\\public\\tpl\\script.tpl',
-      1 => 1616168690,
+      0 => 'C:\\Users\\killi\\Desktop\\A2\\4- developpement Web\\Projet_web\\CODE\\www\\public\\tpl\\script.tpl',
+      1 => 1616168450,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6054d47544ad24_96181791 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605853088c5128_64683142 (Smarty_Internal_Template $_smarty_tpl) {
 ?>            <?php echo '<script'; ?>
  src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"><?php echo '</script'; ?>
 >

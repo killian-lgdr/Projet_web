@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-19 16:36:11
+/* Smarty version 3.1.39, created on 2021-03-22 09:06:59
   from 'C:\Users\killi\Desktop\A2\4- developpement Web\Projet_web\CODE\www\public\tpl\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6054c4ebbde476_54356693',
+  'unifunc' => 'content_60585023531d83_21259757',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6054c4ebbde476_54356693 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60585023531d83_21259757 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <footer class="row justify-content-around brd">
       <!-- reseaux sociaux -->
       <div class="col align-self-center">

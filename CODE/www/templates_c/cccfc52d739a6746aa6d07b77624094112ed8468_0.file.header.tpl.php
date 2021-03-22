@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-19 17:42:29
-  from 'D:\Ordinateur\CESI\A2\4_WEB\Projet\Projet_web\CODE\www\public\tpl\header.tpl' */
+/* Smarty version 3.1.39, created on 2021-03-22 09:19:20
+  from 'C:\Users\killi\Desktop\A2\4- developpement Web\Projet_web\CODE\www\public\tpl\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6054d47536d985_52135121',
+  'unifunc' => 'content_605853085bd674_01867743',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '4b5ce5978037455deecbf77d93f3e7cb647495b7' => 
+    'cccfc52d739a6746aa6d07b77624094112ed8468' => 
     array (
-      0 => 'D:\\Ordinateur\\CESI\\A2\\4_WEB\\Projet\\Projet_web\\CODE\\www\\public\\tpl\\header.tpl',
-      1 => 1616168027,
+      0 => 'C:\\Users\\killi\\Desktop\\A2\\4- developpement Web\\Projet_web\\CODE\\www\\public\\tpl\\header.tpl',
+      1 => 1616168062,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6054d47536d985_52135121 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605853085bd674_01867743 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <header class="row">
       <div class="col">
           <div id="navbar" class="container-fluid brd">

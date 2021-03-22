@@ -8,20 +8,20 @@
 
         <?php
             $obj->assign('titre','Accueil');
-            $obj->display('../public/tpl/head.tpl');
+            $obj->display('./public/tpl/head.tpl');
         ?>
 
 
         <body>
 
             <?php  
-                $obj->display('../public/tpl/header.tpl');
+                $obj->display('./public/tpl/header.tpl');
             ?>
 
             <main class="row">
                 <div class="col container-fluid">
 
-                <?php $obj->display('../public/tpl/carroussel.tpl') ?>
+                <?php $obj->display('./public/tpl/carroussel.tpl') ?>
 
                 <!-- debut recherche d'une offre -->
                 <div class="row">
@@ -156,8 +156,18 @@
                     <div class="row">
                     <div class="container col brd orange">
                         <div class="row justify-content-center">
-                        <div class="col-auto"><h2>Entreprise</h2></div>
+                            <div class="col-auto"><h2>Entreprise</h2></div>
                         </div>
+                        <?php
+                            while ($donnees = $entreprise->fetch(PDO::FETCH_LAZY))
+                            {
+                        ?>
+                        <div class="row justify-content-center">
+                            <div class="col-auto"><input type="checkbox"><?= $donnees[0]?></input></div>
+                        </div>
+                        <?php
+                            }
+                        ?>
                     </div>
                     </div>
                 </div>
@@ -167,44 +177,19 @@
                 <?php
                     while ($donnees = $offre->fetch(PDO::FETCH_LAZY))
                     {
-                ?>
-                        <div class="row">
-                        <div class="col-12 container brd">
-                            <div class="row justify-content-center">
-                                <div class="col-auto"><h2><?= $donnees[0]?></h2></div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <p>Entreprise : <?= $donnees[6]?></p>
-                                </div>
-                                <div class="col">
-                                    <p>Domaine : <?= $donnees[7]?></p>
-                                </div>
-                                <div class="col">
-                                    <p>Niveau Etudes min : aaaaa</p>
-                                </div>
-                                <div class="col">
-                                    <p>Duree : <?= $donnees[1]?></p>
-                                </div>
-                                <div class="col">
-                                    <p>Date de Debut : <?= $donnees[3]?></p>
-                                </div>
-                                <div class="col">
-                                    <p>Adresse : <?= $donnees[5]?></p>
-                                </div>
-                                <div class="col">
-                                    <p>Salaire : <?= $donnees[2]?></p>
-                                </div>
-                            </div>
-                            <div class="row justify-content-center onHover">
-                                <div class="col-auto"><button>Ajouter à la wish-list</button></div>
-                                <div class="col-auto"><button>J'ai postulé</button></div>
-                            </div>
-                        </div>
-                    </div>
-                <?php
+                        $obj->assign('id', $donnees['ID_Offre']);
+                        $obj->assign('titre', $donnees['nom_Offre']);
+                        $obj->assign('entreprise', $donnees['nom_Entreprise']);
+                        $obj->assign('domaine', $donnees['nom_Competence']);
+                        $obj->assign('nivetudes', $donnees['promotion']);
+                        $obj->assign('duree', $donnees['duree']);
+                        $obj->assign('date', $donnees['date']);
+                        $obj->assign('adresse', $donnees['nom_Localisation']);
+                        $obj->assign('salaire', $donnees['salaire']);
+                        $obj->display('./public/tpl/offre.tpl');
                     }
                 ?>
+                
 
 
                     
