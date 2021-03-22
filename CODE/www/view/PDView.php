@@ -21,7 +21,7 @@
             <main class="row  justify-content-center marge">
                 <div class="col container-fluid rox">
                    
-                    <form action="?action=PDView" method="get">
+                    <form action="index.php?action=PDView" method="get">
 
                         <div class="row justify-content-center littleMarge brd">
                             <div class="col container-fluid">
@@ -36,7 +36,7 @@
                                         <input type="text" id="nom_del">
                                         <label for="prenom_del">Prénom : </label>
                                         <input type="text" id="prenom_del">                                
-                                        <input type="submit" value="Rechercher"></input>
+                                        <input type="submit" value="Rechercher" ></input>
                                     </div>
                                     <div class="col">
                                         <label for="mdp_del">Mot de passe : </label>
