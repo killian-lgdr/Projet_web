@@ -174,7 +174,7 @@ CREATE TABLE `localisation` (
 
 CREATE TABLE `niveauetudes` (
   `ID_NiveauEtudes` bigint(20) NOT NULL,
-  `promotion_NiveauEtudes` bigint(20) DEFAULT NULL
+  `promotion` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
