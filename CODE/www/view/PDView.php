@@ -36,7 +36,7 @@
                                         <input type="text" id="nom_del">
                                         <label for="prenom_del">Prénom : </label>
                                         <input type="text" id="prenom_del">                                
-                                        <input type="submit" value="Rechercher" ></input>
+                                        <input type="submit" name="rechercher_del" value="Rechercher" ></input>
                                     </div>
                                     <div class="col">
                                         <label for="mdp_del">Mot de passe : </label>
@@ -46,7 +46,7 @@
                                 <?php
                                 if (isset($_POST['nom_del']) && isset($_POST['prenom_del'])) {
                                 
-                                    while($donnee=$pilote->fetch(PDO::FETCH_LAZY)){
+                                    while($donnee=$delegue->fetch(PDO::FETCH_LAZY)){
                                 ?>
                                 <div class="row justify-content-between">
                                     <div class="col">
@@ -75,13 +75,13 @@
                                 </div>
                                 <div class="row justify-content-center">
                                     <div class="col-auto">
-                                        <input type="submit" value="Créer délegué"></input>
+                                        <input type="submit" name="creer_del" value="Créer délegué"></input>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="submit" value="Modifier délegué"></input>
+                                        <input type="submit" name="modifier_del" value="Modifier délegué"></input>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="submit" value="Supprimer délegué"></input>
+                                        <input type="submit" name="supprimer_del" value="Supprimer délegué"></input>
                                     </div>
                                 </div>
                             </div>  
