@@ -4,7 +4,7 @@
     if (isset($_GET['action'])) {
         switch ($_GET['action']){
             case 'PDView':
-                listPD();
+                listPD($_GET['nom_del'], $_GET['prenom_del'], $_GET['nom_pil'], $_GET['prenom_pil']);
                 break;
         }
     }

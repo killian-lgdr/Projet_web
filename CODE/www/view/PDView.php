@@ -21,7 +21,7 @@
             <main class="row  justify-content-center marge">
                 <div class="col container-fluid rox">
                    
-                    <form action="index.php" method="get">
+                    <form action="?action=PDView" method="get">
 
                         <div class="row justify-content-center littleMarge brd">
                             <div class="col container-fluid">
