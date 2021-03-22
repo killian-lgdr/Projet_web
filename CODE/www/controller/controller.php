@@ -35,7 +35,8 @@
         $entrepriseManager = new EntrepriseManager();
         $ville = $entrepriseManager->getAllville();
         $secteurAct = $entrepriseManager->getAllSecteurAct();
-
+        $Entreprise = $entrepriseManager->getAllEntreprise();
+        
         require_once('./view/listEntrepriseView.php');
     }
 ?>

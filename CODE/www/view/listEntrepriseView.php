@@ -12,7 +12,7 @@
 
 <!-- debut recherche d'une offre -->
 <form action="index.php" method="get">
-                <div class="row">
+                <div class="row marge">
                 <div class="col-auto">
                     <label for="Entreprise">Nom de l'entreprise</label>
                     <input type="text" id="entreprise" name="entreprise">
@@ -66,23 +66,16 @@
                     </div> 
                 <!-- fin choix filtres -->
                 <div class="container col-9 littleMarge">
-                <!-- AFFICHER LES OFFRES -->
+                <!-- AFFICHER LES ENTREPRISES -->
                 <?php
-                    while ($donnees = $offre->fetch(PDO::FETCH_LAZY))
+                    while ($donnees = $Entreprise->fetch(PDO::FETCH_LAZY))
                     {
-                        $obj->assign('id', $donnees['ID_Offre']);
-                        $obj->assign('titre', $donnees['nom_Offre']);
-                        $obj->assign('entreprise', $donnees['nom_Entreprise']);
-                        $obj->assign('domaine', $donnees['nom_Competence']);
-                        $obj->assign('nivetudes', $donnees['promotion']);
-                        $obj->assign('duree', $donnees['duree']);
-                        $obj->assign('date', $donnees['date']);
-                        $obj->assign('adresse', $donnees['nom_Localisation']);
-                        $obj->assign('salaire', $donnees['salaire']);
-                        $obj->display('./public/tpl/offre.tpl');
+                ?>
+                    
+                <?php
                     }
                 ?>
-                <!-- fin afficher offre -->
+                <!-- fin afficher ENTREPRISE -->
                 </div>
                 </div>
                 <!-- fin resultats -->

@@ -13,6 +13,13 @@
             $req = $db->query('SELECT DISTINCT secteurActivité FROM entreprise');
             return $req;
         }
+        public function getAllEntreprise(){
+            $db = $this->dbConnect();
+            $req = $db->query('Select nom_Entreprise, GROUP_CONCAT(SecteurActivité, SEPARATOR ", "), nbStagiaireCesi, localisation.nom_Localisation from entreprise
+                                inner join localisation on entreprise.ID_localisation=localisation.ID_localisation
+                                GROUP BY entreprise.ID_Entreprise ');
+            return $req;
+        }
         public function getEntreprise($entreprise){
             $db = $this->dbConnect();
             $req = $db->prepare('Select nom_Entreprise, GROUP_CONCAT(SecteurActivité, SEPARATOR ", "), nbStagiaireCesi, localisation.nom_Localisation from entreprise
