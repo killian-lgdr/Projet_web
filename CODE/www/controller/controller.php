@@ -1,6 +1,7 @@
 <?php
     require_once('./model/OffreManager.php');
     require_once('./model/PDManager.php');
+    require_once('./model/entrepriseManager.php');
 
     function listOffre(){
         $OffreManager = new OffreManager();
@@ -31,7 +32,11 @@
     }
 
     function listEntreprise(){
-
+        $entrepriseManager = new EntrepriseManager();
+        $ville = $entrepriseManager->getAllville();
+        $secteurAct = $entrepriseManager->getAllSecteurAct();
+        $Entreprise = $entrepriseManager->getAllEntreprise();
+        
         require_once('./view/listEntrepriseView.php');
     }
 ?>

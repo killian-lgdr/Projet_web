@@ -10,6 +10,76 @@
             <?php $obj->display('./public/tpl/header.tpl');?>
 <main>
 
+<!-- debut recherche d'une offre -->
+<form action="index.php" method="get">
+                <div class="row marge">
+                <div class="col-auto">
+                    <label for="Entreprise">Nom de l'entreprise</label>
+                    <input type="text" id="entreprise" name="entreprise">
+                </div>
+                <div class="col-auto">
+                    <input type="submit" value="Rechercher">
+                </div>
+                </div>
+                <!-- fin recherche d'une offre -->
+                <!-- debut resultats -->
+                <div class="row">
+                <!-- debut choix filtres -->
+                <div class="container col-2">
+                    <!-- choix Ville -->
+                    <div class="row">
+                    <div class="container col brd orange">
+                        <div class="row justify-content-center">
+                            <div class="col-auto"><h2>Ville</h2></div>
+                        </div>
+                        <?php
+                            while ($donnees = $ville->fetch(PDO::FETCH_LAZY))
+                            {
+                        ?>
+                        <div class="row justify-content-center">
+                            <div class="col-auto"><input type="checkbox" name="Ville" value="<?= $donnees[0]?>"><?= $donnees[0]?></input></div>
+                        </div>
+                        <?php
+                            }
+                        ?>
+                    </div>
+                    </div>
+                   <!-- choix Secteur d'activité -->
+                   <div class="row">
+                    <div class="container col brd orange">
+                        <div class="row justify-content-center">
+                            <div class="col-auto"><h2>Secteur d'activité</h2></div>
+                        </div>
+                        <?php
+                            while ($donnees = $secteurAct->fetch(PDO::FETCH_LAZY))
+                            {
+                        ?>
+                        <div class="row justify-content-center">
+                            <div class="col-auto"><input type="checkbox" name="SecteurAct" value="<?= $donnees[0]?>"><?= $donnees[0]?></input></div>
+                        </div>
+                        <?php
+                            }
+                        ?>
+                    </div>
+                    </div>                    
+                    </form>
+                    </div> 
+                <!-- fin choix filtres -->
+                <div class="container col-9 littleMarge">
+                <!-- AFFICHER LES ENTREPRISES -->
+                <?php
+                    while ($donnees = $Entreprise->fetch(PDO::FETCH_LAZY))
+                    {
+                ?>
+                    
+                <?php
+                    }
+                ?>
+                <!-- fin afficher ENTREPRISE -->
+                </div>
+                </div>
+                <!-- fin resultats -->
+                </div>
 
 
 </main>
