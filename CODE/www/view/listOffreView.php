@@ -177,53 +177,16 @@
                 <?php
                     while ($donnees = $offre->fetch(PDO::FETCH_LAZY))
                     {
-                ?>
-                        <div class="row littleMarge" id="division<?= $donnees[9]?>">
-                        <div class="col-12 container brd blue">
-                            <div class="row justify-content-center">
-                                <div class="col-auto"><h2><?= $donnees[0]?></h2></div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <p>Entreprise : <?= $donnees[6]?></p>
-                                </div>
-                                <div class="col">
-                                    <p>Domaine : <?= $donnees[7]?></p>
-                                </div>
-                                <div class="col">
-                                    <p>Niveau Etudes min : <?= $donnees[8]?></p>
-                                </div>
-                                <div class="col">
-                                    <p>Duree : <?= $donnees[1]?></p>
-                                </div>
-                                <div class="col">
-                                    <p>Date de Debut : <?= $donnees[3]?></p>
-                                </div>
-                                <div class="col">
-                                    <p>Adresse : <?= $donnees[5]?></p>
-                                </div>
-                                <div class="col">
-                                    <p>Salaire : <?= $donnees[2]?></p>
-                                </div>
-                            </div>
-                            <div class="row justify-content-center" id="buttonsHover<?= $donnees[9]?>">
-                                <div class="col-auto"><button>Ajouter à la wish-list</button></div>
-                                <div class="col-auto"><button>J'ai postulé</button></div>
-                            </div>
-                        </div>
-                    </div>
-                    <script>
-                        var division<?= $donnees[9]?> = document.getElementById("division<?= $donnees[9]?>");
-                        var buttons<?= $donnees[9]?> = document.getElementById("buttonsHover<?= $donnees[9]?>");
-                        buttons<?= $donnees[9]?>.style.display = "none";
-                        division<?= $donnees[9]?>.addEventListener('mouseover', function(){
-                        buttons<?= $donnees[9]?>.style.display = "block";
-                        });
-                        division<?= $donnees[9]?>.addEventListener('mouseleave', function(){
-                        buttons<?= $donnees[9]?>.style.display = "none";
-                        });
-                    </script>
-                <?php
+                        $obj->assign('id', $donnees['ID_Offre']);
+                        $obj->assign('titre', $donnees['nom_Offre']);
+                        $obj->assign('entreprise', $donnees['nom_Entreprise']);
+                        $obj->assign('domaine', $donnees['nom_Competence']);
+                        $obj->assign('nivetudes', $donnees['promotion']);
+                        $obj->assign('duree', $donnees['duree']);
+                        $obj->assign('date', $donnees['date']);
+                        $obj->assign('adresse', $donnees['nom_Localisation']);
+                        $obj->assign('salaire', $donnees['salaire']);
+                        $obj->display('./public/tpl/offre.tpl');
                     }
                 ?>
                 

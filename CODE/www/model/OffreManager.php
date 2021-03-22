@@ -13,5 +13,11 @@
             $req = $db->query('SELECT DISTINCT nom_Entreprise FROM entreprise');
             return $req;
         }
+        public function getOffre(){
+            $db = $this->dbConnect();
+            $req = $db->prepare('SELECT motDePasse FROM utilisateurs WHERE pseudo = :pseudo');
+            $req->execute(array('pseudo' => "Gandalf"));
+            return $req;
+        }
     }
 ?>
