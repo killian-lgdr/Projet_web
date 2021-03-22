@@ -5,6 +5,9 @@
         switch ($_GET['action']){
             case 'PDView':
                 listPD();
+                break;  
+            case 'listEntrepriseView':
+                listEntreprise();
                 break;
         }
     }
