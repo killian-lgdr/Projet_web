@@ -45,8 +45,6 @@ CREER UNE OFFRE
 Insert into 
 
 
-
-
 SFx27 
 AJOUTER WISHLIST
 
@@ -61,3 +59,9 @@ WHERE ID_Offre = VARIABLE and ID_ETUDIANT = VARIABLE
 SFx29
 POSTULER 
 INSERT INTO a_postulé(ID_offre, ID_etudiant, etat) VALUES ("VARIABLE", "VARIABLE", 1)
+
+AFFICHER UN PILOTE
+SELECT nom_pilote, prenom_pilote, localisation.nom_localisation, niveauetudes.promotion from pilote 
+inner join localisation on pilote.ID_Localisation = localisation.ID_localisation
+inner join enseigne_a on pilote.ID_Pilote=enseigne_a.ID_Pilote
+inner join niveauetudes on enseigne_a.ID_NiveauEtudes=niveauetudes.ID_NiveauEtudes
