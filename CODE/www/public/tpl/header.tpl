@@ -5,7 +5,7 @@
                 <div class="col-lg-1 col-sm-2 align-self-center"><img src="../public/img/logo.PNG" alt="logo"></div>
                 <div class="col-lg-3 col-sm-2 align-self-center">
                     <a class="active" href="index.php">Accueil</a>
-                    <a href="#contact">Entreprises</a>
+                    <a href="?action=listEntrepriseView">Entreprises</a>
                     <a href="#about">Etudiants</a>
                 </div>
                 <div class="col-lg-4 col-sm-4  align-self-center"><h1 id="titre">Le Bon Stage</h1></div>
