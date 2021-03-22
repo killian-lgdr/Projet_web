@@ -2,11 +2,14 @@
     require_once('./model/OffreManager.php');
     require_once('./model/PDManager.php');
 
-    function listOffre(){
+    function listOffre($domaine, $ville){
         $OffreManager = new OffreManager();
-
         $offre = $OffreManager->getAllOffres();
         $entreprise = $OffreManager->getAllEntreprise();
+
+        if(isset($domaine)){
+            $offre = $OffreManager->getOffre($domaine, $ville);
+        }
 
         require_once('./view/listOffreView.php');
     }
