@@ -1,3 +1,5 @@
+VIRTUAL HOST/NOM DOMAINE
+
 dans le dossier : 
 C:\Windows\System32\drivers\etc
 sur le ficher hosts :
@@ -17,3 +19,20 @@ C:\xampp\apache\conf\extra\httpd-vhosts.conf
     ErrorLog "logs/LeBonStage.example.com-error.log"
     CustomLog "logs/LeBonStage.example.com-access.log" common
 </VirtualHost>
+
+htaccess/htpasswd
+
+creer un fichier .htaccess à la racine du site Web
+ecrivez : 
+	<FilesMatch "admin.php">
+	   AuthName "Ceci est du contenu securise"
+	   AuthType Basic
+	   AuthUserFile "chemin absolu du projet"
+	   Require valid-user
+	</FilesMatch>
+
+pour recuperer le chemin absolu il faut entrer la commande realpath ( string $path ) avec le nom du fichier (par exemple www)
+
+ensuite on creer une .htpasswd en entrez : 
+"pseudo":"mot de passe"
+il est possible de le crypter avec : https://hostingcanada.org/htpasswd-generator/
