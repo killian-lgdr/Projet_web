@@ -1,0 +1,19 @@
+dans le dossier : 
+C:\Windows\System32\drivers\etc
+sur le ficher hosts :
+à la suite de "127.0.0.1 localhost" :
+127.0.0.1 LebonStage.fr www.LeBonStage.fr
+ 
+
+ecrivez dans le fichier :
+
+C:\xampp\apache\conf\extra\httpd-vhosts.conf
+
+<VirtualHost *:80>
+    ServerAdmin theodelgeon@gmail.com
+    DocumentRoot "C:\Users\33610\Desktop\CESI\Cours CESI\A2\4. Web\Projet\Projet Git\Projet_web\CODE\www"
+    ServerName LeBonStage.fr
+	ServerAlias www.LeBonStage.fr
+    ErrorLog "logs/LeBonStage.example.com-error.log"
+    CustomLog "logs/LeBonStage.example.com-access.log" common
+</VirtualHost>
