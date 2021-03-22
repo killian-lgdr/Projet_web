@@ -18,7 +18,7 @@
     function listPD(){
         
         $PDManager = new PDManager();
-
+        
         if (isset($_POST['nom_del']) && isset($_POST['prenom_del'])) {
             $delegue = $PDManager->getDelegue($$_POST['nom_del'], $_POST['prenom_del']);
         }
