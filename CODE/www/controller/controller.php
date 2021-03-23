@@ -3,25 +3,30 @@
     require_once('./model/PDManager.php');
     require_once('./model/entrepriseManager.php');
 
+    function verif($val){
+        if (isset($_GET[$val])){
+            return $_GET[$val];
+        }
+        else{
+            return '';
+        }
+    }
+
+
     function listOffre(){
         $OffreManager = new OffreManager();
         $offre = $OffreManager->getAllOffres();
         $entreprise = $OffreManager->getAllEntreprise();
 
-        if (isset($_GET['domaine']) || isset($_GET['ville']) || isset($_GET['date']) || isset($_GET['nivetudes']) || isset($_GET['dureemin']) || isset($_GET['dureemax'])){
+        if (isset($_GET['domaine']) || isset($_GET['ville']) || isset($_GET['date']) || isset($_GET['nivetudes']) || isset($_GET['dureemin']) || isset($_GET['dureemax']) || isset($_GET['salaire'])){
             $domaine = $_GET['domaine'];
             $ville = $_GET['ville'];
             $date = $_GET['date'];
-            $dureemin ='';
-            $dureemax ='';
+            $dureemin = verif("dureemin");
+            $dureemax = verif("dureemax");
+            $salaire = verif("salaire");
+            $entreprisechoisie = verif("entreprise");
 
-            if (isset($_GET['dureemin'])){
-                $dureemin = $_GET['dureemin'];
-            }
-            if (isset($_GET['dureemax'])){
-                $dureemin = $_GET['dureemax'];
-            }
-            
             $nivetudes = '';
             $i = 0;
             if (isset($_GET['nivetudes'])){
@@ -36,7 +41,7 @@
                 }
             }
 
-            $offre = $OffreManager->getOffre($domaine, $ville, $date, $nivetudes, $dureemin, $dureemax);
+            $offre = $OffreManager->getOffre($domaine, $ville, $date, $nivetudes, $dureemin, $dureemax, $salaire, $entreprisechoisie);
         }
         
         require_once('./view/listOffreView.php');
