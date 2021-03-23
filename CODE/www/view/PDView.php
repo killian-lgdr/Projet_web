@@ -77,7 +77,7 @@
                                         <!--droit-->
                                     </div>
                                 </div>
-                                <div class="row justify-content-center">
+                                <div class="row justify-content-center littleMarge">
                                     <div class="col-auto">
                                         <input type="submit" name="creer_del" value="Créer délegué"></input>
                                     </div>
@@ -158,7 +158,7 @@
                                         <label for="A5_pil">5ème Année</label>
                                     </div>
                                 </div>
-                                <div class="row justify-content-center">
+                                <div class="row justify-content-center littleMarge">
                                     <div class="col-auto">
                                         <input type="submit" name="creer_pil" value="Créer pilote"></input>
                                     </div>
