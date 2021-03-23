@@ -22,8 +22,12 @@
                 <div class="col container-fluid">
                    
                     <form action="?action=PDView" method="post">
-
                         <div class="row justify-content-center littleMarge brd">
+                            <?php 
+                                if (isset($_POST['rechercher_del'])) {
+                                    $donnee=$delegue->fetch(PDO::FETCH_LAZY);
+                                }
+                            ?>
                             <div class="col container-fluid">
                                 <div class="row justify-content-center">
                                     <div class="col-auto">
@@ -31,34 +35,26 @@
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
-                                    <div class="col">
+                                    <div class="col-auto align-self-center">
                                         <label for="nom_del">Nom : </label>
-                                        <input type="text" name="nom_del" id="nom_del">
+                                        <input type="text" name="nom_del" id="nom_del" value="<?php if (isset($_POST['rechercher_del']) && $donnee){echo $donnee['nom_Delegue'];}?>">
+                                        
                                         <label for="prenom_del">Prénom : </label>
-                                        <input type="text" name="prenom_del" id="prenom_del">                                
+                                        <input type="text" name="prenom_del" id="prenom_del" value="<?php if (isset($_POST['rechercher_del']) && $donnee){echo $donnee['prenom_Delegue'];}?>">                                
+                                        
                                         <input type="submit" name="rechercher_del" value="Rechercher" ></input>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-auto align-self-center">
                                         <label for="mdp_del">Mot de passe : </label>
                                         <input type="text" name="mdp_del" id="mdp_del">
                                     </div>
                                 </div>
-                                <div class="row justify-content-between">
-                                    <div class="col">
+                                <div class="row justify-content-center">
+                                    <div class="col-auto align-self-center">
                                         <label for="ville_del">Centre : </label>
-                                        <input type="text" id="ville_del" value="<?php 
-                                            if (isset($_POST['rechercher_del'])) {
-                                                $donnee=$delegue->fetch(PDO::FETCH_LAZY);
-                                                if ($donnee) {
-                                                    echo $donnee['nom_localisation'];
-                                                }
-                                                else {
-                                                    echo "cette personne n'existe pas";
-                                                }
-                                            }
-                                         ?>">
+                                        <input type="text" id="ville_del" value="<?php if (isset($_POST['rechercher_del']) && $donnee){echo $donnee['nom_localisation'];}?>">
                                     </div>
-                                    <div class="col">
+                                    <div class="col-auto align-self-center">
                                         <label for="confmdp_del">Confirmer mot de passe : </label>
                                         <input type="text" name="confmdp_del" id="confmdp_del">
                                     </div>
