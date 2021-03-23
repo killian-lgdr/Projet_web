@@ -70,7 +70,8 @@
                 <?php
                     while ($donnees = $Entreprise->fetch(PDO::FETCH_LAZY))
                     {
-                
+                        $obj->assign('noteP', createTabNote($donnees['noteP']));
+                        $obj->assign('noteE', createTabNote($donnees['noteE']));
                         $obj->assign('id',$donnees['ID_Entreprise']);
                         $obj->assign('entreprise', $donnees['nom_Entreprise']);
                         $obj->assign('Secteur', $donnees['Secteur']);

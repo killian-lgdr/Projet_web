@@ -71,6 +71,26 @@
         $secteurAct = $entrepriseManager->getAllSecteurAct();
         $Entreprise = $entrepriseManager->getAllEntreprise();
         
+        function createTabNote($note){
+            switch ($note){
+                case 1: 
+                    return array("gold", "", "", "", "");
+                    break;
+                case 2:
+                    return array("gold", "gold", "", "", "");
+                    break;
+                case 3:
+                    return array("gold", "gold", "gold", "", "");
+                    break;
+                case 4:
+                    return array("gold", "gold", "gold", "gold", "");
+                    break;
+                case 5:
+                    return array("gold", "gold", "gold", "gold", "gold");
+                    break;
+            }     
+        }
+
         require_once('./view/listEntrepriseView.php');
     }
 ?>

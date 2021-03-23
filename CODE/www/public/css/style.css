@@ -95,7 +95,7 @@ button{
 }
 
 .fa-star {
-  color: #ffdc0f;
+  color: gray;
   cursor: pointer;
   padding: 0.0625rem;
 }
@@ -122,16 +122,16 @@ button{
   justify-content: right;
 }
 
-.stars {
+.stars, .starsnote {
   display: inline-flex;
   font-size: 0.4em;
 }
 
-.stars:hover .fa-star {
+.starsnote:hover .fa-star {
   color: #ffdc0f;
 }
 
-.stars .fa-star:hover ~ .fa-star {
+.starsnote .fa-star:hover ~ .fa-star {
   color: gray;
 }
 .textnote
