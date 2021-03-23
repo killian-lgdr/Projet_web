@@ -15,7 +15,7 @@
         <body>
 
             <?php  
-                //$obj->display('./public/tpl/header.tpl');
+                $obj->display('./public/tpl/header.tpl');
             ?>
 
             <main class="row">
