@@ -152,30 +152,30 @@
                     <div class="row"> 
                     <div class="container col brd orange">
                         <div class="row justify-content-center">
-                        <div class="col-auto"><h2>Salaire</h2></div>
+                        <div class="col-auto"><h2>Salaire min</h2></div>
                         </div>
                         <div class="row justify-content-center">
                         <div class="col-auto">
-                            <input type="checkbox" id="0€" name="salaire">
-                            <label for="0€">0€</label>
-                        </div>
-                        </div>
-                        <div class="row justify-content-center">
-                        <div class="col-auto">
-                            <input type="checkbox" id="200€" name="salaire">
-                            <label for="200€">0-200€</label>
+                            <input type="radio" id="300€" name="salaire" value="300">
+                            <label for="300€">300€</label>
                         </div>
                         </div>
                         <div class="row justify-content-center">
                         <div class="col-auto">
-                            <input type="checkbox" id="500€" name="salaire">
-                            <label for="500€">200-500€</label>
+                            <input type="radio" id="200€" name="salaire" value="600">
+                            <label for="200€">600€</label>
                         </div>
                         </div>
                         <div class="row justify-content-center">
                         <div class="col-auto">
-                            <input type="checkbox" id="max€" name="salaire">
-                            <label for="max€">+500€</label>
+                            <input type="radio" id="500€" name="salaire" value="900">
+                            <label for="500€">900€</label>
+                        </div>
+                        </div>
+                        <div class="row justify-content-center">
+                        <div class="col-auto">
+                            <input type="radio" id="max€" name="salaire" value="1200">
+                            <label for="max€">1200€</label>
                         </div>
                         </div>
                     </div>
@@ -191,7 +191,10 @@
                             {
                         ?>
                         <div class="row justify-content-center">
-                            <div class="col-auto"><input type="checkbox" name="entreprise" value="<?= $donnees[0]?>"><?= $donnees[0]?></input></div>
+                            <div class="col-auto">
+                                <input type="radio" name="entreprise" id="<?= $donnees[0]?>" value="<?= $donnees[0]?>"></input>
+                                <label for="<?= $donnees[0]?>"><?= $donnees[0]?></label>
+                            </div>
                         </div>
                         <?php
                             }
