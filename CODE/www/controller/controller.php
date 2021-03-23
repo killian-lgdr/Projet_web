@@ -44,7 +44,10 @@
         if (isset($_POST['rechercher_pil'])) {
             $pilote = $PDManager->getPilote($_POST['nom_pil'], $_POST['prenom_pil']);
         }
-            
+        
+        if (isset($_POST['creer_del'])) {
+            $delegue = $PDManager->addDelegue($_POST['nom_del'], $_POST['prenom_del'], $_POST['ville_del'], $_POST['mdp_del'], $_POST['confmdp_del']);
+        }
         require_once('./view/PDview.php');
     }
 

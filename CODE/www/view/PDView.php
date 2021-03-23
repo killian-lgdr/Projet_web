@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="col">
                                         <label for="mdp_del">Mot de passe : </label>
-                                        <input type="text" id="mdp_del">
+                                        <input type="text" name="mdp_del" id="mdp_del">
                                     </div>
                                 </div>
                                 <div class="row justify-content-between">
@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="col">
                                         <label for="confmdp_del">Confirmer mot de passe : </label>
-                                        <input type="text" id="confmdp_del">
+                                        <input type="text" name="confmdp_del" id="confmdp_del">
                                     </div>
                                 </div>
                                 <div class="row justify-content-between">

@@ -4,7 +4,7 @@
 <!doctype html>
     <html lang="fr">
 
-        <?php $obj->assign('titre','Entreprise');
+        <?php $obj->assign('titre','LeBonStage - Entreprise');
             $obj->display('./public/tpl/head.tpl'); ?>
         <body>
             <?php $obj->display('./public/tpl/header.tpl');?>
@@ -70,26 +70,13 @@
                 <?php
                     while ($donnees = $Entreprise->fetch(PDO::FETCH_LAZY))
                     {
-                ?>
-                    <div class="row littleMarge" id="division{$id}">
-                        <div class="col-12 container brd blue">
-                            <div class="row justify-content-center">
-                                <div class="col-auto"><h2><?$donnees['nom_Entreprise']?></h2></div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <p>Secteur D'activité : <?$donnees['Secteur Activité']?></p>
-                                </div>
-                                <div class="col">
-                                    <p>Nombre de stagiaire Cesi: <?$donnees['nbstagiaireCesi']?></p>
-                                </div>
-                                <div class="col">
-                                    <p>Adresse : <?$donnees['nom_Localisation']?></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php
+                
+                        $obj->assign('id',$donnees['ID_Entreprise']);
+                        $obj->assign('entreprise', $donnees['nom_Entreprise']);
+                        $obj->assign('Secteur', $donnees['Secteur']);
+                        $obj->assign('adresse', $donnees['nom_localisation']);
+                        $obj->assign('nbstage', $donnees['nbStagiaireCesi']);
+                        $obj->display('./public/tpl/entreprise.tpl');
                     }
                 ?>
                 <!-- fin afficher ENTREPRISE -->
