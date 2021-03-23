@@ -71,7 +71,24 @@
                     while ($donnees = $Entreprise->fetch(PDO::FETCH_LAZY))
                     {
                 ?>
-                    
+                    <div class="row littleMarge" id="division{$id}">
+                        <div class="col-12 container brd blue">
+                            <div class="row justify-content-center">
+                                <div class="col-auto"><h2><?$donnees['nom_Entreprise']?></h2></div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p>Secteur D'activité : <?$donnees['Secteur Activité']?></p>
+                                </div>
+                                <div class="col">
+                                    <p>Nombre de stagiaire Cesi: <?$donnees['nbstagiaireCesi']?></p>
+                                </div>
+                                <div class="col">
+                                    <p>Adresse : <?$donnees['nom_Localisation']?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <?php
                     }
                 ?>
