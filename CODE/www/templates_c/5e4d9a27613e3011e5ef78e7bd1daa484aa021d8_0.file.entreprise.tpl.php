@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-23 13:49:53
+/* Smarty version 3.1.39, created on 2021-03-23 15:01:53
   from 'C:\Users\33610\Desktop\CESI\Cours CESI\A2\4. Web\Projet\Projet Git\Projet_web\CODE\www\public\tpl\entreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6059e3f1b6fd05_62426382',
+  'unifunc' => 'content_6059f4d1d40bc7_91907730',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5e4d9a27613e3011e5ef78e7bd1daa484aa021d8' => 
     array (
       0 => 'C:\\Users\\33610\\Desktop\\CESI\\Cours CESI\\A2\\4. Web\\Projet\\Projet Git\\Projet_web\\CODE\\www\\public\\tpl\\entreprise.tpl',
-      1 => 1616503791,
+      1 => 1616508112,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6059e3f1b6fd05_62426382 (Smarty_Internal_Template $_smarty_tpl) {
-?>                        <div class="row littleMarge" id="division<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+function content_6059f4d1d40bc7_91907730 (Smarty_Internal_Template $_smarty_tpl) {
+?>                        <!-- AFFICHER ENTREPRISE-->
+                        <div class="row littleMarge" id="division<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">
                         <div class="col-12 container brd blue">
                             <div class="row justify-content-center">
@@ -42,10 +43,12 @@ function content_6059e3f1b6fd05_62426382 (Smarty_Internal_Template $_smarty_tpl)
 </p>
                                 </div>
                             </div>
+
                             <!-- HOOVER AFFICHER LES NOTES ETUDIANTE-->
-                            <div class="row" id="buttonsHover<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+                            <div id="buttonsHover<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">
-                                <div class="rating">
+                            <div class = "row">
+                                <div class="afficherating col-auto">
                                 <p class = "textnote">Note Etudiante<p>
                                 	<div class="stars">
 	                                	<i class="fa fa-star gold"></i>
@@ -55,8 +58,10 @@ function content_6059e3f1b6fd05_62426382 (Smarty_Internal_Template $_smarty_tpl)
                                         <i class="fa fa-star"></i>
                                     </div>
                                 </div>
-                            <!-- AFFICHER LES NOTES PILOTE-->
-                                <div class="rating">
+                            </div>
+                            <div class = "row">
+                            <!--AFFICHER LES NOTES PILOTE-->
+                                <div class="afficherating col-8">
                                 <p class = "textnote">Note Pilote<p>
                                 	<div class="stars">
 	                                	<i class="fa fa-star"></i>
@@ -66,6 +71,18 @@ function content_6059e3f1b6fd05_62426382 (Smarty_Internal_Template $_smarty_tpl)
                                         <i class="fa fa-star"></i>
                                     </div>
                                 </div>
+                            <!--AFFICHER LE SYSTEME DE NOTATION-->
+                                <div class="rating col-4">
+                                <p class = "textnote">Notez cette entreprise<p>
+                                	<div class="stars">
+	                                	<i class="fa fa-star"></i>
+		                                <i class="fa fa-star"></i>
+		                                <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -79,7 +96,7 @@ function content_6059e3f1b6fd05_62426382 (Smarty_Internal_Template $_smarty_tpl)
  = document.getElementById("buttonsHover<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ");
                         buttons<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
-.style.display = "none";
+.style.display = "block";
                         division<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 .addEventListener('mouseover', function(){
                         buttons<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
@@ -88,7 +105,7 @@ function content_6059e3f1b6fd05_62426382 (Smarty_Internal_Template $_smarty_tpl)
                         division<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 .addEventListener('mouseleave', function(){
                         buttons<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
-.style.display = "none";
+.style.display = "block";
                         });
                     <?php echo '</script'; ?>
 ><?php }

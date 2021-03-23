@@ -17,8 +17,9 @@
                             </div>
 
                             <!-- HOOVER AFFICHER LES NOTES ETUDIANTE-->
-                            <div class="row" id="buttonsHover{$id}">
-                                <div class="rating">
+                            <div id="buttonsHover{$id}">
+                            <div class = "row">
+                                <div class="afficherating col-auto">
                                 <p class = "textnote">Note Etudiante<p>
                                 	<div class="stars">
 	                                	<i class="fa fa-star gold"></i>
@@ -28,9 +29,10 @@
                                         <i class="fa fa-star"></i>
                                     </div>
                                 </div>
-                                
+                            </div>
+                            <div class = "row">
                             <!--AFFICHER LES NOTES PILOTE-->
-                                <div class="rating">
+                                <div class="afficherating col-8">
                                 <p class = "textnote">Note Pilote<p>
                                 	<div class="stars">
 	                                	<i class="fa fa-star"></i>
@@ -40,6 +42,18 @@
                                         <i class="fa fa-star"></i>
                                     </div>
                                 </div>
+                            <!--AFFICHER LE SYSTEME DE NOTATION-->
+                                <div class="rating col-4">
+                                <p class = "textnote">Notez cette entreprise<p>
+                                	<div class="stars">
+	                                	<i class="fa fa-star"></i>
+		                                <i class="fa fa-star"></i>
+		                                <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -47,11 +61,11 @@
                     <script>
                         var division{$id} = document.getElementById("division{$id}");
                         var buttons{$id} = document.getElementById("buttonsHover{$id}");
-                        buttons{$id}.style.display = "none";
+                        buttons{$id}.style.display = "block";
                         division{$id}.addEventListener('mouseover', function(){
                         buttons{$id}.style.display = "block";
                         });
                         division{$id}.addEventListener('mouseleave', function(){
-                        buttons{$id}.style.display = "none";
+                        buttons{$id}.style.display = "block";
                         });
                     </script>
