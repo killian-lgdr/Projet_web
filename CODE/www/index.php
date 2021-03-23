@@ -5,6 +5,7 @@
         switch ($_GET['action']){
             case 'PDView':
                 listPD();
+                echo "mabite";
                 break;  
             case 'listEntrepriseView':
                 listEntreprise();
