@@ -74,7 +74,7 @@
                         $obj->assign('noteE', createTabNote($donnees['noteE']));
                         $obj->assign('id',$donnees['ID_Entreprise']);
                         $obj->assign('entreprise', $donnees['nom_Entreprise']);
-                        $obj->assign('Secteur', $donnees['Secteur']);
+                        $obj->assign('Secteur', $donnees['SecteurActivité']);
                         $obj->assign('adresse', $donnees['nom_localisation']);
                         $obj->assign('nbstage', $donnees['nbStagiaireCesi']);
                         $obj->display('./public/tpl/entreprise.tpl');
