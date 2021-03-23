@@ -48,12 +48,12 @@
                                         <label for="ville_del">Centre : </label>
                                         <input type="text" id="ville_del" value="<?php 
                                             if (isset($_POST['rechercher_del'])) {
-                                                if ($delegue) {
-                                                    echo "cette personne n'existe pas";
+                                                $donnee=$delegue->fetch(PDO::FETCH_LAZY);
+                                                if ($donnee) {
+                                                    echo $donnee['nom_localisation'];
                                                 }
                                                 else {
-                                                    $donnee=$delegue->fetch(PDO::FETCH_LAZY);
-                                                    echo $donnee['nom_localisation'];
+                                                    echo "cette personne n'existe pas";
                                                 }
                                             }
                                          ?>">
@@ -93,43 +93,69 @@
                     </form>
                     <form action="?action=PDView" method="post">
                         <div class="row justify-content-center littleMarge brd">
+                            <?php 
+                                if (isset($_POST['rechercher_pil'])) {
+                                    $donnee=$pilote->fetch(PDO::FETCH_LAZY);
+                                }
+                            ?>
                             <div class="col container-fluid">
                                 <div class="row justify-content-center">
                                     <div class="col-auto">
                                         <h1>Gestion Pilote</h1>
                                     </div>
                                 </div>
-                                <div class="row justify-content-center">
-                                    <div class="col">
+
+                                <div class="row justify-content-center littleMarge">
+                                    <div class="col-auto align-self-center">
                                         <label for="nom_pil">Nom : </label>
-                                        <input type="text" name="nom_pil" id="nom_pil">
+                                        <input type="text" name="nom_pil" id="nom_pil" value="<?php if (isset($_POST['rechercher_pil']) && $donnee){echo $donnee['nom_Pilote'];}?>">
+
                                         <label for="prenom_pil">Prénom : </label>
-                                        <input type="text" name="prenom_pil" id="prenom_pil">                                
+                                        <input type="text" name="prenom_pil" id="prenom_pil" value="<?php if(isset($_POST['rechercher_pil']) && $donnee){echo $donnee['prenom_Pilote'];}?>"> 
+
                                         <input type="submit" name="rechercher_pil" value="Rechercher"></input>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-auto align-self-center">
                                         <label for="mdp_pil">Mot de passe : </label>
                                         <input type="text" id="mdp_pil">
                                     </div>
                                 </div>
-                                <div class="row justify-content-between">
-                                    <div class="col">
+
+                                <div class="row justify-content-center littleMarge">
+                                    <div class="col-auto align-self-center">
                                         <label for="ville_pil">Centre : </label>
-                                        <input type="text" id="ville_pil" value="<?php 
-                                            if (isset($_POST['rechercher_pil'])) {
-                                                if ($pilote) {
-                                                    echo "cette personne n'existe pas";
-                                                }
-                                                else {
-                                                    $donnee=$pilote->fetch(PDO::FETCH_LAZY);
-                                                    echo $donnee['nom_localisation'];
-                                                }
-                                            }
-                                         ?>">
+                                        <input type="text" id="ville_pil" value="<?php if(isset($_POST['rechercher_pil']) && $donnee){echo $donnee['nom_localisation'];}?>">           
                                     </div>
-                                    <div class="col">
+
+                                    <div class="col-auto align-self-center">
                                         <label for="confmdp_pil">Confirmer mot de passe : </label>
                                         <input type="text" id="confmdp_pil">
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center littleMarge">
+                                    <div class="col-auto">
+                                        <label for="ville_pil">Promotion : </label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="checkbox" name="A1_pil" id="A1_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A1")){echo "checked";}?>>
+                                        <label for="A1_pil">1ère Année</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="checkbox" name="A2_pil" id="A2_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A2")){echo "checked";}?>>
+                                        <label for="A2_pil">2ème Année</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="checkbox" name="A3_pil" id="A3_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A3")){echo "checked";}?>>
+                                        <label for="A3_pil">3ème Année</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="checkbox" name="A4_pil" id="A4_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A4")){echo "checked";}?>>
+                                        <label for="A4_pil">4ème Année</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="checkbox" name="A5_pil" id="A5_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A5")){echo "checked";}?>>
+                                        <label for="A5_pil">5ème Année</label>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
@@ -143,7 +169,7 @@
                                         <input type="submit" name="supprimer_pil" value="Supprimer pilote"></input>
                                     </div>
                                 </div>
-                            </div>  
+                            </div>
                         </div>
                     </form>
                 </div>

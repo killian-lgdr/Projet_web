@@ -12,7 +12,7 @@
         public function getPilote($nompil, $prenompil)
         {
                 $db = $this->dbConnect();
-                $req = $db->prepare('SELECT nom_Pilote, prenom_Pilote, localisation.nom_localisation, niveauetudes.promotion from pilote inner join localisation on pilote.ID_Localisation = localisation.ID_Localisation inner join enseigne_a on pilote.ID_Pilote=enseigne_a.ID_Pilote inner join niveauetudes on enseigne_a.ID_NiveauEtudes=niveauetudes.ID_NiveauEtudes where pilote.nom_Pilote = nompilote AND pilote.prenom_Pilote = :prenompilote ;');
+                $req = $db->prepare('SELECT nom_Pilote, prenom_Pilote, localisation.nom_localisation, GROUP_CONCAT(niveauetudes.promotion SEPARATOR \',\') as promotion from pilote inner join localisation on pilote.ID_Localisation = localisation.ID_Localisation inner join enseigne_a on pilote.ID_Pilote=enseigne_a.ID_Pilote inner join niveauetudes on enseigne_a.ID_NiveauEtudes=niveauetudes.ID_NiveauEtudes where pilote.nom_Pilote = :nompilote AND pilote.prenom_Pilote = :prenompilote ;');
                 $req->execute(array('nompilote' => $nompil, 'prenompilote' => $prenompil));
                 return $req;
         } 
