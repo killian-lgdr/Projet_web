@@ -29,5 +29,11 @@
             $req->execute(array('Entreprise' => $entreprise));
             return $req;
         }
+        public function getAllNoteEtudiant($entreprise){
+            $db = $this->dbConnect();
+            $req = $db->prepare('Select AVG(valeur_NotePilote) from possedenotepilote inner join (entreprise where entreprise.ID = possedenotepilote.ID_entreprise) where entreprise_nom = :entreprise');
+            $req->execute(array('entreprise' => $entreprise));
+            return $req;
+        }
     }
 ?>

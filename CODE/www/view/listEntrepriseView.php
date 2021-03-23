@@ -84,8 +84,6 @@
                 </div>
                 <!-- fin resultats -->
                 </div>
-
-
 </main>
                 <?php $obj->display('../public/tpl/footer.tpl');
                 $obj->display('../public/tpl/script.tpl'); ?>
