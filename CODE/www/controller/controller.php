@@ -15,16 +15,18 @@
             
             $nivetudes = '';
             $i = 0;
-            foreach($_GET['nivetudes'] as $selected){
-                if($i==0){
-                    $nivetudes = $selected;
+            if (isset($_GET['nivetudes'])){
+                foreach($_GET['nivetudes'] as $selected){
+                    if($i==0){
+                        $nivetudes = $selected;
+                    }
+                    else{
+                        $nivetudes = $nivetudes . ',' . $selected;
+                    }
+                    $i++;
                 }
-                else{
-                    $nivetudes = $nivetudes . ',' . $selected;
-                }
-                $i++;
             }
-            
+
             $offre = $OffreManager->getOffre($domaine, $ville, $date, $nivetudes);
         }
         
