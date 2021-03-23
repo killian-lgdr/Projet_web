@@ -31,6 +31,7 @@
                                 <div class="col-auto"><button>J'ai postulé</button></div>
                             </div>
                         </div>
+                        </div>
                     </div>
                     <script>
                         var division{$id} = document.getElementById("division{$id}");
