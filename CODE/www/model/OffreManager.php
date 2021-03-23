@@ -13,7 +13,7 @@
             $req = $db->query('SELECT DISTINCT nom_Entreprise FROM entreprise');
             return $req;
         }
-        public function getOffre($domaine, $ville, $date, $nivetudes){
+        public function getOffre($domaine, $ville, $date, $nivetudes, $dureemin, $dureemax){
             $db = $this->dbConnect();
             $req = $db->prepare('Select nom_Offre, duree, salaire, date, nombrePlace, nom_Localisation, nom_Entreprise, GROUP_CONCAT(`nom_Competence` SEPARATOR ", ") AS nom_Competence, promotion, offre.ID_Offre from offre 
                                 inner join localisation on offre.ID_localisation=localisation.ID_localisation 
@@ -32,6 +32,8 @@
                                     SUBSTRING_INDEX(SUBSTRING_INDEX(IF(:nivetudes7 = \'\', promotion, :nivetudes8), \',\', 4), \',\', -1),
                                     SUBSTRING_INDEX(IF(:nivetudes9 = \'\', promotion, :nivetudes10), \',\', -1)
                                     )
+                                AND duree >= IF( :dureemin =\'\', duree, :dureemin2 )
+                                AND duree <= IF( :dureemax =\'\', duree, :dureemax2 )
 
                                 GROUP BY offre.ID_Offre ');
             $req->execute(array('domaine' => $domaine,
@@ -49,7 +51,11 @@
                                 'nivetudes7' => $nivetudes,
                                 'nivetudes8' => $nivetudes,
                                 'nivetudes9' => $nivetudes,
-                                'nivetudes10' => $nivetudes
+                                'nivetudes10' => $nivetudes,
+                                'dureemin' => $dureemin,
+                                'dureemin2' => $dureemin,
+                                'dureemax' => $dureemax,
+                                'dureemax2' => $dureemax
                                 ));
             return $req;
         }

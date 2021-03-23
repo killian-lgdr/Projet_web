@@ -85,30 +85,57 @@
                     <div class="row"> 
                     <div class="container col brd orange">
                         <div class="row justify-content-center">
-                        <div class="col-auto"><h2>Durée</h2></div>
+                        <div class="col-auto"><h2>Durée min</h2></div>
                         </div>
                         <div class="row justify-content-center">
                         <div class="col-auto">
-                            <input type="checkbox" id="1mois" name="duree">
-                            <label for="1mois">-1mois</label>
-                        </div>
-                        </div>
-                        <div class="row justify-content-center">
-                        <div class="col-auto">
-                            <input type="checkbox" id="3mois" name="duree">
-                            <label for="3mois">1-3 mois</label>
+                            <input type="radio" id="1moismin" name="dureemin" value="1">
+                            <label for="1moismin">1 mois</label>
                         </div>
                         </div>
                         <div class="row justify-content-center">
                         <div class="col-auto">
-                            <input type="checkbox" id="6mois" name="duree">
-                            <label for="6mois">3-6 mois</label>
+                            <input type="radio" id="3moismin" name="dureemin" value="3">
+                            <label for="3moismin">3 mois</label>
                         </div>
                         </div>
                         <div class="row justify-content-center">
                         <div class="col-auto">
-                            <input type="checkbox" id="maxmois" name="duree">
-                            <label for="maxmois">+6 mois</label>
+                            <input type="radio" id="6moismin" name="dureemin" value="6">
+                            <label for="6moismin">6 mois</label>
+                        </div>
+                        </div>
+                        <div class="row justify-content-center">
+                        <div class="col-auto">
+                            <input type="radio" id="9moismin" name="dureemin" value="9">
+                            <label for="9moismin">9 mois</label>
+                        </div>
+                        </div>
+                        <div class="row justify-content-center">
+                        <div class="col-auto"><h2>Durée max</h2></div>
+                        </div>
+                        <div class="row justify-content-center">
+                        <div class="col-auto">
+                            <input type="radio" id="1moismax" name="dureemax" value="1">
+                            <label for="1moismax">1 mois</label>
+                        </div>
+                        </div>
+                        <div class="row justify-content-center">
+                        <div class="col-auto">
+                            <input type="radio" id="3moismax" name="dureemax" value="3">
+                            <label for="3moismax">3 mois</label>
+                        </div>
+                        </div>
+                        <div class="row justify-content-center">
+                        <div class="col-auto">
+                            <input type="radio" id="6moismax" name="dureemax" value="6">
+                            <label for="6moismax">6 mois</label>
+                        </div>
+                        </div>
+                        <div class="row justify-content-center">
+                        <div class="col-auto">
+                            <input type="radio" id="9moismax" name="dureemax" value="9">
+                            <label for="9moismax">9 mois</label>
                         </div>
                         </div>
                         <div class="row justify-content-center">
