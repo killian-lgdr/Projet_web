@@ -104,11 +104,22 @@ button{
   color: #ffdc0f;
 }
   
+.afficherating {
+  display: flex;
+  flex-direction: column;
+  
+  margin-bottom: 0.5em;
+  display : inline-block;
+}
+
 .rating {
   display: flex;
   flex-direction: column;
-  margin-left: 1em;
+  
   margin-bottom: 0.5em;
+  
+  display : inline-block;
+  justify-content: right;
 }
 
 .stars {
