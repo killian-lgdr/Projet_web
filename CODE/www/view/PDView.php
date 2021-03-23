@@ -15,7 +15,7 @@
         <body class="container-fluid">
 
             <?php  
-                //$obj->display('./public/tpl/header.tpl');
+                $obj->display('./public/tpl/header.tpl');
             ?>
 <!--===============main================== -->
             <main class="row  justify-content-center marge">
@@ -43,17 +43,17 @@
                                         <input type="text" id="mdp_del">
                                     </div>
                                 </div>
-                                <?php
-                                if (isset($_POST['nom_del']) && isset($_POST['prenom_del'])) {
-                                    while($donnee=$delegue->fetch(PDO::FETCH_LAZY)){
-                                        echo $donnee['nom_Localisation'];
-                                ?>
                                 <div class="row justify-content-between">
                                     <div class="col">
                                         <label for="ville_del">Centre : </label>
-                                        <input type="text" id="ville_del" value="<?= $donnee['nom_Localisation'] ?>">
+                                        <input type="text" id="ville_del" value="<?php 
+                                            if (isset($_POST['rechercher_del'])) {
+                                                $donnee=$delegue->fetch(PDO::FETCH_LAZY);
+                                                echo 'salut';
+                                                echo $donnee['nom_Localisation'];
+                                            }
+                                         ?>">
                                     </div>
-                                    <?php }} ?>
                                     <div class="col">
                                         <label for="confmdp_del">Confirmer mot de passe : </label>
                                         <input type="text" id="confmdp_del">
@@ -101,7 +101,7 @@
                                         <input type="text" id="nom_pil">
                                         <label for="prenom_pil">Prénom : </label>
                                         <input type="text" id="prenom_pil">                                
-                                        <input type="submit" value="Rechercher"></input>
+                                        <input type="submit" name="rechercher_pil" value="Rechercher"></input>
                                     </div>
                                     <div class="col">
                                         <label for="mdp_pil">Mot de passe : </label>
@@ -111,7 +111,12 @@
                                 <div class="row justify-content-between">
                                     <div class="col">
                                         <label for="ville_pil">Centre : </label>
-                                        <input type="text" id="ville_pil" value="<?php if (isset($_POST['nom_del']) && isset($_POST['prenom_del'])) { $donnee['nom_localisation']; } ?>">
+                                        <input type="text" id="ville_pil" value="<?php 
+                                            if (isset($_POST['nom_pil']) && isset($_POST['prenom_pil'])&& isset($_POST['rechercher_pil'])) {
+                                                $donnee=$delegue->fetch(PDO::FETCH_LAZY);
+                                                echo $donnee['nom_Localisation'];
+                                            }
+                                         ?>">
                                     </div>
                                     <div class="col">
                                         <label for="confmdp_pil">Confirmer mot de passe : </label>
@@ -120,13 +125,13 @@
                                 </div>
                                 <div class="row justify-content-center">
                                     <div class="col-auto">
-                                        <input type="submit" value="Créer pilote"></input>
+                                        <input type="submit" name="creer_pil" value="Créer pilote"></input>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="submit" value="Modifier pilote"></input>
+                                        <input type="submit" name="modifier_pil" value="Modifier pilote"></input>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="submit" value="Supprimer pilote"></input>
+                                        <input type="submit" name="supprimer_pil" value="Supprimer pilote"></input>
                                     </div>
                                 </div>
                             </div>  
