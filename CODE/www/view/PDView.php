@@ -49,8 +49,7 @@
                                         <input type="text" id="ville_del" value="<?php 
                                             if (isset($_POST['rechercher_del'])) {
                                                 $donnee=$delegue->fetch(PDO::FETCH_LAZY);
-                                                echo 'salut';
-                                                echo $donnee['nom_Localisation'];
+                                                echo $donnee['nom_localisation'];
                                             }
                                          ?>">
                                     </div>
@@ -114,7 +113,7 @@
                                         <input type="text" id="ville_pil" value="<?php 
                                             if (isset($_POST['nom_pil']) && isset($_POST['prenom_pil'])&& isset($_POST['rechercher_pil'])) {
                                                 $donnee=$delegue->fetch(PDO::FETCH_LAZY);
-                                                echo $donnee['nom_Localisation'];
+                                                echo $donnee['nom_localisation'];
                                             }
                                          ?>">
                                     </div>
