@@ -48,8 +48,13 @@
                                         <label for="ville_del">Centre : </label>
                                         <input type="text" id="ville_del" value="<?php 
                                             if (isset($_POST['rechercher_del'])) {
-                                                $donnee=$delegue->fetch(PDO::FETCH_LAZY);
-                                                echo $donnee['nom_localisation'];
+                                                if ($delegue) {
+                                                    echo "cette personne n'existe pas";
+                                                }
+                                                else {
+                                                    $donnee=$delegue->fetch(PDO::FETCH_LAZY);
+                                                    echo $donnee['nom_localisation'];
+                                                }
                                             }
                                          ?>">
                                     </div>
@@ -97,9 +102,9 @@
                                 <div class="row justify-content-center">
                                     <div class="col">
                                         <label for="nom_pil">Nom : </label>
-                                        <input type="text" id="nom_pil">
+                                        <input type="text" name="nom_pil" id="nom_pil">
                                         <label for="prenom_pil">Prénom : </label>
-                                        <input type="text" id="prenom_pil">                                
+                                        <input type="text" name="prenom_pil" id="prenom_pil">                                
                                         <input type="submit" name="rechercher_pil" value="Rechercher"></input>
                                     </div>
                                     <div class="col">
@@ -111,9 +116,14 @@
                                     <div class="col">
                                         <label for="ville_pil">Centre : </label>
                                         <input type="text" id="ville_pil" value="<?php 
-                                            if (isset($_POST['nom_pil']) && isset($_POST['prenom_pil'])&& isset($_POST['rechercher_pil'])) {
-                                                $donnee=$delegue->fetch(PDO::FETCH_LAZY);
-                                                echo $donnee['nom_localisation'];
+                                            if (isset($_POST['rechercher_pil'])) {
+                                                if ($pilote) {
+                                                    echo "cette personne n'existe pas";
+                                                }
+                                                else {
+                                                    $donnee=$pilote->fetch(PDO::FETCH_LAZY);
+                                                    echo $donnee['nom_localisation'];
+                                                }
                                             }
                                          ?>">
                                     </div>
