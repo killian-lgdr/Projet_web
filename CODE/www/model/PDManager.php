@@ -9,10 +9,11 @@
                 $req->execute(array('nomdelegue' => $nomdel, 'prenomdelegue' => $prenomdel));
                 return $req;
         }
-        public function getPilote()
+        public function getPilote($nompil, $prenompil)
         {
                 $db = $this->dbConnect();
-                $req = $db->query('SELECT nom_pilote, prenom_pilote, localisation.nom_localisation, niveauetudes.promotion from pilote inner join localisation on pilote.ID_Localisation = localisation.ID_localisation inner join enseigne_a on pilote.ID_Pilote=enseigne_a.ID_Pilote inner join niveauetudes on enseigne_a.ID_NiveauEtudes=niveauetudes.ID_NiveauEtudes where pilote.nom_pilote = "'.$_POST['nom_pil'].'" AND pilote.prenom_pilote = "'.$_POST['prenom_pil'].'";');
+                $req = $db->prepare('SELECT nom_Pilote, prenom_Pilote, localisation.nom_localisation, niveauetudes.promotion from pilote inner join localisation on pilote.ID_Localisation = localisation.ID_localisation inner join enseigne_a on pilote.ID_Pilote=enseigne_a.ID_Pilote inner join niveauetudes on enseigne_a.ID_NiveauEtudes=niveauetudes.ID_NiveauEtudes where pilote.nom_pilote = :nompilote AND pilote.prenom_pilote = :prenompilote ;');
+                $req->execute(array('nompilote' => $nompil, 'prenompilote' => $prenompil));
                 return $req;
         }        
 

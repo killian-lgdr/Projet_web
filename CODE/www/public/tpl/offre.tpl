@@ -11,10 +11,10 @@
                                     <p>Domaine : {$domaine}</p>
                                 </div>
                                 <div class="col">
-                                    <p>Niveau Etudes min : {$nivetudes}</p>
+                                    <p>Niveau Etudes min : A{$nivetudes}</p>
                                 </div>
                                 <div class="col">
-                                    <p>Duree : {$duree}</p>
+                                    <p>Duree : {$duree} mois</p>
                                 </div>
                                 <div class="col">
                                     <p>Date de Debut : {$date}</p>
@@ -23,7 +23,7 @@
                                     <p>Adresse : {$adresse}</p>
                                 </div>
                                 <div class="col">
-                                    <p>Salaire : {$salaire}</p>
+                                    <p>Salaire : {$salaire} €</p>
                                 </div>
                             </div>
                             <div class="row justify-content-center" id="buttonsHover{$id}">
