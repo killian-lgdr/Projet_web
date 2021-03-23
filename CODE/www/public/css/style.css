@@ -107,13 +107,13 @@ button{
 .rating {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-left: 1em;
+  margin-bottom: 0.5em;
 }
 
 .stars {
   display: inline-flex;
-  justify-content: right;
-  font-size: 0.3em;
+  font-size: 0.4em;
 }
 
 .stars:hover .fa-star {
@@ -123,6 +123,9 @@ button{
 .stars .fa-star:hover ~ .fa-star {
   color: gray;
 }
-
-a { color: crimson; font-weight: 600; transition: all 0.8s cubic-bezier(.14,1.36,.5,.88); display: inline-block; }
+.textnote
+{
+  margin-bottom : 0em;
+}
+a {font-weight: 600; transition: all 0.8s cubic-bezier(.14,1.36,.5,.88); display: inline-block; }
 a:hover { transform: scale(1.3) }  

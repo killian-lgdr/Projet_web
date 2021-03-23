@@ -1,3 +1,4 @@
+                        <!-- AFFICHER ENTREPRISE-->
                         <div class="row littleMarge" id="division{$id}">
                         <div class="col-12 container brd blue">
                             <div class="row justify-content-center">
@@ -14,11 +15,26 @@
                                     <p>Siege Social : {$adresse}</p>
                                 </div>
                             </div>
-                            <div class="row justify-content-center" id="buttonsHover{$id}">
+
+                            <!-- HOOVER AFFICHER LES NOTES ETUDIANTE-->
+                            <div class="row" id="buttonsHover{$id}">
                                 <div class="rating">
+                                <p class = "textnote">Note Etudiante<p>
                                 	<div class="stars">
 	                                	<i class="fa fa-star gold"></i>
 		                                <i class="fa fa-star gold"></i>
+		                                <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                
+                            <!--AFFICHER LES NOTES PILOTE-->
+                                <div class="rating">
+                                <p class = "textnote">Note Pilote<p>
+                                	<div class="stars">
+	                                	<i class="fa fa-star"></i>
+		                                <i class="fa fa-star"></i>
 		                                <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
