@@ -15,7 +15,7 @@
         }
         public function getAllEntreprise(){
             $db = $this->dbConnect();
-            $req = $db->query('Select nom_Entreprise, GROUP_CONCAT(SecteurActivité, SEPARATOR ", "), nbStagiaireCesi, localisation.nom_Localisation from entreprise
+            $req = $db->query('Select nom_Entreprise, GROUP_CONCAT(`SecteurActivité` SEPARATOR ", ")AS "Secteur activité", nbStagiaireCesi, localisation.nom_Localisation from entreprise
                                 inner join localisation on entreprise.ID_localisation=localisation.ID_localisation
                                 GROUP BY entreprise.ID_Entreprise ');
             return $req;
