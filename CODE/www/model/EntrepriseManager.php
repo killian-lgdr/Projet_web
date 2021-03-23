@@ -15,9 +15,7 @@
         }
         public function getAllEntreprise(){
             $db = $this->dbConnect();
-            $req = $db->query('Select ID_Entreprise, nom_Entreprise, GROUP_CONCAT(`SecteurActivité` SEPARATOR ", ")AS "Secteur", nbStagiaireCesi, localisation.nom_localisation from entreprise
-                                inner join localisation on entreprise.ID_localisation=localisation.ID_localisation
-                                GROUP BY entreprise.ID_Entreprise ');
+            $req = $db->query('Select entreprise.ID_Entreprise, nom_Entreprise, SecteurActivité, nbStagiaireCesi, localisation.nom_Localisation, ROUND(AVG(valeur_NotePilote)) AS noteP, ROUND(AVG(valeur_NoteEtudiant)) AS noteE from entreprise inner join localisation on entreprise.ID_localisation=localisation.ID_localisation LEFT join possedenotepilote on entreprise.ID_Entreprise=possedenotepilote.ID_Entreprise LEFT join possedenoteetudiant on entreprise.ID_Entreprise=possedenoteetudiant.ID_Entreprise GROUP BY entreprise.ID_Entreprise');
             return $req;
         }
         public function getEntreprise($entreprise){
@@ -27,12 +25,6 @@
                                 WHERE nom_Entreprise = :entreprise
                                 GROUP BY entreprise.ID_Entreprise ');
             $req->execute(array('Entreprise' => $entreprise));
-            return $req;
-        }
-        public function getAllNoteEtudiant($entreprise){
-            $db = $this->dbConnect();
-            $req = $db->prepare('Select AVG(valeur_NotePilote) from possedenotepilote inner join (entreprise where entreprise.ID = possedenotepilote.ID_entreprise) where entreprise_nom = :entreprise');
-            $req->execute(array('entreprise' => $entreprise));
             return $req;
         }
     }
