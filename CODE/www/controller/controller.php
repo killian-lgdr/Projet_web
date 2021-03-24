@@ -67,7 +67,7 @@
             $prenom = $_POST['prenom_pil'];
             $ville = $_POST['ville_pil'];
             $identifiant =  $_POST['nom_pil'] . "." . $_POST['prenom_pil'];
-            $mdp = $_POST['mdp_pil'];
+            $mdp = password_hash($_POST['mdp_pil'], PASSWORD_DEFAULT);
             
             $i = 0;
             if (isset($_POST['promotion_pil'])){
