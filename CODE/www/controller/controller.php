@@ -2,6 +2,7 @@
     require_once('./model/OffreManager.php');
     require_once('./model/PDManager.php');
     require_once('./model/entrepriseManager.php');
+    require_once('./model/ConnectUserManager.php');
 
     function verif($val){
         if (isset($_POST[$val])){
@@ -124,5 +125,30 @@
         }
 
         require_once('./view/listEntrepriseView.php');
+    }
+
+    function connectUser(){
+        $connectUserManager = new  ConnectUserManager();
+        $identifiants = ($connectUserManager->connectUser("FOULON.Arthur")).fetch();
+            
+        // Comparaison du pass envoyé via le formulaire avec la base
+        $isPasswordCorrect = password_verify($_POST['pass'], $identifiants['mdp_Identifiant']);
+        
+        if (!$identifiants)
+        {
+            echo 'Mauvais identifiant ou mot de passe !';
+        }
+        else
+        {
+            if ($isPasswordCorrect) {
+                session_start();
+                setcookie('pseudo', $identifiants['nom_Identifiant'], time() + 365*24*3600, null, null, false, true);
+                setcookie('password', $identifiants['mdp_Identifiant'], time() + 365*24*3600, null, null, false, true);
+                echo 'Vous êtes connecté !';
+            }
+            else {
+                echo 'Mauvais identifiant ou mot de passe !';
+            }
+        }
     }
 ?>
