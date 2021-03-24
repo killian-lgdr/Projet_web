@@ -11,7 +11,7 @@
 <main>
 
 <!-- debut recherche d'une offre -->
-<form action="index.php" method="get">
+<form action="?action=listEntrepriseView" method="post">
                 <div class="row marge">
                 <div class="col-auto">
                     <label for="Entreprise">Nom de l'entreprise</label>
@@ -37,7 +37,10 @@
                             {
                         ?>
                         <div class="row justify-content-center">
-                            <div class="col-auto"><input type="checkbox" name="Ville" value="<?= $donnees[0]?>"><?= $donnees[0]?></input></div>
+                            <div class="col-auto">
+                                <input type="radio" name="ville" id="<?= $donnees[0]?>" value="<?= $donnees[0]?>"></input>
+                                <label for="<?= $donnees[0]?>"><?= $donnees[0]?></label>
+                            </div>
                         </div>
                         <?php
                             }
@@ -48,14 +51,17 @@
                    <div class="row">
                     <div class="container col brd orange">
                         <div class="row justify-content-center">
-                            <div class="col-auto"><h2>Secteur d'activité</h2></div>
+                            <div class="col-auto"><h2>Secteur</h2></div>
                         </div>
                         <?php
                             while ($donnees = $secteurAct->fetch(PDO::FETCH_LAZY))
                             {
                         ?>
                         <div class="row justify-content-center">
-                            <div class="col-auto"><input type="checkbox" name="SecteurAct" value="<?= $donnees[0]?>"><?= $donnees[0]?></input></div>
+                            <div class="col-auto">
+                                <input type="radio" name="secteur" id="<?= $donnees[0]?>" value="<?= $donnees[0]?>"></input>
+                                <label for="<?= $donnees[0]?>"><?= $donnees[0]?></label>
+                            </div>
                         </div>
                         <?php
                             }
@@ -68,7 +74,7 @@
                 <div class="container col-9 littleMarge">
                 <!-- AFFICHER LES ENTREPRISES -->
                 <?php
-                    while ($donnees = $Entreprise->fetch(PDO::FETCH_LAZY))
+                    while ($donnees = $entreprise->fetch(PDO::FETCH_LAZY))
                     {
                         $obj->assign('noteP', createTabNote($donnees['noteP']));
                         $obj->assign('noteE', createTabNote($donnees['noteE']));

@@ -4,8 +4,8 @@
     require_once('./model/entrepriseManager.php');
 
     function verif($val){
-        if (isset($_GET[$val])){
-            return $_GET[$val];
+        if (isset($_POST[$val])){
+            return $_POST[$val];
         }
         else{
             return '';
@@ -18,10 +18,10 @@
         $offre = $OffreManager->getAllOffres();
         $entreprise = $OffreManager->getAllEntreprise();
 
-        if (isset($_GET['domaine']) || isset($_GET['ville']) || isset($_GET['date']) || isset($_GET['nivetudes']) || isset($_GET['dureemin']) || isset($_GET['dureemax']) || isset($_GET['salaire'])){
-            $domaine = $_GET['domaine'];
-            $ville = $_GET['ville'];
-            $date = $_GET['date'];
+        if (isset($_POST['domaine']) || isset($_POST['ville']) || isset($_POST['date']) || isset($_POST['nivetudes']) || isset($_POST['dureemin']) || isset($_POST['dureemax']) || isset($_POST['salaire'])){
+            $domaine = $_POST['domaine'];
+            $ville = $_POST['ville'];
+            $date = $_POST['date'];
             $dureemin = verif("dureemin");
             $dureemax = verif("dureemax");
             $salaire = verif("salaire");
@@ -29,8 +29,8 @@
 
             $nivetudes = '';
             $i = 0;
-            if (isset($_GET['nivetudes'])){
-                foreach($_GET['nivetudes'] as $selected){
+            if (isset($_POST['nivetudes'])){
+                foreach($_POST['nivetudes'] as $selected){
                     if($i==0){
                         $nivetudes = $selected;
                     }
@@ -92,7 +92,7 @@
         $entrepriseManager = new EntrepriseManager();
         $ville = $entrepriseManager->getAllville();
         $secteurAct = $entrepriseManager->getAllSecteurAct();
-        $Entreprise = $entrepriseManager->getAllEntreprise();
+        $entreprise = $entrepriseManager->getAllEntreprise();
         
         function createTabNote($note){
             switch ($note){
@@ -112,6 +112,15 @@
                     return array("gold", "gold", "gold", "gold", "gold");
                     break;
             }     
+        }
+
+        if (isset($_POST['entreprise']) || isset($_POST['ville'])){
+            $nomEntreprise = $_POST['entreprise'];
+            $nomVille = verif("ville");
+            $nomSecteur = verif("secteur");
+
+
+            $entreprise = $entrepriseManager->getEntreprise($nomEntreprise, $nomVille, $nomSecteur);
         }
 
         require_once('./view/listEntrepriseView.php');

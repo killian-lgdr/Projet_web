@@ -24,7 +24,7 @@
                 <?php $obj->display('./public/tpl/carroussel.tpl') ?>
 
                 <!-- debut recherche d'une offre -->
-                <form action="index.php" method="get">
+                <form action="index.php" method="post">
                 <div class="row">
                 <div class="col-auto">
                     <label for="domaine">domaine</label>
