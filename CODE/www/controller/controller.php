@@ -68,7 +68,8 @@
             $ville = $_POST['ville_pil'];
             $identifiant =  $_POST['nom_pil'] . "." . $_POST['prenom_pil'];
             $mdp = password_hash($_POST['mdp_pil'], PASSWORD_DEFAULT);
-            
+            //$mdp = $_POST['mdp_pil'];
+
             $i = 0;
             if (isset($_POST['promotion_pil'])){
                 foreach($_POST['promotion_pil'] as $selected){
