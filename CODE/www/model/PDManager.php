@@ -34,14 +34,14 @@
 
                 Insert into identifiants (nom_Identifiant, mdp_Identifiant) Select :identifiant , :mdp Where not exists(select nom_Identifiant, mdp_Identifiant from identifiants where nom_Identifiant = :identifiant AND mdp_Identifiant = :mdp );
 
-                IF NOT EXIST INSERT INTO `pilote`(`nom_Pilote`, `prenom_Pilote`, `ID_Localisation`, `ID_Identifiant`) VALUES (:nom , :prenom , (SELECT ID_Localisation FROM localisation Where localisation.nom_Localisation = :ville ) , (SELECT ID_Identifiant FROM identifiants Where identifiants.nom_Identifiant = :identifiant ) );
-
-                IF NOT EXIST INSERT INTO `enseigne_a`(`ID_Pilote`, `ID_NiveauEtudes`) VALUES ((SELECT ID_Pilote FROM pilote Where pilote.nom_Pilote = :nom AND pilote.prenom_Pilote = :prenom ),(SELECT ID_NiveauEtudes FROM niveauetudes Where niveauetudes.promotion= :promotion ));
+                INSERT INTO pilote (nom_Pilote, prenom_Pilote, ID_Localisation, ID_Identifiant) SELECT :nom , :prenom ,(SELECT ID_Localisation FROM localisation WHERE localisation.nom_Localisation = :ville ),(SELECT ID_Identifiant FROM identifiants WHERE identifiants.nom_Identifiant = :identifiant AND identifiants.mdp_Identifiant = :mdp ) WHERE NOT EXISTS (SELECT nom_Pilote, prenom_Pilote FROM pilote WHERE pilote.nom_Pilote = :nom AND pilote.prenom_Pilote = :prenom );
+                
+                INSERT INTO `enseigne_a`(`ID_Pilote`, `ID_NiveauEtudes`) VALUES ((SELECT ID_Pilote FROM pilote Where pilote.nom_Pilote = :nom AND pilote.prenom_Pilote = :prenom ),(SELECT ID_NiveauEtudes FROM niveauetudes Where niveauetudes.promotion= :promotion ));
                 ');
 
-                for ($i=0; $i < promotion.lenght(); $i+=2) { 
-                    $req->execute(array('nom' => $nom, 'prenom' => $prenom, 'ville' => $ville, 'identifiant' => $identifiant, 'mdp' => $mdp, 'promotion' => $promotion[i].$promotion[i+1]));
-                }
+                //for ($i=0; $i < strlen($promotion)-1; $i+=2) { 
+                    $req->execute(array('nom' => $nom, 'prenom' => $prenom, 'ville' => $ville, 'identifiant' => $identifiant, 'mdp' => $mdp, 'promotion' => $promotion[0].$promotion[1]));
+                //}
                     
                     
                 
