@@ -60,7 +60,7 @@
         if (isset($_POST['rechercher_pil'])) {
             $nom = $_POST['nom_pil'];
             $prenom = $_POST['prenom_pil'];
-            $pilote = $PDManager->getPilote($nom, $prenom]);
+            $pilote = $PDManager->getPilote($nom, $prenom);
         }
         
         if (isset($_POST['creer_pil']) && $_POST['mdp_pil']==$_POST['confmdp_pil']) {

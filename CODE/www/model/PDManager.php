@@ -35,7 +35,7 @@
                 IF NOT EXIST INSERT INTO `pilote`(`nom_Pilote`, `prenom_Pilote`, `ID_Localisation`, `ID_Identifiant`) VALUES (:nom , :prenom , (SELECT ID_localisation FROM localisation Where localisation.nom_localisation = :ville ) , (SELECT ID_Identifiant FROM identifiants Where identifiants.nom_Identifiant = :identifiant ) );
                 IF NOT EXIST INSERT INTO `enseigne_a`(`ID_Pilote`, `ID_NiveauEtudes`) VALUES ((SELECT ID_Pilote FROM pilote Where pilote.nom_Pilote = :nom AND pilote.prenom_Pilote = :prenom ), "1")
                 ');
-                $req->execute(array('nom' => $nom, 'prenom' => $prenom, 'ville' => $ville, 'identifiant' => $identifiant, 'mdp' => $mdp, 'promotion' => $promotion);
+                $req->execute(array('nom' => $nom, 'prenom' => $prenom, 'ville' => $ville, 'identifiant' => $identifiant, 'mdp' => $mdp, 'promotion' => $promotion));
                     
                     
                 
