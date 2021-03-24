@@ -63,13 +63,13 @@
             $pilote = $PDManager->getPilote($nom, $prenom);
         }
         
-        if (isset($_POST['creer_pil']) && $_POST['mdp_pil']==$_POST['confmdp_pil']) {
+        if (isset($_POST['creer_pil'])&& isset($_POST['nom_pil']) && isset($_POST['prenom_pil']) && isset($_POST['ville_pil']) && isset($_POST['mdp_pil'])&& isset($_POST['confmdp_pil']) && $_POST['mdp_pil'] == $_POST['confmdp_pil']) {
             $nom = $_POST['nom_pil'];
             $prenom = $_POST['prenom_pil'];
             $ville = $_POST['ville_pil'];
             $identifiant =  $_POST['nom_pil'] . "." . $_POST['prenom_pil'];
             $mdp = $_POST['mdp_pil'];
-
+            
             $i = 0;
             if (isset($_POST['promotion_pil'])){
                 foreach($_POST['promotion_pil'] as $selected){
@@ -77,11 +77,12 @@
                         $promotion = $selected;
                     }
                     else{
-                        $promotion = $promotion . ',' . $selected;
+                        $promotion = $promotion . $selected;
                     }
                     $i++;
                 }
             }
+            
             $pilote = $PDManager->addPilote($nom, $prenom, $ville, $identifiant, $mdp, $promotion);
         }
         require_once('./view/PDview.php');
