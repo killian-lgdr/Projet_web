@@ -7,7 +7,10 @@
         <?php $obj->assign('titre','LeBonStage - Entreprise');
             $obj->display('./public/tpl/head.tpl'); ?>
         <body>
-            <?php $obj->display('./public/tpl/header.tpl');?>
+            <?php 
+                $obj->assign('con', $_COOKIE['userName']);
+                $obj->display('./public/tpl/header.tpl');
+            ?>
 <main>
 
 <!-- debut recherche d'une offre -->

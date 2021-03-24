@@ -15,6 +15,7 @@
         <body class="container-fluid">
 
             <?php  
+                $$obj->assign('con', $_COOKIE['userName']);
                 $obj->display('./public/tpl/header.tpl');
             ?>
 <!--===============main================== -->

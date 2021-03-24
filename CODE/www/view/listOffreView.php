@@ -15,6 +15,7 @@
         <body>
 
             <?php  
+                $obj->assign('con','Connexion');
                 $obj->display('./public/tpl/header.tpl');
             ?>
 
