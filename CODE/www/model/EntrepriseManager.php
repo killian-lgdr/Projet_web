@@ -25,10 +25,14 @@
         }
         public function getEntreprise($entreprise){
             $db = $this->dbConnect();
-            $req = $db->prepare('Select ID_Entreprise, nom_Entreprise, GROUP_CONCAT(SecteurActivité SEPARATOR ", ")AS "Secteur", nbStagiaireCesi, localisation.nom_Localisation from entreprise
-                                inner join localisation on entreprise.ID_localisation=localisation.ID_localisation 
-                                WHERE nom_Entreprise = :entreprise
-                                GROUP BY entreprise.ID_Entreprise ');
+            $req = $db->prepare('Select entreprise.ID_Entreprise, nom_Entreprise, SecteurActivité, nbStagiaireCesi, localisation.nom_Localisation, ROUND(AVG(valeur_NotePilote)) AS noteP, ROUND(AVG(valeur_NoteEtudiant)) AS noteE 
+            from entreprise 
+            LEFT join localisation on entreprise.ID_Localisation=localisation.ID_Localisation 
+            LEFT join possedenotepilote on entreprise.ID_Entreprise=possedenotepilote.ID_Entreprise 
+            LEFT join possedenoteetudiant on entreprise.ID_Entreprise=possedenoteetudiant.ID_Entreprise 
+            
+            
+            GROUP BY entreprise.ID_Entreprise');
             $req->execute(array('Entreprise' => $entreprise));
             return $req;
         }
