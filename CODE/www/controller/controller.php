@@ -50,17 +50,39 @@
     function listPD(){
         
         $PDManager = new PDManager();
-        
+
         if (isset($_POST['rechercher_del'])) {
-            $delegue = $PDManager->getDelegue($_POST['nom_del'], $_POST['prenom_del']);
+            $nom = $_POST['nom_del'];
+            $prenom = $_POST['prenom_del'];
+            $delegue = $PDManager->getDelegue($nom, $prenom);
         }
 
         if (isset($_POST['rechercher_pil'])) {
-            $pilote = $PDManager->getPilote($_POST['nom_pil'], $_POST['prenom_pil']);
+            $nom = $_POST['nom_pil'];
+            $prenom = $_POST['prenom_pil'];
+            $pilote = $PDManager->getPilote($nom, $prenom]);
         }
         
-        if (isset($_POST['creer_del'])) {
-            $delegue = $PDManager->addDelegue($_POST['nom_del'], $_POST['prenom_del'], $_POST['ville_del'], $_POST['mdp_del'], $_POST['confmdp_del']);
+        if (isset($_POST['creer_pil']) && $_POST['mdp_pil']==$_POST['confmdp_pil']) {
+            $nom = $_POST['nom_pil'];
+            $prenom = $_POST['prenom_pil'];
+            $ville = $_POST['ville_pil'];
+            $identifiant =  $_POST['nom_pil'] . "." . $_POST['prenom_pil'];
+            $mdp = $_POST['mdp_pil'];
+
+            $i = 0;
+            if (isset($_POST['promotion_pil'])){
+                foreach($_POST['promotion_pil'] as $selected){
+                    if($i==0){
+                        $promotion = $selected;
+                    }
+                    else{
+                        $promotion = $promotion . ',' . $selected;
+                    }
+                    $i++;
+                }
+            }
+            $pilote = $PDManager->addPilote($nom, $prenom, $ville, $identifiant, $mdp, $promotion);
         }
         require_once('./view/PDview.php');
     }
