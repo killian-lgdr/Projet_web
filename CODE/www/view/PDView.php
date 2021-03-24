@@ -134,23 +134,23 @@
                                         <label for="ville_pil">Promotion : </label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="checkbox" name="promotion_pil[]" value="1" id="A1_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A1")){echo "checked";}?>>
+                                        <input type="checkbox" name="promotion_pil[]" value="A1" id="A1_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A1")){echo "checked";}?>>
                                         <label for="A1_pil">1ère Année</label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="checkbox" name="promotion_pil[]" value="2" id="A2_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A2")){echo "checked";}?>>
+                                        <input type="checkbox" name="promotion_pil[]" value="A2" id="A2_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A2")){echo "checked";}?>>
                                         <label for="A2_pil">2ème Année</label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="checkbox" name="promotion_pil[]" value="3" id="A3_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A3")){echo "checked";}?>>
+                                        <input type="checkbox" name="promotion_pil[]" value="A3" id="A3_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A3")){echo "checked";}?>>
                                         <label for="A3_pil">3ème Année</label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="checkbox" name="promotion_pil[]" value="4" id="A4_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A4")){echo "checked";}?>>
+                                        <input type="checkbox" name="promotion_pil[]" value="A4" id="A4_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A4")){echo "checked";}?>>
                                         <label for="A4_pil">4ème Année</label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="checkbox" name="promotion_pil[]" value="5" id="A5_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A5")){echo "checked";}?>>
+                                        <input type="checkbox" name="promotion_pil[]" value="A5" id="A5_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A5")){echo "checked";}?>>
                                         <label for="A5_pil">5ème Année</label>
                                     </div>
                                 </div>

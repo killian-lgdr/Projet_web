@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-24 09:41:58
+/* Smarty version 3.1.39, created on 2021-03-24 12:13:38
   from 'C:\Users\killi\Desktop\A2\4- developpement Web\Projet_web\CODE\www\public\tpl\offre.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_605afb56485b37_11035205',
+  'unifunc' => 'content_605b1ee29eb410_47526517',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '58879e2600c8589545ac19137e6946b32fa849ea' => 
     array (
       0 => 'C:\\Users\\killi\\Desktop\\A2\\4- developpement Web\\Projet_web\\CODE\\www\\public\\tpl\\offre.tpl',
-      1 => 1616572412,
+      1 => 1616583616,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605afb56485b37_11035205 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605b1ee29eb410_47526517 (Smarty_Internal_Template $_smarty_tpl) {
 ?>                        <div class="row littleMarge" id="division<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">
                         <div class="col-12 container brd blue">
@@ -38,7 +38,7 @@ function content_605afb56485b37_11035205 (Smarty_Internal_Template $_smarty_tpl)
 </p>
                                 </div>
                                 <div class="col">
-                                    <p>Niveau Etudes min : A<?php echo $_smarty_tpl->tpl_vars['nivetudes']->value;?>
+                                    <p>Niveau Etudes min : <?php echo $_smarty_tpl->tpl_vars['nivetudes']->value;?>
 </p>
                                 </div>
                                 <div class="col">
