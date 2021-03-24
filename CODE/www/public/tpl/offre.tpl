@@ -11,7 +11,7 @@
                                     <p>Domaine : {$domaine}</p>
                                 </div>
                                 <div class="col">
-                                    <p>Niveau Etudes min : A{$nivetudes}</p>
+                                    <p>Niveau Etudes min : {$nivetudes}</p>
                                 </div>
                                 <div class="col">
                                     <p>Duree : {$duree} mois</p>

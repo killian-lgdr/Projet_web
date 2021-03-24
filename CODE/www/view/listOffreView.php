@@ -51,31 +51,31 @@
                         </div>
                         <div class="row justify-content-center">
                         <div class="col-auto">
-                            <input type="checkbox" id="a1" name="nivetudes[]" value="1">
+                            <input type="checkbox" id="a1" name="nivetudes[]" value="A1">
                             <label for="a1">A1</label>
                         </div>
                         </div>
                         <div class="row justify-content-center">
                         <div class="col-auto">
-                            <input type="checkbox" id="a2" name="nivetudes[]" value="2">
+                            <input type="checkbox" id="a2" name="nivetudes[]" value="A2">
                             <label for="a2">A2</label>
                         </div>
                         </div>
                         <div class="row justify-content-center">
                         <div class="col-auto">
-                            <input type="checkbox" id="a3" name="nivetudes[]" value="3">
+                            <input type="checkbox" id="a3" name="nivetudes[]" value="A3">
                             <label for="a3">A3</label>
                         </div>
                         </div>
                         <div class="row justify-content-center">
                         <div class="col-auto">
-                            <input type="checkbox" id="a4" name="nivetudes[]" value="4">
+                            <input type="checkbox" id="a4" name="nivetudes[]" value="A4">
                             <label for="a4">A4</label>
                         </div>
                         </div>
                         <div class="row justify-content-center">
                         <div class="col-auto">
-                            <input type="checkbox" id="a5" name="nivetudes[]" value="5">
+                            <input type="checkbox" id="a5" name="nivetudes[]" value="A5">
                             <label for="a5">A5</label>
                         </div>
                         </div>
