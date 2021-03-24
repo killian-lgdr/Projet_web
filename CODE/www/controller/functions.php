@@ -20,6 +20,7 @@
         {
             $isPasswordCorrect = password_verify($password, $identifiants['mdp_Identifiant']);
             if ($isPasswordCorrect) {
+                setcookie('ID', $identifiants['ID_Identifiant'], time() + 365*24*3600, null, null, false, true);
                 setcookie('pseudo', $identifiants['nom_Identifiant'], time() + 365*24*3600, null, null, false, true);
                 setcookie('password', $identifiants['mdp_Identifiant'], time() + 365*24*3600, null, null, false, true);
                 return 'Vous êtes connecté !';
