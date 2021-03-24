@@ -18,6 +18,30 @@
                 $obj->display('./public/tpl/header.tpl');
             ?>
 
+            <div class="row justify-content-center">
+                <div class="col-1.8 brd" id="connexionPage">
+                    <form action="index.php" method="post">
+                        <div>
+                            <label for="pseudo">Nom Utilisateur</label>
+                            <input type="text" id="pseudo" name="userName">
+                        </div>
+                        <div>
+                            <label for="password">Mot de Passe</label>
+                            <input type="password" id="password" name="password">
+                        </div>
+                        <input type="submit" value="connexion" name="buttonConnect">
+                    </form>
+                </div>
+                <?php
+                    if ($connectStatus != ''){
+                ?>
+                        <script>window.alert('<?= $connectStatus ?>')</script>
+                <?php
+                    }
+                ?>
+                
+            </div>
+
             <main class="row">
                 <div class="col container-fluid">
 

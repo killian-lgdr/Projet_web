@@ -3,7 +3,7 @@
 
     class ConnectUserManager extends Manager
     {
-        public function connectUser($psuedo){
+        public function connectUser($pseudo){
             $db = $this->dbConnect();
             $req = $db->prepare('SELECT nom_Identifiant, mdp_Identifiant FROM identifiants WHERE nom_Identifiant = :pseudo');
             $req->execute(array(

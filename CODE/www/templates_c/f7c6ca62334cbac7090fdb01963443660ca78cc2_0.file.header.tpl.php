@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-22 16:14:16
+/* Smarty version 3.1.39, created on 2021-03-24 16:04:19
   from 'D:\Ordinateur\CESI\A2\4_WEB\Projet\Projet_web\CODE\www\public\tpl\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6058b4487225c5_09685057',
+  'unifunc' => 'content_605b54f3849153_43283753',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f7c6ca62334cbac7090fdb01963443660ca78cc2' => 
     array (
       0 => 'D:\\Ordinateur\\CESI\\A2\\4_WEB\\Projet\\Projet_web\\CODE\\www\\public\\tpl\\header.tpl',
-      1 => 1616424803,
+      1 => 1616598211,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6058b4487225c5_09685057 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605b54f3849153_43283753 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <header class="row">
       <div class="col">
           <div id="navbar" class="container-fluid brd">
@@ -43,18 +43,5 @@ function content_6058b4487225c5_09685057 (Smarty_Internal_Template $_smarty_tpl)
           </div>
         </div>
     </header>
-
-    <div class="row justify-content-center">
-        <div class="col-1.8 brd" id="connexionPage">
-            <div>
-                <label for="pseudo">Nom Utilisateur</label>
-                <input type="text" id="pseudo">
-            </div>
-            <div>
-                <label for="password">Mot de Passe</label>
-                <input type="password" id="password">
-            </div>
-            <button type="submit">connexion</button>
-        </div>
-    </div><?php }
+<?php }
 }
