@@ -1,9 +1,9 @@
 Localisation :
-Insert into localisation (nom) select * FROM(SELECT VARIABLE as loc from DUAL) as temp where not exists(SELECT nom from localisation where nom = loc) ;
+Insert into localisation (nom) Select 'VARIABLE' where not exists(SELECT nom from localisation where nom = loc) ;
 Niveau d’etude :
 Insert into niveauetudes (promotion) select * FROM(SELECT VARIABLE as promo from DUAL) as temp where not exists(SELECT promotion from niveauetudes where promotion = promo) ;
 Identifiants :
-Insert into identifiants (nom, mdp) Select 'VARIABLE', 'VARIABLE' Where not exists(select * from identifiants where nom='VARIABLE' AND mdp='VARIABLE')
+Insert into identifiants (nom, mdp) Select 'VARIABLE', 'VARIABLE' Where not exists(select nom, mdp from identifiants where nom='VARIABLE' AND mdp='VARIABLE')
 liste entreprise : 
 SELECT DISTINCT nom_Entreprise FROM entreprise
 
