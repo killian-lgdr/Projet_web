@@ -29,10 +29,14 @@
         {
 
             $db = $this->dbConnect();
-                $req = $db->prepare('Insert into localisation (nom_Localisation) Select :ville where not exists(SELECT nom from localisation where nom_Localisation = :ville ) ;
-                Insert into identifiants (nom_Identifiant, mdp_Identifiant) Select :identifiant , :mdp Where not exists(select * from identifiants where nom_Identifiant = :identifiant AND mdp_Identifiant = :mdp );
-                IF NOT EXIST INSERT INTO `pilote`(`nom_Pilote`, `prenom_Pilote`, `ID_Localisation`, `ID_Identifiant`) VALUES (:nom , :prenom , (SELECT ID_localisation FROM localisation Where localisation.nom_localisation = :ville ) , (SELECT ID_Identifiant FROM identifiants Where identifiants.nom_Identifiant = :identifiant ));
-                IF NOT EXIST INSERT INTO `enseigne_a`(`ID_Pilote`, `ID_NiveauEtudes`) VALUES ((SELECT ID_Pilote FROM pilote Where pilote.nom_Pilote = :nom AND pilote.prenom_Pilote = :prenom ), (SELECT ID_NiveauEtudes FROM niveauetudes Where niveauetudes.promotion= :promotion ))
+                $req = $db->prepare('
+                Insert into localisation (nom_Localisation) Select :ville where not exists(SELECT nom_Localisation from localisation where nom_Localisation = :ville ) ;
+
+                Insert into identifiants (nom_Identifiant, mdp_Identifiant) Select :identifiant , :mdp Where not exists(select nom_Identifiant, mdp_Identifiant from identifiants where nom_Identifiant = :identifiant AND mdp_Identifiant = :mdp );
+
+                IF NOT EXIST INSERT INTO `pilote`(`nom_Pilote`, `prenom_Pilote`, `ID_Localisation`, `ID_Identifiant`) VALUES (:nom , :prenom , (SELECT ID_Localisation FROM localisation Where localisation.nom_Localisation = :ville ) , (SELECT ID_Identifiant FROM identifiants Where identifiants.nom_Identifiant = :identifiant ) );
+
+                IF NOT EXIST INSERT INTO `enseigne_a`(`ID_Pilote`, `ID_NiveauEtudes`) VALUES ((SELECT ID_Pilote FROM pilote Where pilote.nom_Pilote = :nom AND pilote.prenom_Pilote = :prenom ),(SELECT ID_NiveauEtudes FROM niveauetudes Where niveauetudes.promotion= :promotion ));
                 ');
 
                 for ($i=0; $i < promotion.lenght(); $i+=2) { 
