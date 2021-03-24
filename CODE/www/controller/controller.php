@@ -82,7 +82,7 @@
                     $i++;
                 }
             }
-            
+
             $pilote = $PDManager->addPilote($nom, $prenom, $ville, $identifiant, $mdp, $promotion);
         }
         require_once('./view/PDview.php');
