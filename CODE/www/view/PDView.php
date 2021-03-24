@@ -113,7 +113,7 @@
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <label for="mdp_pil">Mot de passe : </label>
-                                        <input type="text" name ="mdp_pil" id="mdp_pil">
+                                        <input type="password" name ="mdp_pil" id="mdp_pil">
                                     </div>
                                 </div>
 
@@ -125,7 +125,7 @@
 
                                     <div class="col-auto align-self-center">
                                         <label for="confmdp_pil">Confirmer mot de passe : </label>
-                                        <input type="text" name ="confmdp_pil" id="confmdp_pil">
+                                        <input type="password" name ="confmdp_pil" id="confmdp_pil">
                                     </div>
                                 </div>
 
