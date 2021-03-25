@@ -2,7 +2,7 @@
       <div class="col">
           <div id="navbar" class="container-fluid brd">
             <div class="row">
-                <div class="col-lg-1 col-sm-2 align-self-center"><img src="../public/img/logo.PNG" alt="logo"></div>
+                <div class="col-lg-1 col-sm-2 align-self-center"><img src="../public/img/lbs.svg" alt="logo"></div>
                 <div class="col-lg-3 col-sm-2 align-self-center">
                     <a class="active" href="index.php">Accueil</a>
                     <a href="?action=listEntrepriseView">Entreprises</a>
