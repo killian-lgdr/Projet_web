@@ -14,7 +14,7 @@
                     <a href="?action=PDView">Pilote/Délegué</a>
                 </div>
                 <div class="col-1 align-self-center">
-                    <a href=""><i id="logo" class="fas fa-user"></i></a>
+                    <a href=""><i id="logo" class="fas fa-sign-out-alt"></i></a>
                 </div>
             </div>
           </div>
