@@ -14,8 +14,16 @@
 
         <body>
 
-            <?php  
-                $obj->assign('con','Connexion');
+            <?php
+                if(isset($_COOKIE['userName']))
+                {
+                    $obj->assign('con', $_COOKIE['userName']);
+                    $obj->assign('id', '');
+                }
+                else{
+                    $obj->assign('con','Connexion');
+                    $obj->assign('id', 'connexionButton');
+                }
                 $obj->display('./public/tpl/header.tpl');
             ?>
 

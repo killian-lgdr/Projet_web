@@ -16,6 +16,7 @@
 
             <?php  
                 $obj->assign('con', $_COOKIE['userName']);
+                $obj->assign('id', '');
                 $obj->display('./public/tpl/header.tpl');
             ?>
 <!--===============main================== -->

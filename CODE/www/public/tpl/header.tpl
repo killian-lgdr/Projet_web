@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-4  align-self-center"><h1 id="titre">Le Bon Stage</h1></div>
                 <div class="col-lg-3 col-sm-2 align-self-center" id="navbar-right">
-                    <a id="connexionButton" class="active" href="#h">{$con}</a>
+                    <a id="{$id}" class="active" href="#h">{$con}</a>
                     <a href="?action=PDView">Pilote/Délegué</a>
                 </div>
                 <div class="col-1 align-self-center">
