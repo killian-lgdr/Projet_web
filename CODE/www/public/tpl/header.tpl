@@ -14,7 +14,7 @@
                     <a id="{$id}" class="active" href="#h">{$con}</a>
                 </div>
                 <div class="col-1 align-self-center">
-                    <a href=""><i id="logo" class="fas fa-sign-out-alt"></i></a>
+                    <form method="post" action="index.php"><input type="submit" value="exit" name="exit"></form>
                 </div>
             </div>
           </div>

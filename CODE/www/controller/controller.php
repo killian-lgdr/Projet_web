@@ -41,6 +41,13 @@
         if (isset($_POST['buttonConnect'])){
             $connectStatus = connectUser($_POST['userName'], $_POST['password']);
         }
+
+        if (isset($_POST['exit'])){
+            foreach($_COOKIE as $cookie_name => $cookie_value){
+                unset($_COOKIE[$cookie_name]);
+                setcookie($cookie_name, '', time() - 4200, '/');
+             }
+        }
         
         
         require_once('./view/listOffreView.php');
