@@ -64,5 +64,20 @@ function listPD(){
         $pilote = $PDManager->addPilote($nom, $prenom, $ville, $identifiant, $mdp, $promotion);
     }
 
+    function CompareAucun($debut, $fin, $var)
+    {
+        if (isset($_POST['rechercher_del'])) {
+            for ($i=$debut; $i<=$fin  ; $i++) { 
+                if(substr_count($var['ges_droit'],$i) !=0){
+                    return "";
+                    break
+                }
+                if ($i == $fin && substr_count($var['ges_droit'],$i) ==0) {
+                    return "selected";
+                }
+            }
+        }
+    }
     require_once('./view/PDview.php');
+    
 }
