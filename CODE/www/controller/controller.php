@@ -62,13 +62,12 @@
             $prenom = $_POST['prenom_del'];
             $delegue = $PDManager->getDelegue($nom, $prenom);
         }
-//)&& isset($_POST['nom_del']) && isset($_POST['prenom_del']) && isset($_POST['ville_del']) && isset($_POST['mdp_del'])&& isset($_POST['confmdp_del']) && $_POST['mdp_del'] == $_POST['confmdp_del']
-        if (isset($_POST['creer_del'])) {
-            //$nom = $_POST['nom_del'];
-            //$prenom = $_POST['prenom_del'];
-            //$ville = $_POST['ville_del'];
-            //$identifiant =  $_POST['nom_del'] . "." . $_POST['prenom_del'];
-            //$mdp = password_hash($_POST['mdp_del'], PASSWORD_DEFAULT);
+        if (isset($_POST['creer_del'])&& isset($_POST['nom_del']) && isset($_POST['prenom_del']) && isset($_POST['ville_del']) && isset($_POST['mdp_del'])&& isset($_POST['confmdp_del']) && $_POST['mdp_del'] == $_POST['confmdp_del']) {
+            $nom = $_POST['nom_del'];
+            $prenom = $_POST['prenom_del'];
+            $ville = $_POST['ville_del'];
+            $identifiant =  $_POST['nom_del'] . "." . $_POST['prenom_del'];
+            $mdp = password_hash($_POST['mdp_del'], PASSWORD_DEFAULT);
 
             $i = 0;
             if (isset($_POST['ges_droit'])){
@@ -84,7 +83,7 @@
             }
             echo "droit : ";
             echo $droit;
-            //$delegue = $PDManager->addDelegue($nom, $prenom, $ville, $identifiant, $mdp, $droit);
+            $delegue = $PDManager->addDelegue($nom, $prenom, $ville, $identifiant, $mdp, $droit);
         }
 
         if (isset($_POST['rechercher_pil'])) {
