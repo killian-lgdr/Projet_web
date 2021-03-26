@@ -79,10 +79,11 @@ function listPD(){
         $pilote = $PDManager->deletePilote($nom, $prenom, $identifiant);
     }
 //recherche des droits
-    function CompareAucun($test, $var)
+    function CompareAucun($test)
     {
+        $listdroit = $_POST['ges_droit'];
         if (isset($_POST['rechercher_del'])) {
-            for ($i=0; $i < strlen($var['ges_droit'])-1; $i+=3) { 
+            for ($i=0; $i < strlen($listdroit)-1; $i+=3) { 
                 if ($listdroit[$i].$listdroit[$i+1]== $test){
                     return "selected";
                 }
