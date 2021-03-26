@@ -36,7 +36,7 @@
                 }else{
                     $res = $droit[$i].$droit[$i+1];
                 }
-                $req4->execute(array('nom1' => $nom, 'prenom1' => $prenom, 'droit1' => $res);
+                $req4->execute(array('nom1' => $nom, 'prenom1' => $prenom, 'droit1' => $res));
             }
 
 
