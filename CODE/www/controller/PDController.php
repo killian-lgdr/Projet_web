@@ -81,8 +81,8 @@ function listPD(){
 //recherche des droits
     function CompareAucun($test)
     {
-        $listdroit = $_POST['ges_droit'];
-        if (isset($_POST['rechercher_del'])) {
+        if (isset($_POST['rechercher_del']) && isset($_POST['ges_droit'])) {
+            $listdroit = $_POST['ges_droit'];
             for ($i=0; $i < strlen($listdroit)-1; $i+=3) { 
                 if ($listdroit[$i].$listdroit[$i+1]== $test){
                     return "selected";
