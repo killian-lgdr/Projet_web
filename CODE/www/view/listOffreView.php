@@ -265,10 +265,80 @@
                     <!-- fin afficher offre -->
                 </div>
                 </div>
-                <!-- fin resultats -->
+                
                 <?php
                     }
                 ?>
+                <!-- fin resultats -->
+                    <div class="row justify-content-center">
+                        <div class="col-auto container brd">
+                            <form action="">
+                                <div class="row justify-content-center">
+                                    <div class="col-auto"><h2>Gestion Offres</h2></div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-auto">
+                                        <label for="nameGestion">Nom de l'Offre</label>
+                                        <input type="text" id="nameGestion" name="nameGestion">
+                                        <input type="submit" value="Rechercher" name="rechercherGestion">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-between">
+                                    <div class="col-auto">
+                                        <label for="domaineGestion">Domaine</label>
+                                        <input type="text" id="domaineGestion" name="domaineGestion">
+                                    </div>
+                                    <div class="col-auto">
+                                        <label for="dureeGestion">Durée du Stage</label>
+                                        <input type="text" id="dureeGestion" name="dureeGestion">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-between">
+                                    <div class="col-auto">
+                                        <label for="adresseGestion">Adresse</label>
+                                        <input type="text" id="adresseGestion" name="adresseGestion">
+                                    </div>
+                                    <div class="col-auto">
+                                        <label for="salaireGestion">Salaire /mois</label>
+                                        <input type="text" id="salaireGestion" name="salaireGestion">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-between">
+                                    <div class="col-auto">
+                                        <label for="nivEtudesGestion">Niveau Etudes requis</label>
+                                        <select name="nivEtudesGestion" id="nivEtudesGestion">
+                                            <option value="A1">A1</option>
+                                            <option value="A2">A2</option>
+                                            <option value="A3">A3</option>
+                                            <option value="A4">A4</option>
+                                            <option value="A5">A5</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-auto">
+                                        <label for="dateGestion">Date de Debut</label>
+                                        <input type="date" name="dateGestion" id="dateGestion">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-start">
+                                    <div class="col-auto">
+                                        <label for="placesGestion">Nombre de places</label>
+                                        <input type="text" id="placesGestion" name="placesGestion">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-around littleMarge">
+                                    <div class="col-auto">
+                                        <input type="submit" value="Créer" name="creerGestion">
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="submit" value="Modifier" name="modifierGestion">
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="submit" value="Supprimer" name="supprimerGestion">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </main>
 
