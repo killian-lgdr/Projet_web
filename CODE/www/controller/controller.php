@@ -75,10 +75,10 @@
                     $i++;
                 }
             }
-
+            echo $droit;
             $delegue = $PDManager->addDelegue($nom, $prenom, $ville, $identifiant, $mdp, $droit);
         }
-        
+
         if (isset($_POST['rechercher_pil'])) {
             $nom = $_POST['nom_pil'];
             $prenom = $_POST['prenom_pil'];
