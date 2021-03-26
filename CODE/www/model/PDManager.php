@@ -5,7 +5,7 @@
         public function getDelegue($nom, $prenom)
         {
                 $db = $this->dbConnect();
-                $req = $db->prepare('SELECT nom_Delegue, prenom_Delegue, localisation.nom_localisation, GROUP_CONCAT(attribue.ID_droits SEPARATOR \',\') from delegue inner join localisation on delegue.ID_Localisation = localisation.ID_localisation inner join identifiants on delegue.ID_Identifiant = identifiants.ID_Identifiant inner join attribue on identifiants.ID_Identifiant = attribue.ID_Identifiant where delegue.nom_Delegue = :prenom1 AND delegue.prenom_Delegue = :prenom1 ; ');
+                $req = $db->prepare('SELECT nom_Delegue, prenom_Delegue, localisation.nom_localisation, GROUP_CONCAT(attribue.ID_droits SEPARATOR \',\') as ges_droit from delegue inner join localisation on delegue.ID_Localisation = localisation.ID_localisation inner join identifiants on delegue.ID_Identifiant = identifiants.ID_Identifiant inner join attribue on identifiants.ID_Identifiant = attribue.ID_Identifiant where delegue.nom_Delegue = :nom1 AND delegue.prenom_Delegue = :prenom1 ; ');
                 $req->execute(array('nom1' => $nom, 'prenom1' => $prenom));
                 return $req;
         }
