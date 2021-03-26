@@ -255,6 +255,7 @@
                         $obj->assign('date', $donnees['date']);
                         $obj->assign('adresse', $donnees['nom_Localisation']);
                         $obj->assign('salaire', $donnees['salaire']);
+                        $obj->assign('places', $donnees['nombreplace']);
                         $obj->display('./public/tpl/offre.tpl');
                     }
                 ?>
@@ -270,9 +271,10 @@
                     }
                 ?>
                 <!-- fin resultats -->
+                <!-- debut gestion -->
                     <div class="row justify-content-center">
                         <div class="col-auto container brd">
-                            <form action="">
+                            <form action="index.php" method='post'>
                                 <div class="row justify-content-center">
                                     <div class="col-auto"><h2>Gestion Offres</h2></div>
                                 </div>
@@ -319,10 +321,23 @@
                                         <input type="date" name="dateGestion" id="dateGestion">
                                     </div>
                                 </div>
-                                <div class="row justify-content-start">
+                                <div class="row justify-content-between">
                                     <div class="col-auto">
                                         <label for="placesGestion">Nombre de places</label>
                                         <input type="text" id="placesGestion" name="placesGestion">
+                                    </div>
+                                    <div class="col-auto">
+                                        <label for="entrepriseGestion">Entreprise</label>
+                                        <select name="entrepriseGestion" id="entrepriseGestion">
+                                        <?php
+                                            while ($donnees = $entrepriseSelect->fetch(PDO::FETCH_LAZY))
+                                            {
+                                
+                                                echo '<option value="' . $donnees[0] . '">' . $donnees[0] . '</option>';
+                                        
+                                            }
+                                        ?>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row justify-content-around littleMarge">
@@ -339,6 +354,14 @@
                             </form>
                         </div>
                     </div>
+                    <?php
+                        if ($infoGestion != ''){
+                    ?>
+                            <script>window.alert('<?= $infoGestion ?>')</script>
+                    <?php
+                        }
+                    ?>
+                    <!-- fin gestion -->
                 </div>
             </main>
 
