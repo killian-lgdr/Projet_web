@@ -6,14 +6,14 @@
 
         <?php $obj->assign('titre','LeBonStage - Entreprise');
             $obj->display('./public/tpl/head.tpl'); ?>
-        <body>
+<body>
             <?php 
                 $obj->assign('con', $_COOKIE['userName']);
                 $obj->assign('id', '');
                 $obj->display('./public/tpl/header.tpl');
             ?>
+<div class="containter">
 <main>
-
 <!-- debut recherche d'une offre -->
 <form action="?action=listEntrepriseView" method="post">
                 <div class="row marge">
@@ -94,9 +94,77 @@
                 </div>
                 </div>
                 <!-- fin resultats -->
+
+                <!-- Création des entreprises -->
+<div class="container littleMarge brd">
+<form action="?action=listEntrepriseView" method="post">
+                <div class="row justify-content-center">
+                <div class="col-auto">
+                <label for="Entreprise">Nom de l'entreprise : </label>
+                <input type="text" id="entreprise" name="entreprise" placeholder="Nom de l'entreprise">
+                <input type="submit" name="rechercher_ent" value="Rechercher" ></input>
                 </div>
+                <div class="col-auto">
+                <label for="secteur">Secteur d'activité : </label>
+                <input type="text" id="secteur" name="secteur" placeholder="Secteur d'activité">
+                </div>
+                </div>
+                <div class="row justify-content-center">
+                <div class="col-auto">
+                <label for="ville">Localisation : </label>
+                <input type="text" id="ville" name="ville" placeholder="Localisation">
+                </div>
+                <div class="col-auto">
+                <label for="nbstage">Nombre de stagiaire CESI : </label>
+                <input type="text" id="nbStage" name="nbStage" placeholder="Nombre de stagiaire CESI" >
+                </div>
+                </div>
+                <div class="row justify-content-center">
+                <div class="col-auto">
+                <input type="submit" name="creer_ent" value="Créer" ></input>
+                </div>
+                <div class="col-auto">
+                <input type="submit" name="modifier_ent" value="modifier" ></input>
+                </div>
+                <div class="col-auto">
+                <input type="submit" name="supprimer_ent" value="supprimer" ></input>
+                </div>
+                </div>
+</form>
+</div>
 </main>
                 <?php $obj->display('../public/tpl/footer.tpl');
                 $obj->display('../public/tpl/script.tpl'); ?>
+</div>
+
+<script> 
+function setInputFilter(textbox, inputFilter) 
+{
+  ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) 
+  {
+    textbox.addEventListener(event, function() 
+    {
+      if (inputFilter(this.value)) 
+      {
+        this.oldValue = this.value;
+        this.oldSelectionStart = this.selectionStart;
+        this.oldSelectionEnd = this.selectionEnd;
+      } else if (this.hasOwnProperty("oldValue")) 
+      {
+        this.value = this.oldValue;
+        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+      } else 
+      {
+        this.value = "";
+      }
+    });
+  });
+}
+setInputFilter(document.getElementById("nbStage"), function(value) 
+{
+  return /^\d*\.?\d*$/.test(value); 
+});
+</script>
+                <!-- Fin création des entreprises -->
         </body>
 </html>

@@ -59,6 +59,13 @@
                                 ':ville'=>$ville,
                                 'entreprise1'=>$entreprise));
         }
+        public function rechercherEntreprise($entreprise){
+
+            $db = $this->dbConnect();
+            $req1 = $db->prepare("SELECT nom_Entreprise, secteurActivité, nbStagiaireCesi, localisation.nom_Localisation FROM entreprise INNER JOIN localisation ON entreprise.ID_Localisation = localisation.ID_Localisation WHERE nom_Entreprise=:entreprise;");
+            $req1->execute(array('entreprise' => $entreprise));
+
+        }
     }
 ?>
 
