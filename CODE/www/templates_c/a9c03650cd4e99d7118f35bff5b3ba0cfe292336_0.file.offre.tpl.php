@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-24 11:53:35
+/* Smarty version 3.1.39, created on 2021-03-26 14:19:37
   from 'D:\Ordinateur\CESI\A2\4_WEB\Projet\Projet_web\CODE\www\public\tpl\offre.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_605b1a2f651925_42821689',
+  'unifunc' => 'content_605ddf69eec378_99039057',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a9c03650cd4e99d7118f35bff5b3ba0cfe292336' => 
     array (
       0 => 'D:\\Ordinateur\\CESI\\A2\\4_WEB\\Projet\\Projet_web\\CODE\\www\\public\\tpl\\offre.tpl',
-      1 => 1616583182,
+      1 => 1616764745,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605b1a2f651925_42821689 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605ddf69eec378_99039057 (Smarty_Internal_Template $_smarty_tpl) {
 ?>                        <div class="row littleMarge" id="division<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">
                         <div class="col-12 container brd blue">
@@ -56,6 +56,10 @@ function content_605b1a2f651925_42821689 (Smarty_Internal_Template $_smarty_tpl)
                                 <div class="col">
                                     <p>Salaire : <?php echo $_smarty_tpl->tpl_vars['salaire']->value;?>
  €</p>
+                                </div>
+                                <div class="col">
+                                    <p>Nombre de Places : <?php echo $_smarty_tpl->tpl_vars['places']->value;?>
+</p>
                                 </div>
                             </div>
                             <div class="row justify-content-center" id="buttonsHover<?php echo $_smarty_tpl->tpl_vars['id']->value;?>

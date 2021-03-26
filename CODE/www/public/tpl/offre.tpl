@@ -25,6 +25,9 @@
                                 <div class="col">
                                     <p>Salaire : {$salaire} €</p>
                                 </div>
+                                <div class="col">
+                                    <p>Nombre de Places : {$places}</p>
+                                </div>
                             </div>
                             <div class="row justify-content-center" id="buttonsHover{$id}">
                                 <div class="col-auto"><button>Ajouter à la wish-list</button></div>

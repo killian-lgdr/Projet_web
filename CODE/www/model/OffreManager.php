@@ -65,5 +65,37 @@
                                 ));
             return $req;
         }
+
+        public function createOffre($offre, $domaine, $duree, $adresse, $salaire, $nivetudes, $date, $places, $entreprise){
+
+            $db = $this->dbConnect();
+            $req1 = $db->prepare("Insert into localisation (nom_Localisation) Select :ville1 where not exists(SELECT nom_Localisation from localisation where nom_Localisation = :ville2 ) ;");
+            $req1->execute(array('ville1' => $adresse, 'ville2' => $adresse));
+
+            $req = $db->prepare("Insert into offre(`nom_Offre`, `duree`, `salaire`, `date`, `nombrePlace`, `ID_Localisation`, `ID_Entreprise`, `ID_NiveauEtudes`) 
+                                SELECT :offre, :duree, :salaire, :date, :places, 
+                                (SELECT ID_Localisation FROM localisation WHERE localisation.nom_Localisation = :adresse),
+                                (SELECT ID_Entreprise FROM entreprise WHERE entreprise.nom_Entreprise = :entreprise),
+                                (SELECT ID_NiveauEtudes FROM niveauetudes WHERE niveauetudes.promotion = :nivetudes)
+                                WHERE NOT EXISTS (select nom_Offre FROM offre where offre.nom_Offre = :offre1");
+
+            $req->execute(array('offre'=>$offre,
+                                'duree'=>$duree,
+                                'salaire'=>$salaire,
+                                'date'=>$date,
+                                'places'=>$places,
+                                'adresse'=>$adresse,
+                                'entreprise'=>$entreprise,
+                                'nivetudes'=>$nivetudes,
+                                'offre1'=>$offre
+                                ));
+            $req2 = $db->prepare('Insert into competence (nom_Competence) Select :domaine where not exists(SELECT nom_Competence from competence where nom_Competence = :domaine2 ) ;');
+            $req2->execute(array('domaine'=>$domaine, 'domaine2'=>$domaine));
+
+            $req3 = $db->prepare('INSERT INTO `requiert`(`ID_Offre`, `ID_Competence`) 
+                                VALUES ((SELECT ID_Offre FROM offre WHERE nom_Offre = :offre),
+                                (SELECT ID_Competence from competence where nom_Competence = :domaine))');
+            $req3->execute(array('offre'=>$offre, 'domaine'=>$domaine));
+        }
     }
 ?>
