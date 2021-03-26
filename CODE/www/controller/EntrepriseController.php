@@ -24,12 +24,12 @@ function listEntreprise(){
         $sEntreprise = $_POST['nameEntreprise'];
         $supprEnt = $entrepriseManager->supprimerEntreprise($sEntreprise);
     }
-
+    $rechercheResultat = NULL;
     if(isset($_POST['rechercher_ent'])&& isset($_POST['nameEntreprise']))
-    {
-        
+    { 
         $rEntreprise = $_POST['nameEntreprise'];
         $rechercheEnt = $entrepriseManager->rechercherEntreprise($rEntreprise);
+        $rechercheResultat = $rechercheEnt->fetch(PDO::FETCH_LAZY);
     }
     
     function createTabNote($note){
