@@ -54,7 +54,7 @@
                                 <div class="row justify-content-center littleMarge">
                                     <div class="col-auto align-self-center">
                                         <label for="ville_del">Centre : </label>
-                                        <input type="text" id="ville_del" value="<?php if (isset($_POST['rechercher_del']) && $donnee){echo $donnee['nom_localisation'];}?>">
+                                        <input type="text" name="ville_del" id="ville_del" value="<?php if (isset($_POST['rechercher_del']) && $donnee){echo $donnee['nom_localisation'];}?>">
                                     </div>
                                     <div class="col-auto align-se   lf-center">
                                         <label for="confmdp_del">Confirmer mot de passe : </label>

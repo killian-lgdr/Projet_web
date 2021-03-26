@@ -29,18 +29,18 @@
             $req3 = $db->prepare("INSERT INTO delegue (nom_Delegue, prenom_Delegue, ID_Localisation, ID_Identifiant) SELECT :nom1 , :prenom1 ,(SELECT ID_Localisation FROM localisation WHERE localisation.nom_Localisation = :ville1 ),(SELECT ID_Identifiant FROM identifiants WHERE identifiants.nom_Identifiant = :identifiant1 AND identifiants.mdp_Identifiant = :mdp1 ) WHERE NOT EXISTS (SELECT nom_Delegue, prenom_Delegue FROM delegue WHERE delegue.nom_Delegue = :nom2 AND delegue.prenom_Delegue = :prenom2 );");
             $req3->execute(array('nom1' => $nom, 'prenom1' => $prenom, 'ville1' => $ville, 'identifiant1' => $identifiant, 'mdp1' => $mdp, 'nom2' => $nom, 'prenom2' => $prenom));
 
-            $req4 = $db->prepare("INSERT INTO attribue (ID_Identifiant, ID_droits) VALUES ((SELECT ID_Identifiant FROM identifiants Where identifiants.nom_Identifiant = :identifiant1 ),(SELECT ID_droits FROM droits Where droits.ID_droits= :droit1));");
+            $req4 = $db->prepare("INSERT INTO attribue (ID_Identifiant, ID_droits) VALUES ((SELECT ID_Identifiant FROM identifiants Where identifiants.nom_Identifiant = :identifiant1 ),(SELECT ID_droits FROM droits Where droits.ID_droits= :droit1 ));");
             for ($i=0; $i < strlen($droit)-1; $i+=3) { 
                 if ($droit[$i]==0){
                     $res = $droit[$i+1];
                 }else{
                     $res = $droit[$i].$droit[$i+1];
                 }
-                $req4->execute(array('nom1' => $nom, 'prenom1' => $prenom, 'droit1' => $res));
+                $req4->execute(array('identifiant1' => $identifiant, 'droit1' => $res));
             }
 
 
-                return $req;
+                return $req1;
         }
 
         public function addPilote($nom, $prenom, $ville, $identifiant, $mdp, $promotion)
