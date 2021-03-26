@@ -31,12 +31,12 @@
                                 }
                             ?>
                             <div class="col container-fluid">
-                                <div class="row justify-content-center">
+                                <div class="row justify-content-center littleMarge">
                                     <div class="col-auto">
                                         <h1>Gestion Délegué</h1>
                                     </div>
                                 </div>
-                                <div class="row justify-content-center">
+                                <div class="row justify-content-center littleMarge">
                                     <div class="col-auto align-self-center">
                                         <label for="nom_del">Nom : </label>
                                         <input type="text" name="nom_del" id="nom_del" value="<?php if (isset($_POST['rechercher_del']) && $donnee){echo $donnee['nom_Delegue'];}?>">
@@ -51,7 +51,7 @@
                                         <input type="text" name="mdp_del" id="mdp_del">
                                     </div>
                                 </div>
-                                <div class="row justify-content-center">
+                                <div class="row justify-content-center littleMarge">
                                     <div class="col-auto align-self-center">
                                         <label for="ville_del">Centre : </label>
                                         <input type="text" id="ville_del" value="<?php if (isset($_POST['rechercher_del']) && $donnee){echo $donnee['nom_localisation'];}?>">
@@ -61,18 +61,91 @@
                                         <input type="text" name="confmdp_del" id="confmdp_del">
                                     </div>
                                 </div>
-                                <div class="row justify-content-between">
-                                    <div class="col-auto">
-                                        <!--droit-->
+                                <div class="row justify-content-center littleMarge">
+                                    <div class="col-auto align-self-center">
+                                        <label for="ges_entre">Gestion des entreprises :</label>
                                     </div>
-                                    <div class="col-auto">
-                                        <!--droit-->
+                                    <div class="col-auto align-self-center">
+                                        <select name="ges_droit" id="ges_entre" multiple  size="7">
+                                            <option value="" selected>Aucun</option>
+                                            <option value="01,">Rechercher une entreprise</option>
+                                            <option value="02,">Créer une entreprise</option>
+                                            <option value="03,">Modifier une entreprise</option>
+                                            <option value="04,">Evaluer une entreprise</option>
+                                            <option value="05,">Supprimer une entreprise</option>
+                                            <option value="06,">Consulter les stats des entreprises</option>
+                                        </select>
                                     </div>
-                                    <div class="col-auto">
-                                        <!--droit-->
+                                    <div class="col-auto align-self-center">
+                                        <label for="ges_offre">Gestion des offres de stages :</label>
                                     </div>
-                                    <div class="col-auto">
-                                        <!--droit-->
+                                    <div class="col-auto align-self-center">
+                                        <select name="ges_droit" id="ges_offre" multiple  size="6">
+                                            <option value="" selected>Aucun</option>
+                                            <option value="07,">Rechercher une offre</option>
+                                            <option value="08,">Créer une offre</option>
+                                            <option value="09,">Modifier une offre</option>
+                                            <option value="10,">Supprimer une offre</option>
+                                            <option value="11,">Consulter les stats des offre</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center littleMarge">
+                                    <div class="col-auto align-self-center">
+                                        <label for="ges_pil">Gestion des pilotes :</label>
+                                    </div>
+                                    <div class="col-auto align-self-center">
+                                        <select name="ges_droit" id="ges_pil" multiple size="5">
+                                            <option value="" selected>Aucun</option>
+                                            <option value="12,">Rechercher un compte pilote</option>
+                                            <option value="13,">Créer un compte pilote</option>
+                                            <option value="14,">Modifier un compte pilote</option>
+                                            <option value="15,">Supprimer un compte pilote</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-auto align-self-center">
+                                        <label for="ges_del">Gestion des délégués :</label>
+                                    </div>
+                                    <div class="col-auto align-self-center">
+                                        <select name="ges_droit" id="ges_del" multiple size="5">
+                                            <option value="" selected>Aucun</option>
+                                            <option value="16,">Rechercher un compte délégué</option>
+                                            <option value="19,">Créer un compte délégué</option>
+                                            <option value="20,">Modifier un compte délégué</option>
+                                            <option value="21,">Supprimer un compte délégué</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center littleMarge">
+                                    <div class="col-auto align-self-center">
+                                        <label for="ges_etu">Gestion des étudiants :</label>
+                                    </div>
+                                    <div class="col-auto align-self-center">
+                                        <select name="ges_droit" id="ges_etu" multiple  size="6">
+                                            <option value="" selected>Aucun</option>
+                                            <option value="22,">Rechercher un compte étudiant</option>
+                                            <option value="23,">Créer un compte étudiant</option>
+                                            <option value="24,">Modifier un compte étudiant</option>
+                                            <option value="25,">Supprimer un compte étudiant</option>
+                                            <option value="26,">Consulter les stats des étudiants</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-auto align-self-center">
+                                        <label for="ges_can">Gestion des candidatures :</label>
+                                    </div>
+                                    <div class="col-auto align-self-center">
+                                        <select name="ges_droit" id="ges_can" multiple  size="10">
+                                            <option value="" selected>Aucun</option>
+                                            <option value="27,">Ajouter une offre à la wish-list</option>
+                                            <option value="28,">Retirer une offre à la wish-list</option>
+                                            <option value="29,">Postuler à une offre</option>
+                                            <option value="30,">Informer le système de l'avancement de la candidature step 1</option>
+                                            <option value="31,">Informer le système de l'avancement de la candidature step 2</option>
+                                            <option value="32,">Informer le système de l'avancement de la candidature step 3</option>
+                                            <option value="33,">Informer le système de l'avancement de la candidature step 4</option>
+                                            <option value="34,">Informer le système de l'avancement de la candidature step 5</option>
+                                            <option value="35,">Informer le système de l'avancement de la candidature step 6</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center littleMarge">
