@@ -62,7 +62,6 @@
             $prenom = $_POST['prenom_del'];
             $delegue = $PDManager->getDelegue($nom, $prenom);
         }
-
         if (isset($_POST['creer_del'])&& isset($_POST['nom_del']) && isset($_POST['prenom_del']) && isset($_POST['ville_del']) && isset($_POST['mdp_del'])&& isset($_POST['confmdp_del']) && $_POST['mdp_del'] == $_POST['confmdp_del']) {
             $nom = $_POST['nom_del'];
             $prenom = $_POST['prenom_del'];
