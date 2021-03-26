@@ -17,7 +17,7 @@
             <?php  
                 $obj->assign('con', $_COOKIE['userName']);
                 $obj->assign('id', '');
-                //$obj->display('./public/tpl/header.tpl');
+                $obj->display('./public/tpl/header.tpl');
             ?>
 <!--===============main================== -->
             <main class="row  justify-content-center marge">
