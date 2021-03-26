@@ -41,6 +41,13 @@
         if (isset($_POST['buttonConnect'])){
             $connectStatus = connectUser($_POST['userName'], $_POST['password']);
         }
+
+        if (isset($_POST['exit'])){
+            foreach($_COOKIE as $cookie_name => $cookie_value){
+                unset($_COOKIE[$cookie_name]);
+                setcookie($cookie_name, '', time() - 4200, '/');
+             }
+        }
         
         
         require_once('./view/listOffreView.php');
@@ -54,6 +61,30 @@
             $nom = $_POST['nom_del'];
             $prenom = $_POST['prenom_del'];
             $delegue = $PDManager->getDelegue($nom, $prenom);
+        }
+
+        if (isset($_POST['creer_del'])&& isset($_POST['nom_del']) && isset($_POST['prenom_del']) && isset($_POST['ville_del']) && isset($_POST['mdp_del'])&& isset($_POST['confmdp_del']) && $_POST['mdp_del'] == $_POST['confmdp_del']) {
+            $nom = $_POST['nom_del'];
+            $prenom = $_POST['prenom_del'];
+            $ville = $_POST['ville_del'];
+            $identifiant =  $_POST['nom_del'] . "." . $_POST['prenom_del'];
+            $mdp = password_hash($_POST['mdp_del'], PASSWORD_DEFAULT);
+
+            $i = 0;
+            if (isset($_POST['ges_droit'])){
+                foreach($_POST['ges_droit'] as $selected){
+                    if($i==0){
+                        $droit = $selected;
+                    }
+                    else{
+                        $droit = $droit . $selected;
+                    }
+                    $i++;
+                }
+            }
+            echo "droit : ";
+            echo $droit;
+            $delegue = $PDManager->addDelegue($nom, $prenom, $ville, $identifiant, $mdp, $droit);
         }
 
         if (isset($_POST['rechercher_pil'])) {
@@ -84,6 +115,7 @@
 
             $pilote = $PDManager->addPilote($nom, $prenom, $ville, $identifiant, $mdp, $promotion);
         }
+
         require_once('./view/PDview.php');
     }
 

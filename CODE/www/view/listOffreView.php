@@ -270,5 +270,6 @@
                 $obj->display('../public/tpl/footer.tpl');
                 $obj->display('../public/tpl/script.tpl');
             ?>
+            
         </body>
     </html>
