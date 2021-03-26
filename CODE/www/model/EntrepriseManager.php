@@ -5,7 +5,7 @@
     {
         public function getAllville(){
             $db = $this->dbConnect();
-            $req = $db->query('SELECT DISTINCT nom_Localisation FROM Localisation');
+            $req = $db->query('SELECT DISTINCT nom_Localisation FROM localisation INNER JOIN entreprise ON localisation.ID_Localisation = entreprise.ID_Localisation');
             return $req;
         }
         public function getAllSecteurAct(){
