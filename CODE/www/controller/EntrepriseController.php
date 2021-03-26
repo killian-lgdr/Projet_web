@@ -24,13 +24,12 @@ function listEntreprise(){
         $sEntreprise = $_POST['nameEntreprise'];
         $supprEnt = $entrepriseManager->supprimerEntreprise($sEntreprise);
     }
-
+    $rechercheResultat = NULL;
     if(isset($_POST['rechercher_ent'])&& isset($_POST['nameEntreprise']))
-    {
-        
+    { 
         $rEntreprise = $_POST['nameEntreprise'];
         $rechercheEnt = $entrepriseManager->rechercherEntreprise($rEntreprise);
-        echo $rechercheEnt;
+        $rechercheResultat = $rechercheEnt->fetch(PDO::FETCH_LAZY);
     }
     
     function createTabNote($note){
@@ -58,6 +57,7 @@ function listEntreprise(){
         $nomVille = verif("ville");
         $nomSecteur = verif("secteur");
         $entreprise = $entrepriseManager->getEntreprise($nomEntreprise, $nomVille, $nomSecteur);
+
     }
 
     if(isset($_POST['modifier_ent'])&& isset($_POST['nameEntreprise'])&& isset($_POST['nameSecteur'])&& isset($_POST['nameVille'])&& isset($_POST['nameNbStage']))
