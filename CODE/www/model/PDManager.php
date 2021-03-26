@@ -5,8 +5,8 @@
         public function getDelegue($nom, $prenom)
         {
                 $db = $this->dbConnect();
-                $req = $db->prepare('SELECT nom_Delegue, prenom_Delegue, localisation.nom_localisation from delegue inner join localisation on delegue.ID_Localisation = localisation.ID_localisation where delegue.nom_Delegue = :nom AND delegue.prenom_Delegue = :prenom ;');
-                $req->execute(array('nomdelegue' => $nom, 'prenomdelegue' => $prenom));
+                $req = $db->prepare('SELECT nom_Delegue, prenom_Delegue, localisation.nom_localisation from delegue inner join localisation on delegue.ID_Localisation = localisation.ID_localisation where delegue.nom_Delegue = :nom1 AND delegue.prenom_Delegue = :prenom1 ;');
+                $req->execute(array('nom1' => $nom, 'prenom1' => $prenom));
                 return $req;
         }
         public function getPilote($nom, $prenom)
@@ -17,7 +17,7 @@
                 return $req;
         } 
         
-        public function addDelegue($nom, $prenom, $ville, $identifiant, $mdp)
+        public function addDelegue($nom, $prenom, $ville, $identifiant, $mdp, $droit)
         {
             $db = $this->dbConnect();
                 $req = $db->prepare('');

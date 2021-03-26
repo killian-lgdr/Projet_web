@@ -82,6 +82,7 @@
                     $i++;
                 }
             }
+            echo "droit : ";
             echo $droit;
             $delegue = $PDManager->addDelegue($nom, $prenom, $ville, $identifiant, $mdp, $droit);
         }
