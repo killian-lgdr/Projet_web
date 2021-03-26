@@ -57,7 +57,7 @@ function listOffre(){
         $_POST['nameGestion'] != null && $_POST['domaineGestion'] != null && $_POST['dureeGestion'] != null && $_POST['adresseGestion'] != null && $_POST['entrepriseGestion'] != null && $_POST['salaireGestion'] != null && $_POST['nivEtudesGestion'] != null && $_POST['dateGestion'] != null && $_POST['placesGestion'] != null){
 
             $OffreManager->createOffre($_POST['nameGestion'], $_POST['domaineGestion'], $_POST['dureeGestion'], $_POST['adresseGestion'], $_POST['salaireGestion'], $_POST['nivEtudesGestion'], $_POST['dateGestion'], $_POST['placesGestion'], $_POST['entrepriseGestion']);
-            $infoGestion = 'L\'offre est en ligne !';
+            $infoGestion = 'Cette offre est en ligne !';
           }
         else{
             $infoGestion = 'Veuillez compléter tout les champs';

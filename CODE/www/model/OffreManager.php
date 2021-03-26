@@ -77,7 +77,7 @@
                                 (SELECT ID_Localisation FROM localisation WHERE localisation.nom_Localisation = :adresse),
                                 (SELECT ID_Entreprise FROM entreprise WHERE entreprise.nom_Entreprise = :entreprise),
                                 (SELECT ID_NiveauEtudes FROM niveauetudes WHERE niveauetudes.promotion = :nivetudes)
-                                WHERE NOT EXISTS (select nom_Offre FROM offre where offre.nom_Offre = :offre1");
+                                WHERE NOT EXISTS (select nom_Offre FROM offre where offre.nom_Offre = :offre1)");
 
             $req->execute(array('offre'=>$offre,
                                 'duree'=>$duree,
