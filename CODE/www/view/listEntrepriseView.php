@@ -96,8 +96,10 @@
                 <!-- fin resultats -->
 
                 <!-- Création des entreprises -->
-<div class="container littleMarge brd">
-<form action="?action=listEntrepriseView" method="post">
+        <div class="container">
+        <div class="brd">
+        <h1 class="text-center">GESTION DES ENTREPRISES</h1>
+        <form action="?action=listEntrepriseView" method="post">
                 <div class="row justify-content-center">
                 <div class="col-auto">
                 <label for="Entreprise">Nom de l'entreprise : </label>
@@ -119,7 +121,7 @@
                 <input type="text" id="nbStage" name="nbStage" placeholder="Nombre de stagiaire CESI" >
                 </div>
                 </div>
-                <div class="row justify-content-center">
+                <div class="row justify-content-center littleMarge">
                 <div class="col-auto">
                 <input type="submit" name="creer_ent" value="Créer" ></input>
                 </div>
@@ -130,11 +132,12 @@
                 <input type="submit" name="supprimer_ent" value="supprimer" ></input>
                 </div>
                 </div>
-</form>
-</div>
+        </form>
+        </div>
+        </div>
 </main>
-                <?php $obj->display('../public/tpl/footer.tpl');
-                $obj->display('../public/tpl/script.tpl'); ?>
+        <?php $obj->display('../public/tpl/footer.tpl');
+        $obj->display('../public/tpl/script.tpl'); ?>
 </div>
 
 <script> 
