@@ -56,6 +56,9 @@
 
                 <?php $obj->display('./public/tpl/carroussel.tpl') ?>
 
+            <?php
+                if (isset($_COOKIE['droits']) && substr_count($_COOKIE['droits'], 'Rechercher une offre') == 1){
+            ?>
                 <!-- debut recherche d'une offre -->
                 <form action="index.php" method="post">
                 <div class="row">
@@ -263,6 +266,9 @@
                 </div>
                 </div>
                 <!-- fin resultats -->
+                <?php
+                    }
+                ?>
                 </div>
             </main>
 
