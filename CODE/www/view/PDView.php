@@ -68,12 +68,12 @@
                                     <div class="col-auto align-self-center">
                                         <select name="ges_droit" id="ges_entre" multiple  size="7">
                                             <option value="" selected>Aucun</option>
-                                            <option value="01,">Rechercher une entreprise</option>
-                                            <option value="02,">Créer une entreprise</option>
-                                            <option value="03,">Modifier une entreprise</option>
-                                            <option value="04,">Evaluer une entreprise</option>
-                                            <option value="05,">Supprimer une entreprise</option>
-                                            <option value="06,">Consulter les stats des entreprises</option>
+                                            <option value="01," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"01")){echo "selected";}?>>Rechercher une entreprise</option>
+                                            <option value="02," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"02")){echo "selected";}?>>Créer une entreprise</option>
+                                            <option value="03," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"03")){echo "selected";}?>>Modifier une entreprise</option>
+                                            <option value="04," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"04")){echo "selected";}?>>Evaluer une entreprise</option>
+                                            <option value="05," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"05")){echo "selected";}?>>Supprimer une entreprise</option>
+                                            <option value="06," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"06")){echo "selected";}?>>Consulter les stats des entreprises</option>
                                         </select>
                                     </div>
                                     <div class="col-auto align-self-center">
@@ -82,11 +82,11 @@
                                     <div class="col-auto align-self-center">
                                         <select name="ges_droit" id="ges_offre" multiple  size="6">
                                             <option value="" selected>Aucun</option>
-                                            <option value="07,">Rechercher une offre</option>
-                                            <option value="08,">Créer une offre</option>
-                                            <option value="09,">Modifier une offre</option>
-                                            <option value="10,">Supprimer une offre</option>
-                                            <option value="11,">Consulter les stats des offre</option>
+                                            <option value="07," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"07")){echo "selected";}?>>Rechercher une offre</option>
+                                            <option value="08," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"08")){echo "selected";}?>>Créer une offre</option>
+                                            <option value="09," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"09")){echo "selected";}?>>Modifier une offre</option>
+                                            <option value="10," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"10")){echo "selected";}?>>Supprimer une offre</option>
+                                            <option value="11," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"11")){echo "selected";}?>>Consulter les stats des offre</option>
                                         </select>
                                     </div>
                                 </div>
@@ -97,10 +97,10 @@
                                     <div class="col-auto align-self-center">
                                         <select name="ges_droit" id="ges_pil" multiple size="5">
                                             <option value="" selected>Aucun</option>
-                                            <option value="12,">Rechercher un compte pilote</option>
-                                            <option value="13,">Créer un compte pilote</option>
-                                            <option value="14,">Modifier un compte pilote</option>
-                                            <option value="15,">Supprimer un compte pilote</option>
+                                            <option value="12," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"12")){echo "selected";}?>>Rechercher un compte pilote</option>
+                                            <option value="13," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"13")){echo "selected";}?>>Créer un compte pilote</option>
+                                            <option value="14," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"14")){echo "selected";}?>>Modifier un compte pilote</option>
+                                            <option value="15," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"15")){echo "selected";}?>>Supprimer un compte pilote</option>
                                         </select>
                                     </div>
                                     <div class="col-auto align-self-center">
@@ -109,10 +109,10 @@
                                     <div class="col-auto align-self-center">
                                         <select name="ges_droit" id="ges_del" multiple size="5">
                                             <option value="" selected>Aucun</option>
-                                            <option value="16,">Rechercher un compte délégué</option>
-                                            <option value="19,">Créer un compte délégué</option>
-                                            <option value="20,">Modifier un compte délégué</option>
-                                            <option value="21,">Supprimer un compte délégué</option>
+                                            <option value="16," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"16")){echo "selected";}?>>Rechercher un compte délégué</option>
+                                            <option value="17," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"17")){echo "selected";}?>>Créer un compte délégué</option>
+                                            <option value="18," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"18")){echo "selected";}?>>Modifier un compte délégué</option>
+                                            <option value="19," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"19")){echo "selected";}?>>Supprimer un compte délégué</option>
                                         </select>
                                     </div>
                                 </div>
@@ -123,11 +123,11 @@
                                     <div class="col-auto align-self-center">
                                         <select name="ges_droit" id="ges_etu" multiple  size="6">
                                             <option value="" selected>Aucun</option>
-                                            <option value="22,">Rechercher un compte étudiant</option>
-                                            <option value="23,">Créer un compte étudiant</option>
-                                            <option value="24,">Modifier un compte étudiant</option>
-                                            <option value="25,">Supprimer un compte étudiant</option>
-                                            <option value="26,">Consulter les stats des étudiants</option>
+                                            <option value="20," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"20")){echo "selected";}?>>Rechercher un compte étudiant</option>
+                                            <option value="21," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"21")){echo "selected";}?>>Créer un compte étudiant</option>
+                                            <option value="22," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"22")){echo "selected";}?>>Modifier un compte étudiant</option>
+                                            <option value="23," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"23")){echo "selected";}?>>Supprimer un compte étudiant</option>
+                                            <option value="24," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"24")){echo "selected";}?>>Consulter les stats des étudiants</option>
                                         </select>
                                     </div>
                                     <div class="col-auto align-self-center">
@@ -136,15 +136,15 @@
                                     <div class="col-auto align-self-center">
                                         <select name="ges_droit" id="ges_can" multiple  size="10">
                                             <option value="" selected>Aucun</option>
-                                            <option value="27,">Ajouter une offre à la wish-list</option>
-                                            <option value="28,">Retirer une offre à la wish-list</option>
-                                            <option value="29,">Postuler à une offre</option>
-                                            <option value="30,">Informer le système de l'avancement de la candidature step 1</option>
-                                            <option value="31,">Informer le système de l'avancement de la candidature step 2</option>
-                                            <option value="32,">Informer le système de l'avancement de la candidature step 3</option>
-                                            <option value="33,">Informer le système de l'avancement de la candidature step 4</option>
-                                            <option value="34,">Informer le système de l'avancement de la candidature step 5</option>
-                                            <option value="35,">Informer le système de l'avancement de la candidature step 6</option>
+                                            <option value="25," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"25")){echo "selected";}?>>Ajouter une offre à la wish-list</option>
+                                            <option value="26," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"26")){echo "selected";}?>>Retirer une offre à la wish-list</option>
+                                            <option value="27," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"27")){echo "selected";}?>>Postuler à une offre</option>
+                                            <option value="28," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"28")){echo "selected";}?>>Informer le système de l'avancement de la candidature step 1</option>
+                                            <option value="29," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"29")){echo "selected";}?>>Informer le système de l'avancement de la candidature step 2</option>
+                                            <option value="30," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"30")){echo "selected";}?>>Informer le système de l'avancement de la candidature step 3</option>
+                                            <option value="31," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"31")){echo "selected";}?>>Informer le système de l'avancement de la candidature step 4</option>
+                                            <option value="32," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"32")){echo "selected";}?>>Informer le système de l'avancement de la candidature step 5</option>
+                                            <option value="33," <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['ges_droit'],"33")){echo "selected";}?>>Informer le système de l'avancement de la candidature step 6</option>
                                         </select>
                                     </div>
                                 </div>
