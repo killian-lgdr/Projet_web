@@ -1,5 +1,7 @@
 <?php
-    require_once("./controller/controller.php");
+    require_once("./controller/OffreController.php");
+    require_once("./controller/PDController.php");
+    require_once("./controller/EntrepriseController.php");
 
     if (isset($_GET['action']) && isset($_COOKIE['droits'])) {
         switch ($_GET['action']){
