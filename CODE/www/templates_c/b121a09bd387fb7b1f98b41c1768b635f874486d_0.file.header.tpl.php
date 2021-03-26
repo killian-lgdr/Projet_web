@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-26 09:30:26
+/* Smarty version 3.1.39, created on 2021-03-26 10:19:42
   from 'C:\Users\33610\Desktop\CESI\Cours CESI\A2\4. Web\Projet\Projet Git\Projet_web\CODE\www\public\tpl\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_605d9ba238abd8_23267565',
+  'unifunc' => 'content_605da72e7817f8_72722705',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b121a09bd387fb7b1f98b41c1768b635f874486d' => 
     array (
       0 => 'C:\\Users\\33610\\Desktop\\CESI\\Cours CESI\\A2\\4. Web\\Projet\\Projet Git\\Projet_web\\CODE\\www\\public\\tpl\\header.tpl',
-      1 => 1616746577,
+      1 => 1616750301,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605d9ba238abd8_23267565 (Smarty_Internal_Template $_smarty_tpl) {
+function content_605da72e7817f8_72722705 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <header class="row">
       <div class="col">
           <div id="navbar" class="container-fluid brd">
@@ -39,7 +39,7 @@ function content_605d9ba238abd8_23267565 (Smarty_Internal_Template $_smarty_tpl)
 </a>
                 </div>
                 <div class="col-1 align-self-center">
-                    <a href=""><i id="logo" class="fas fa-sign-out-alt"></i></a>
+                    <form method="post" action="index.php"><input type="submit" value="exit" name="exit"></form>
                 </div>
             </div>
           </div>
