@@ -52,7 +52,7 @@
             $req1->execute(array('ville1' => $ville, 'ville2' => $ville));
 
             $req = $db->prepare("Insert into entreprise(nom_Entreprise, secteurActivité, nbStagiaireCesi, ID_Localisation) SELECT :entreprise, :secteur, :nbStage, (SELECT ID_Localisation FROM localisation WHERE localisation.nom_Localisation = :ville) 
-                                WHERE NOT EXISTS (select nom_Entreprise FROM entreprise where entreprise.nom_entreprise = :entreprise1");
+                                WHERE NOT EXISTS (select nom_Entreprise FROM entreprise where entreprise.nom_Entreprise = :entreprise1)");
             $req->execute(array('entreprise'=>$entreprise,
                                 'secteur'=>$secteur,
                                 'nbStage'=>$nbstage,
@@ -62,8 +62,28 @@
         public function rechercherEntreprise($entreprise){
 
             $db = $this->dbConnect();
-            $req1 = $db->prepare("SELECT nom_Entreprise, secteurActivité, nbStagiaireCesi, localisation.nom_Localisation FROM entreprise INNER JOIN localisation ON entreprise.ID_Localisation = localisation.ID_Localisation WHERE nom_Entreprise=:entreprise;");
+            $req1 = $db->prepare("SELECT nom_Entreprise, secteurActivité, nbStagiaireCesi, localisation.nom_Localisation FROM entreprise INNER JOIN localisation ON entreprise.ID_Localisation = localisation.ID_Localisation WHERE nom_Entreprise = :entreprise ");
             $req1->execute(array('entreprise' => $entreprise));
+
+        }
+        public function supprimerEntreprise($entreprise){
+
+            $db = $this->dbConnect();
+            $req1 = $db->prepare("DELETE FROM `entreprise` WHERE `entreprise`.`nom_Entreprise` = :entreprise");
+            $req1->execute(array('entreprise' => $entreprise));
+
+        }
+        public function modifierEntreprise($entreprise, $ville, $secteur, $nbStage){
+
+            $db = $this->dbConnect();
+            $req1 = $db->prepare("Insert into localisation (nom_Localisation) Select :ville1 where not exists(SELECT nom_Localisation from localisation where nom_Localisation = :ville2 )");
+            $req1->execute(array('ville1' => $ville, 
+                                'ville2' => $ville));
+            $req = $db->prepare("UPDATE entreprise SET secteurActivité=:secteur,nbStagiaireCesi=:nbStage,ID_Localisation=(SELECT ID_Localisation FROM localisation WHERE nom_Localisation = :ville3) WHERE nom_Entreprise=:entreprise");
+            $req->execute(array('entreprise'=>$entreprise,
+                                'secteur'=>$secteur,
+                                'nbStage'=>$nbStage,
+                                ':ville3'=>$ville));
 
         }
     }
