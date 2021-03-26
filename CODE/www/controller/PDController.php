@@ -70,7 +70,7 @@ function listPD(){
             for ($i=$debut; $i<=$fin  ; $i++) { 
                 if(substr_count($var['ges_droit'],$i) !=0){
                     return "";
-                    break
+                    break;
                 }
                 if ($i == $fin && substr_count($var['ges_droit'],$i) ==0) {
                     return "selected";

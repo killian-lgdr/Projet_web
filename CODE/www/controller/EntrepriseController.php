@@ -30,7 +30,6 @@ function listEntreprise(){
         
         $rEntreprise = $_POST['nameEntreprise'];
         $rechercheEnt = $entrepriseManager->rechercherEntreprise($rEntreprise);
-        echo $rechercheEnt;
     }
     
     function createTabNote($note){
@@ -58,6 +57,7 @@ function listEntreprise(){
         $nomVille = verif("ville");
         $nomSecteur = verif("secteur");
         $entreprise = $entrepriseManager->getEntreprise($nomEntreprise, $nomVille, $nomSecteur);
+
     }
 
     if(isset($_POST['modifier_ent'])&& isset($_POST['nameEntreprise'])&& isset($_POST['nameSecteur'])&& isset($_POST['nameVille'])&& isset($_POST['nameNbStage']))

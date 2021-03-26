@@ -108,22 +108,22 @@
                 ?>
                 <div class="col-auto">
                 <label for="Entreprise">Nom de l'entreprise : </label>
-                <input type="text" id="entreprise" name="nameEntreprise" placeholder="Nom de l'entreprise" value="<?php if (isset($_POST['rechercher_ent']) && $donnee){echo $donnee['nom_Entreprise'];}?>">
+                <input type="text" id="entreprise" name="nameEntreprise" placeholder="Nom de l'entreprise" value="<?php if(isset($_POST['rechercher_ent']) && $donnee){echo $donnee['nom_Entreprise'];}?>">
                 <input type="submit" name="rechercher_ent" value="Remplir" ></input>
                 </div>
                 <div class="col-auto">
                 <label for="secteur">Secteur d'activité : </label>
-                <input type="text" id="secteur" name="nameSecteur" placeholder="Secteur d'activité" value="<?php if (isset($_POST['rechercher_ent']) && $donnee){echo $donnee['secteurActivité'];}?>">
+                <input type="text" id="secteur" name="nameSecteur" placeholder="Secteur d'activité" value="<?php if(isset($_POST['rechercher_ent']) && $donnee){echo $donnee['secteurActivité'];}?>">
                 </div>
                 </div>
                 <div class="row justify-content-center">
                 <div class="col-auto">
                 <label for="ville">Localisation : </label>
-                <input type="text" id="ville" name="nameVille" placeholder="Localisation" value="<?php if (isset($_POST['rechercher_ent']) && $donnee){echo $donnee['nom_Localisation'];}?>">
+                <input type="text" id="ville" name="nameVille" placeholder="Localisation" value="<?php if(isset($_POST['rechercher_ent']) && $donnee){echo $donnee['nom_Localisation'];}?>">
                 </div>
                 <div class="col-auto">
                 <label for="nbstage">Nombre de stagiaire CESI : </label>
-                <input type="text" id="nbStage" name="nameNbStage" placeholder="Nombre de stagiaire CESI" value="<?php if (isset($_POST['rechercher_ent']) && $donnee){echo $donnee['nbStagiaireCesi'];}?>">
+                <input type="text" id="nbStage" name="nameNbStage" placeholder="Nombre de stagiaire CESI" value="<?php if(isset($_POST['rechercher_ent']) && $donnee){echo $donnee['nbStagiaireCesi'];}?>">
                 </div>
                 </div>
                 <div class="row justify-content-center littleMarge">
