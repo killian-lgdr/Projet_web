@@ -64,6 +64,16 @@ function listOffre(){
         }
     }
     
+    if (isset($_POST['supprimerGestion'])){
+        if (isset($_POST['nameGestion']) && $_POST['nameGestion'] != null){
+            $OffreManager->deleteOffre($_POST['nameGestion']);
+            $infoGestion = 'Offre supprimée!';
+        }
+        else{
+            $infoGestion = 'Veuillez choisir une Offre';
+        }
+    }
+    
     
     require_once('./view/listOffreView.php');
 }

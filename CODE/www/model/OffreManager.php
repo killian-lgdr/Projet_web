@@ -97,5 +97,15 @@
                                 (SELECT ID_Competence from competence where nom_Competence = :domaine))');
             $req3->execute(array('offre'=>$offre, 'domaine'=>$domaine));
         }
+
+        public function deleteOffre($offre){
+            $db = $this->dbConnect();
+
+            $req = $db->prepare('DELETE FROM requiert WHERE ID_Offre = (SELECT ID_Offre FROM offre WHERE nom_Offre = :offre)');
+            $req->execute(array('offre' => $offre));
+
+            $req1 = $db->prepare('DELETE FROM offre WHERE nom_Offre = :offre');
+            $req1->execute(array('offre' => $offre));
+        }
     }
 ?>
