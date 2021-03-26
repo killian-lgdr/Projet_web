@@ -1,7 +1,7 @@
 <?php
     require_once("./controller/controller.php");
 
-    if (isset($_GET['action'])) {
+    if (isset($_GET['action']) && isset($_COOKIE['droits'])) {
         switch ($_GET['action']){
             case 'PDView':
                 listPD();
