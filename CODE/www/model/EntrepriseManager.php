@@ -5,7 +5,7 @@
     {
         public function getAllville(){
             $db = $this->dbConnect();
-            $req = $db->query('SELECT DISTINCT nom_Localisation FROM Localisation');
+            $req = $db->query('SELECT DISTINCT nom_Localisation FROM localisation INNER JOIN entreprise ON localisation.ID_Localisation = entreprise.ID_Localisation');
             return $req;
         }
         public function getAllSecteurAct(){
@@ -64,14 +64,21 @@
             $db = $this->dbConnect();
             $req1 = $db->prepare("SELECT nom_Entreprise, secteurActivité, nbStagiaireCesi, localisation.nom_Localisation FROM entreprise INNER JOIN localisation ON entreprise.ID_Localisation = localisation.ID_Localisation WHERE nom_Entreprise = :entreprise ");
             $req1->execute(array('entreprise' => $entreprise));
-
+            return $req1;
         }
         public function supprimerEntreprise($entreprise){
 
             $db = $this->dbConnect();
-            $req1 = $db->prepare("DELETE FROM `entreprise` WHERE `entreprise`.`nom_Entreprise` = :entreprise");
+            $req = $db->prepare("DELETE FROM requiert WHERE ID_Offre = (Select offre.ID_Offre From offre WHERE ID_entreprise = (SELECT entreprise.ID_entreprise from entreprise where nom_entreprise = :entreprise))");
+            $req->execute(array('entreprise' => $entreprise));
+            $req1 = $db->prepare("DELETE FROM offre Where ID_Entreprise = (SELECT entreprise.ID_Entreprise from entreprise WHERE nom_Entreprise = :entreprise)");
             $req1->execute(array('entreprise' => $entreprise));
-
+            $req2 = $db->prepare("DELETE FROM possedenotepilote WHERE ID_Entreprise = (SELECT entreprise.ID_Entreprise from entreprise WHERE nom_Entreprise = :entreprise)");
+            $req2->execute(array('entreprise' => $entreprise));
+            $req3 = $db->prepare("DELETE FROM possedenoteetudiant WHERE ID_Entreprise = (SELECT entreprise.ID_Entreprise from entreprise WHERE nom_Entreprise = :entreprise)");
+            $req3->execute(array('entreprise' => $entreprise));
+            $req4 = $db->prepare("DELETE FROM entreprise WHERE entreprise.nom_Entreprise = :entreprise");
+            $req4->execute(array('entreprise' => $entreprise));
         }
         public function modifierEntreprise($entreprise, $ville, $secteur, $nbStage){
 
@@ -84,7 +91,6 @@
                                 'secteur'=>$secteur,
                                 'nbStage'=>$nbStage,
                                 ':ville3'=>$ville));
-
         }
     }
 ?>
