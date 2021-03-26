@@ -45,5 +45,20 @@
                                 ));
             return $req;
         }
+        public function createEntreprise($ville, $entreprise, $secteur, $nbstage){
+
+            $db = $this->dbConnect();
+            $req1 = $db->prepare("Insert into localisation (nom_Localisation) Select :ville1 where not exists(SELECT nom_Localisation from localisation where nom_Localisation = :ville2 ) ;");
+            $req1->execute(array('ville1' => $ville, 'ville2' => $ville));
+
+            $req = $db->prepare("Insert into entreprise(nom_Entreprise, secteurActivité, nbStagiaireCesi, ID_Localisation) SELECT :entreprise, :secteur, :nbStage, (SELECT ID_Localisation FROM localisation WHERE localisation.nom_Localisation = :ville) 
+                                WHERE NOT EXISTS (select nom_Entreprise FROM entreprise where entreprise.nom_entreprise = :entreprise1");
+            $req->execute(array('entreprise'=>$entreprise,
+                                'secteur'=>$secteur,
+                                'nbStage'=>$nbstage,
+                                ':ville'=>$ville,
+                                'entreprise1'=>$entreprise));
+        }
     }
 ?>
+
