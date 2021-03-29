@@ -13,7 +13,7 @@
                 listEntreprise();
                 break;
             case 'EtuView':
-                listEntreprise();
+                listEtu();
                 break;
         }
     }
