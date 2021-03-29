@@ -159,11 +159,6 @@
                     </form>
                     <form action="?action=PDView" method="post">
                         <div class="row justify-content-center littleMarge brd">
-
-
-                                    
-
-
                             <div class="col container-fluid">
                                 <div class="row justify-content-center">
                                     <div class="col-auto">
