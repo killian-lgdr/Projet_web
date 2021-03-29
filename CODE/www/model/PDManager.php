@@ -5,8 +5,9 @@
         public function getDelegue($nom, $prenom)
         {
                 $db = $this->dbConnect();
-                $req = $db->prepare('SELECT nom_Delegue, prenom_Delegue, localisation.nom_localisation, GROUP_CONCAT(attribue.ID_droits SEPARATOR \',\') as ges_droit from delegue inner join localisation on delegue.ID_Localisation = localisation.ID_localisation inner join identifiants on delegue.ID_Identifiant = identifiants.ID_Identifiant inner join attribue on identifiants.ID_Identifiant = attribue.ID_Identifiant where delegue.nom_Delegue = :nom1 AND delegue.prenom_Delegue = :prenom1 ; ');
+                $req = $db->prepare('SELECT nom_Delegue, prenom_Delegue, localisation.nom_localisation, GROUP_CONCAT(CONCAT(\'0\',attribue.ID_droits) SEPARATOR \',\') as ges_droit from delegue inner join localisation on delegue.ID_Localisation = localisation.ID_localisation inner join identifiants on delegue.ID_Identifiant = identifiants.ID_Identifiant inner join attribue on identifiants.ID_Identifiant = attribue.ID_Identifiant where delegue.nom_Delegue = :nom1 AND delegue.prenom_Delegue = :prenom1 ;');
                 $req->execute(array('nom1' => $nom, 'prenom1' => $prenom));
+                return $req;
         }
 
         public function addDelegue($nom, $prenom, $ville, $identifiant, $mdp, $droit)
@@ -36,7 +37,7 @@
         {
             $db = $this->dbConnect();
 
-                $req1 = $db->prepare("DELETE FROM attribue WHERE ID_Identifiant = :identifiant1 ;");
+                $req1 = $db->prepare("DELETE FROM attribue WHERE ID_Identifiant = (SELECT identifiants.ID_Identifiant FROM identifiants WHERE nom_Identifiant = :identifiant1) ;");
                 $req1->execute(array('identifiant1' => $identifiant));
         
                 $req2= $db->prepare("DELETE FROM delegue WHERE delegue.nom_Delegue = :nom1 AND Delegue.prenom_Delegue = :prenom1 ;");
