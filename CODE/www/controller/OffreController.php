@@ -73,7 +73,28 @@ function listOffre(){
             $infoGestion = 'Veuillez choisir une Offre';
         }
     }
-    
+    //Affichage Gestion Offre 
+    if(isset($_POST['rechercherGestion']))
+    {
+        $affOffre=$_POST['nameGestion'];
+        $rOffre=$OffreManager->rechercheOffre($affOffre);
+        $resultatOffre=$rOffre->fetch(PDO::FETCH_LAZY);
+    }
+
+    if(isset($_POST['modifierGestion']))
+    {
+        $mville=$_POST['adresseGestion'];
+        $mdomaine=$_POST['domaineGestion'];
+        $moffre=$_POST['nameGestion'];
+        $mduree=$_POST['dureeGestion'];
+        $msalaire=$_POST['salaireGestion'];
+        $mnivetudes=$_POST['nivEtudesGestion'];
+        $mdate=$_POST['dateGestion'];
+        $mplaces=$_POST['placesGestion'];
+        $mentreprise=$_POST['entrepriseGestion'];
+        $mOffre=$OffreManager->updateOffre($mville, $mdomaine, $moffre, $mduree, $msalaire, $mnivetudes, $mdate, $mplaces, $mentreprise);
+
+    }
     
     require_once('./view/listOffreView.php');
 }

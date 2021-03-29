@@ -107,5 +107,37 @@
             $req1 = $db->prepare('DELETE FROM offre WHERE nom_Offre = :offre');
             $req1->execute(array('offre' => $offre));
         }
+
+        public function rechercheOffre($offre)
+        {
+            $db = $this->dbConnect();
+            $req = $db->prepare('SELECT nom_Offre, duree, salaire, nombrePlace, `date`, entreprise.nom_Entreprise, localisation.nom_Localisation, niveauetudes.promotion, competence.nom_Competence 
+                                FROM offre
+                                INNER JOIN localisation ON offre.ID_Localisation = localisation.ID_Localisation
+                                INNER JOIN entreprise ON offre.ID_Entreprise = entreprise.ID_Entreprise
+                                INNER JOIN niveauetudes ON offre.ID_NiveauEtudes = niveauetudes.ID_NiveauEtudes
+                                INNER JOIN requiert ON offre.ID_Offre = requiert.ID_Offre
+                                INNER JOIN competence ON requiert.ID_Competence = competence.ID_Competence
+                                WHERE offre.nom_Offre = :offre');
+            $req->execute(array('offre'=>$offre));
+            return $req;                
+        }
+        public function updateOffre($ville, $domaine, $offre, $duree, $salaire, $nivetudes, $date, $places, $entreprise)
+        {
+            $db = $this->dbConnect();
+            $req = $db->prepare("Insert into localisation (nom_Localisation) Select :ville1 where not exists(SELECT nom_Localisation from localisation where nom_Localisation = :ville2 ) ;");
+            $req->execute(array('ville1' => $ville, 'ville2' => $ville));
+            $req1 = $db->prepare('Insert into competence (nom_Competence) Select :domaine where not exists(SELECT nom_Competence from competence where nom_Competence = :domaine2 ) ;');
+            $req1->execute(array('domaine'=>$domaine, 'domaine2'=>$domaine));
+            $req2 = $db->prepare('DELETE FROM requiert WHERE ID_Offre = (SELECT ID_Offre FROM offre WHERE nom_Offre = :offre)');
+            $req2 ->execute(array('offre' => $offre));
+            $req3 = $db->prepare('INSERT INTO `requiert`(`ID_Offre`, `ID_Competence`) 
+                                VALUES ((SELECT ID_Offre FROM offre WHERE nom_Offre = :offre),
+                                (SELECT ID_Competence from competence where nom_Competence = :domaine))');
+            $req3 ->execute(array('offre'=>$offre, 'domaine'=>$domaine));
+            $req4 = $db->prepare('UPDATE offre SET duree=:duree, salaire=:salaire, `date`=:dateD, nombrePlace=:nbPlace,ID_Localisation=(SELECT ID_Localisation from localisation where nom_Localisation=:ville),ID_Entreprise=(SELECT ID_Entreprise from entreprise where nom_Entreprise=:Entreprise),ID_NiveauEtudes=(SELECT ID_NiveauEtudes from niveauetudes where promotion=:promotion) WHERE nom_Offre=:offre');
+            $req4 ->execute(array('offre' => $offre, 'duree'=>$duree, 'salaire'=>$salaire, 'dateD'=>$date, 'nbPlace'=>$places, 'ville'=>$ville, 'Entreprise'=>$entreprise, 'promotion'=>$nivetudes));
+            return $req;                
+        }
     }
 ?>
