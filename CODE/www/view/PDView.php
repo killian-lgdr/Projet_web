@@ -160,11 +160,11 @@
                     </form>
                     <form action="?action=PDView" method="post">
                         <div class="row justify-content-center littleMarge brd">
-                            <?php 
-                                if (isset($_POST['rechercher_pil'])) {
-                                    $donnee=$pilote->fetch(PDO::FETCH_LAZY);
-                                }
-                            ?>
+
+
+                                    
+
+
                             <div class="col container-fluid">
                                 <div class="row justify-content-center">
                                     <div class="col-auto">
@@ -175,10 +175,10 @@
                                 <div class="row justify-content-center littleMarge">
                                     <div class="col-auto align-self-center">
                                         <label for="nom_pil">Nom : </label>
-                                        <input type="text" name="nom_pil" id="nom_pil" value="<?php if (isset($_POST['rechercher_pil']) && $donnee){echo $donnee['nom_Pilote'];}?>">
+                                        <input type="text" name="nom_pil" id="nom_pil" value="<?php if (isset($_POST['rechercher_pil']) && $donneepilote){echo $donneepilote['nom_Pilote'];}?>">
 
                                         <label for="prenom_pil">Prénom : </label>
-                                        <input type="text" name="prenom_pil" id="prenom_pil" value="<?php if(isset($_POST['rechercher_pil']) && $donnee){echo $donnee['prenom_Pilote'];}?>"> 
+                                        <input type="text" name="prenom_pil" id="prenom_pil" value="<?php if(isset($_POST['rechercher_pil']) && $donneepilote){echo $donneepilote['prenom_Pilote'];}?>"> 
 
                                         <input type="submit" name="rechercher_pil" value="Rechercher"></input>
                                     </div>
@@ -191,7 +191,7 @@
                                 <div class="row justify-content-center littleMarge">
                                     <div class="col-auto align-self-center">
                                         <label for="ville_pil">Centre : </label>
-                                        <input type="text" name="ville_pil" id="ville_pil" value="<?php if(isset($_POST['rechercher_pil']) && $donnee){echo $donnee['nom_localisation'];}?>">           
+                                        <input type="text" name="ville_pil" id="ville_pil" value="<?php if(isset($_POST['rechercher_pil']) && $donneepilote){echo $donneepilote['nom_localisation'];}?>">           
                                     </div>
 
                                     <div class="col-auto align-self-center">
@@ -205,23 +205,23 @@
                                         <label for="ville_pil">Promotion : </label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="checkbox" name="promotion_pil[]" value="A1" id="A1_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A1")){echo "checked";}?>>
+                                        <input type="checkbox" name="promotion_pil[]" value="A1" id="A1_pil" <?php if(isset($_POST['rechercher_pil']) && $donneepilote && substr_count($donneepilote['promotion'],"A1")){echo "checked";}?>>
                                         <label for="A1_pil">1ère Année</label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="checkbox" name="promotion_pil[]" value="A2" id="A2_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A2")){echo "checked";}?>>
+                                        <input type="checkbox" name="promotion_pil[]" value="A2" id="A2_pil" <?php if(isset($_POST['rechercher_pil']) && $donneepilote && substr_count($donneepilote['promotion'],"A2")){echo "checked";}?>>
                                         <label for="A2_pil">2ème Année</label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="checkbox" name="promotion_pil[]" value="A3" id="A3_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A3")){echo "checked";}?>>
+                                        <input type="checkbox" name="promotion_pil[]" value="A3" id="A3_pil" <?php if(isset($_POST['rechercher_pil']) && $donneepilote && substr_count($donneepilote['promotion'],"A3")){echo "checked";}?>>
                                         <label for="A3_pil">3ème Année</label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="checkbox" name="promotion_pil[]" value="A4" id="A4_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A4")){echo "checked";}?>>
+                                        <input type="checkbox" name="promotion_pil[]" value="A4" id="A4_pil" <?php if(isset($_POST['rechercher_pil']) && $donneepilote && substr_count($donneepilote['promotion'],"A4")){echo "checked";}?>>
                                         <label for="A4_pil">4ème Année</label>
                                     </div>
                                     <div class="col-auto">
-                                        <input type="checkbox" name="promotion_pil[]" value="A5" id="A5_pil" <?php if(isset($_POST['rechercher_pil']) && $donnee && substr_count($donnee['promotion'],"A5")){echo "checked";}?>>
+                                        <input type="checkbox" name="promotion_pil[]" value="A5" id="A5_pil" <?php if(isset($_POST['rechercher_pil']) && $donneepilote && substr_count($donneepilote['promotion'],"A5")){echo "checked";}?>>
                                         <label for="A5_pil">5ème Année</label>
                                     </div>
                                 </div>
