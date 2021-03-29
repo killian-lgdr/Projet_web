@@ -139,5 +139,15 @@
             $req4 ->execute(array('offre' => $offre, 'duree'=>$duree, 'salaire'=>$salaire, 'dateD'=>$date, 'nbPlace'=>$places, 'ville'=>$ville, 'Entreprise'=>$entreprise, 'promotion'=>$nivetudes));
             return $req;                
         }
+        public function postulerOffre()
+        {
+            $db = $this->dbConnect();
+            $req = $db->query('insert into a_postule(ID_Etudiant, ID_Offre, Etat) VALUES "SELECT ID_ETUDIANT CO", "ID_OFFRE BOUTON", 1');
+        }
+        public function wishlistOffre()
+        {
+            $db = $this->dbConnect();
+            $req = $db->query('insert into a_wishlist(ID_Offre, ID_Etudiant) VALUES "ID_OFFRE BOUTON", "SELECT ID_ETUDIANT CO"');
+        }
     }
 ?>
