@@ -7,7 +7,7 @@
     <html lang="fr">
 
         <?php
-            $obj->assign('titre','gestion pilote et délegué');
+            $obj->assign('titre','gestion étudiant');
             $obj->display('./public/tpl/head.tpl');
         ?>
 
@@ -22,7 +22,7 @@
 
             <main class="row  justify-content-center marge">
                 <div class="col container-fluid">
-                    
+
                 </div>
             </main>
 
