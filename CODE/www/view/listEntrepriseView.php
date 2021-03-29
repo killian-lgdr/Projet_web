@@ -76,6 +76,7 @@
                     </div> 
                 <!-- fin choix filtres -->
                 <div class="container col-9 littleMarge">
+                <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
                 <!-- AFFICHER LES ENTREPRISES -->
                 <?php
                     while ($donnees = $entreprise->fetch(PDO::FETCH_LAZY))

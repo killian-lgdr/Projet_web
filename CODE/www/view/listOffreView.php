@@ -367,6 +367,20 @@
                 $obj->display('../public/tpl/footer.tpl');
                 $obj->display('../public/tpl/script.tpl');
             ?>
-            
+            <script>
+                //Connect Button
+                var conButton = document.getElementById("connexionButton");
+                var conPage = document.getElementById("connexionPage");
+                function afficherConPage(){
+                if(conPage.style.display=="none")
+                {
+                    conPage.style.display="block";
+                }
+                else{
+                    conPage.style.display="none";
+                }
+                }
+                conButton.addEventListener('click', function(){afficherConPage()});
+            </script>
         </body>
     </html>

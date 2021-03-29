@@ -45,18 +45,19 @@
                             <!--AFFICHER LE SYSTEME DE NOTATION-->
                                 <div class="rating col-4">
                                 <p class = "textnote">Notez cette entreprise<p>
-                                	<div class="starsnote">
-	                                	<i class="fa fa-star gold"></i>
-		                                <i class="fa fa-star gold"></i>
-		                                <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+                                	<div id="note{$id}" class="starsnote">
+	                                	<i id="star1{$id}" class="fa fa-star gold"></i>
+		                                <i id="star2{$id}" class="fa fa-star gold"></i>
+		                                <i id="star3{$id}" class="fa fa-star"></i>
+                                        <i id="star4{$id}" class="fa fa-star"></i>
+                                        <i id="star5{$id}" class="fa fa-star"></i>
                                     </div>
                                 </div>
                             </div>
                             </div>
                         </div>
                     </div>
+                    
                     
                     <script>
                         var division{$id} = document.getElementById("division{$id}");
@@ -67,5 +68,27 @@
                         });
                         division{$id}.addEventListener('mouseleave', function(){
                         buttons{$id}.style.display = "none";
+                        });
+                        
+                    </script>
+                    
+                    <script>
+
+                            $("#note{$id}").click(function(){
+                            
+                                $.ajax({
+                                url: "./controller/NoteController.php",
+                                type:"GET",
+                                data: "function=noteEntreprise&note=5&entreprise={$entreprise}",
+                                success: function(response, textStatus, xhr){
+                                    if( xhr.status == 200 ){
+                                        window.alert(xhr.responseText)
+                                    }
+                                
+                                
+                                },
+                                error: function (xhr, ajaxOptions, thrownError){
+                                console.log('Error: ' + xhr.status);
+                                console.log('error'+thrownError);}});
                         });
                     </script>
