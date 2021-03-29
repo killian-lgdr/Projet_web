@@ -92,6 +92,31 @@
                                 'nbStage'=>$nbStage,
                                 ':ville3'=>$ville));
         }
+
+        public function noteEtudiantEntreprise($note, $entreprise){
+            $db = $this->dbConnect();
+
+            $req = $db->query('delete from possedenoteetudiant where ID_Entreprise = (select ID_entreprise from entreprise where nom_Entreprise =\'' . $entreprise . '\') AND ID_Etudiant = (select ID_Etudiant from etudiant WHERE nom_Etudiant =\'' . strtok($_COOKIE['userName'], '.') . '\' AND prenom_Etudiant =\'' . substr(strrchr($_COOKIE['userName'], "."), 1) . '\')');
+            
+            $req = $db->query('insert into possedenoteetudiant(ID_entreprise, ID_etudiant, valeur_noteEtudiant) Values ((select ID_Entreprise from entreprise where entreprise.nom_Entreprise =\'' . $entreprise . '\'),(select ID_Etudiant from etudiant WHERE nom_Etudiant =\'' . strtok($_COOKIE['userName'], '.') . '\' AND prenom_Etudiant =\'' . substr(strrchr($_COOKIE['userName'], "."), 1) . '\'), ' . $note .')');
+            return $req;
+        }
+
+        public function notePiloteEntreprise($note, $entreprise){
+            $db = $this->dbConnect();
+
+            $req = $db->query('delete from possedenotepilote where ID_Entreprise = (select ID_entreprise from entreprise where nom_Entreprise =\'' . $entreprise . '\') AND ID_Pilote = (select ID_Pilote from pilote WHERE nom_Pilote =\'' . strtok($_COOKIE['userName'], '.') . '\' AND prenom_Pilote =\'' . substr(strrchr($_COOKIE['userName'], "."), 1) . '\')');
+
+            $req = $db->query('insert into possedenotepilote(ID_entreprise, ID_pilote, valeur_notePilote) Values ((select ID_Entreprise from entreprise where entreprise.nom_Entreprise =\'' . $entreprise . '\'),(select ID_pilote from pilote WHERE nom_Pilote =\'' . strtok($_COOKIE['userName'], '.') . '\' AND prenom_Pilote =\'' . substr(strrchr($_COOKIE['userName'], "."), 1) . '\'), ' . $note .')');
+            return $req;
+        }
+
+        public function testEtudiant(){
+            $db = $this->dbConnect();
+            $req = $db->query('SELECT ID_Etudiant FROM `etudiant` WHERE nom_Etudiant = \'' . strtok($_COOKIE['userName'], '.') . '\' AND prenom_Etudiant =\'' . substr(strrchr($_COOKIE['userName'], "."), 1) . '\'');
+            return $req->fetch();
+
+        }
     }
 ?>
 
