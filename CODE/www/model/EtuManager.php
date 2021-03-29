@@ -1,6 +1,6 @@
 <?php
     require_once("Manager.php");
-    class PDManager extends Manager
+    class EtuManager extends Manager
     {
 
 
