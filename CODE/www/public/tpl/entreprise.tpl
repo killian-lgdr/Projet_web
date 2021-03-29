@@ -71,15 +71,28 @@
                         });
                         
                     </script>
-                    
-                    <script>
 
+                    <script>
+                        $("#star5{$id}").click(function(){
+                            $("#note{$id}").val("5");});
+                        $("#star4{$id}").click(function(){
+                            $("#note{$id}").val("4");});
+                        $("#star3{$id}").click(function(){
+                            $("#note{$id}").val("3");});
+                        $("#star2{$id}").click(function(){
+                            $("#note{$id}").val("2");});
+                        $("#star1{$id}").click(function(){
+                            $("#note{$id}").val("1");});
+                    </script>
+
+                    <script>
+                            
                             $("#note{$id}").click(function(){
                             
                                 $.ajax({
                                 url: "./controller/NoteController.php",
                                 type:"GET",
-                                data: "function=noteEntreprise&note=5&entreprise={$entreprise}",
+                                data: "function=noteEntreprise&note="+ $("#note{$id}").val() +"&entreprise={$entreprise}",
                                 success: function(response, textStatus, xhr){
                                     if( xhr.status == 200 ){
                                         window.alert(xhr.responseText)

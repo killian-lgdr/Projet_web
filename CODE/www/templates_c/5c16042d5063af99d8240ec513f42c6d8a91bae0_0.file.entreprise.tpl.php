@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-29 16:22:57
+/* Smarty version 3.1.39, created on 2021-03-29 16:39:58
   from 'D:\Ordinateur\CESI\A2\4_WEB\Projet\Projet_web\CODE\www\public\tpl\entreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6061e2c1940df4_30097464',
+  'unifunc' => 'content_6061e6be63cb00_18809099',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5c16042d5063af99d8240ec513f42c6d8a91bae0' => 
     array (
       0 => 'D:\\Ordinateur\\CESI\\A2\\4_WEB\\Projet\\Projet_web\\CODE\\www\\public\\tpl\\entreprise.tpl',
-      1 => 1617027735,
+      1 => 1617028796,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6061e2c1940df4_30097464 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6061e6be63cb00_18809099 (Smarty_Internal_Template $_smarty_tpl) {
 ?>                        <!-- AFFICHER ENTREPRISE-->
                         <div class="row littleMarge" id="division<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">
@@ -127,17 +127,43 @@ function content_6061e2c1940df4_30097464 (Smarty_Internal_Template $_smarty_tpl)
                         
                     <?php echo '</script'; ?>
 >
-                    
+
                     <?php echo '<script'; ?>
 >
+                        $("#star5<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").click(function(){
+                            $("#note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").val("5");});
+                        $("#star4<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").click(function(){
+                            $("#note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").val("4");});
+                        $("#star3<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").click(function(){
+                            $("#note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").val("3");});
+                        $("#star2<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").click(function(){
+                            $("#note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").val("2");});
+                        $("#star1<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").click(function(){
+                            $("#note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").val("1");});
+                    <?php echo '</script'; ?>
+>
 
+                    <?php echo '<script'; ?>
+>
+                            
                             $("#note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ").click(function(){
                             
                                 $.ajax({
                                 url: "./controller/NoteController.php",
                                 type:"GET",
-                                data: "function=noteEntreprise&note=5&entreprise=<?php echo $_smarty_tpl->tpl_vars['entreprise']->value;?>
+                                data: "function=noteEntreprise&note="+ $("#note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").val() +"&entreprise=<?php echo $_smarty_tpl->tpl_vars['entreprise']->value;?>
 ",
                                 success: function(response, textStatus, xhr){
                                     if( xhr.status == 200 ){
