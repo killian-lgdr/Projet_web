@@ -309,11 +309,11 @@
                                     <div class="col-auto">
                                         <label for="nivEtudesGestion">Niveau Etudes requis</label>
                                         <select name="nivEtudesGestion" id="nivEtudesGestion">
-                                            <option value="A1" <?php if($resultatOffre['promotion'] == "A1"){echo "selected"} ?>>A1</option>
-                                            <option value="A2" <?php if($resultatOffre['promotion'] == "A2"){echo "selected"} ?>>A2</option>
-                                            <option value="A3" <?php if($resultatOffre['promotion'] == "A3"){echo "selected"} ?>>A3</option>
-                                            <option value="A4" <?php if($resultatOffre['promotion'] == "A4"){echo "selected"} ?>>A4</option>
-                                            <option value="A5" <?php if($resultatOffre['promotion'] == "A5"){echo "selected"} ?>>A5</option>
+                                            <option value="A1" <?php if($resultatOffre['promotion'] == "A1"){echo "selected";} ?>>A1</option>
+                                            <option value="A2" <?php if($resultatOffre['promotion'] == "A2"){echo "selected";} ?>>A2</option>
+                                            <option value="A3" <?php if($resultatOffre['promotion'] == "A3"){echo "selected";} ?>>A3</option>
+                                            <option value="A4" <?php if($resultatOffre['promotion'] == "A4"){echo "selected";} ?>>A4</option>
+                                            <option value="A5" <?php if($resultatOffre['promotion'] == "A5"){echo "selected";} ?>>A5</option>
                                         </select>
                                     </div>
                                     <div class="col-auto">
