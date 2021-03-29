@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-23 16:34:57
+/* Smarty version 3.1.39, created on 2021-03-29 17:40:21
   from 'C:\Users\killi\Desktop\A2\4- developpement Web\Projet_web\CODE\www\public\tpl\entreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_605a0aa1b6c6a0_38602162',
+  'unifunc' => 'content_6061f4e54dde75_88203039',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8971a7b48b0054fe215beceb4d1d76595a176470' => 
     array (
       0 => 'C:\\Users\\killi\\Desktop\\A2\\4- developpement Web\\Projet_web\\CODE\\www\\public\\tpl\\entreprise.tpl',
-      1 => 1616513649,
+      1 => 1617026064,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605a0aa1b6c6a0_38602162 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6061f4e54dde75_88203039 (Smarty_Internal_Template $_smarty_tpl) {
 ?>                        <!-- AFFICHER ENTREPRISE-->
                         <div class="row littleMarge" id="division<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">
@@ -84,18 +84,25 @@ function content_605a0aa1b6c6a0_38602162 (Smarty_Internal_Template $_smarty_tpl)
                             <!--AFFICHER LE SYSTEME DE NOTATION-->
                                 <div class="rating col-4">
                                 <p class = "textnote">Notez cette entreprise<p>
-                                	<div class="starsnote">
-	                                	<i class="fa fa-star gold"></i>
-		                                <i class="fa fa-star gold"></i>
-		                                <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+                                	<div id="note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+" class="starsnote">
+	                                	<i id="star1<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+" class="fa fa-star gold"></i>
+		                                <i id="star2<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+" class="fa fa-star gold"></i>
+		                                <i id="star3<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+" class="fa fa-star"></i>
+                                        <i id="star4<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+" class="fa fa-star"></i>
+                                        <i id="star5<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+" class="fa fa-star"></i>
                                     </div>
                                 </div>
                             </div>
                             </div>
                         </div>
                     </div>
+                    
                     
                     <?php echo '<script'; ?>
 >
@@ -116,6 +123,58 @@ function content_605a0aa1b6c6a0_38602162 (Smarty_Internal_Template $_smarty_tpl)
 .addEventListener('mouseleave', function(){
                         buttons<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 .style.display = "none";
+                        });
+                        
+                    <?php echo '</script'; ?>
+>
+
+                    <?php echo '<script'; ?>
+>
+                        $("#star5<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").click(function(){
+                            $("#note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").val("5");});
+                        $("#star4<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").click(function(){
+                            $("#note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").val("4");});
+                        $("#star3<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").click(function(){
+                            $("#note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").val("3");});
+                        $("#star2<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").click(function(){
+                            $("#note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").val("2");});
+                        $("#star1<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").click(function(){
+                            $("#note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").val("1");});
+                    <?php echo '</script'; ?>
+>
+
+                    <?php echo '<script'; ?>
+>
+                            
+                            $("#note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").click(function(){
+                            
+                                $.ajax({
+                                url: "./controller/NoteController.php",
+                                type:"GET",
+                                data: "function=noteEntreprise&note="+ $("#note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").val() +"&entreprise=<?php echo $_smarty_tpl->tpl_vars['entreprise']->value;?>
+",
+                                success: function(response, textStatus, xhr){
+                                    if( xhr.status == 200 ){
+                                        window.alert(xhr.responseText)
+                                    }
+                                
+                                
+                                },
+                                error: function (xhr, ajaxOptions, thrownError){
+                                console.log('Error: ' + xhr.status);
+                                console.log('error'+thrownError);}});
                         });
                     <?php echo '</script'; ?>
 ><?php }
