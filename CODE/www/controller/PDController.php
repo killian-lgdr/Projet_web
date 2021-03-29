@@ -84,14 +84,12 @@ $donneedelegue = null;
 //recherche des droits
     function CompareAucun($debut, $fin, $listdroit)
     {
-        if (isset($_POST['rechercher_del'])) {
             for ($i= $debut; $i <= $fin ; $i++) { 
-                if ($listdroit == $i){
-                    return FALSE;
+                if (substr_count($listdroit,"0".$i.",")){
+                    return TRUE;
                 }
+                return FALSE;
             }
-            return TRUE;
-        }
     }
 
 

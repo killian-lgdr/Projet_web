@@ -62,7 +62,7 @@
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <select name="ges_droit[]" id="ges_entre" multiple  size="8">
-                                            <option value="" <?php if($donneedelegue){echo CompareAucun(1,7,$donneedelegue['ges_droit']);}else {echo "selected";} ?>>Aucun</option>
+                                            <option value="" <?php if(isset($_POST['rechercher_del']) && $donneedelegue){ if (CompareAucun(1,7,$donneedelegue['ges_droit'])){}else {echo "selected";}}else {echo "selected";}?>>Aucun</option>
                                             <option value="01," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"01,")){echo "selected";}?>>Rechercher une entreprise</option>
                                             <option value="02," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"02,")){echo "selected";}?>>Créer une entreprise</option>
                                             <option value="03," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"03,")){echo "selected";}?>>Modifier une entreprise</option>
@@ -77,7 +77,7 @@
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <select name="ges_droit[]" id="ges_offre" multiple  size="6">
-                                            <option value="" <?php if($donneedelegue){echo CompareAucun(8,12,$donneedelegue['ges_droit']);}else {echo "selected";} ?>>Aucun</option>
+                                            <option value="" <?php if(isset($_POST['rechercher_del']) && $donneedelegue){ if (CompareAucun(8,12,$donneedelegue['ges_droit'])){}else {echo "selected";}}else {echo "selected";}?>>Aucun</option>
                                             <option value="08," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"08,")){echo "selected";}?>>Rechercher une offre</option>
                                             <option value="09," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"09,")){echo "selected";}?>>Créer une offre</option>
                                             <option value="10," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"10,")){echo "selected";}?>>Modifier une offre</option>
@@ -92,7 +92,7 @@
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <select name="ges_droit[]" id="ges_pil" multiple size="5">
-                                            <option value="" <?php if($donneedelegue){echo CompareAucun(13,16,$donneedelegue['ges_droit']);}else {echo "selected";} ?>>Aucun</option>
+                                            <option value="" <?php if(isset($_POST['rechercher_del']) && $donneedelegue){ if (CompareAucun(13,16,$donneedelegue['ges_droit'])){}else {echo "selected";}}else {echo "selected";}?>>Aucun</option>
                                             <option value="13," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"13,")){echo "selected";}?>>Rechercher un compte pilote</option>
                                             <option value="14," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"14,")){echo "selected";}?>>Créer un compte pilote</option>
                                             <option value="15," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"15,")){echo "selected";}?>>Modifier un compte pilote</option>
@@ -104,7 +104,7 @@
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <select name="ges_droit[]" id="ges_del" multiple size="5">
-                                            <option value="" <?php if($donneedelegue){echo CompareAucun(17,20,$donneedelegue['ges_droit']);}else {echo "selected";} ?>>Aucun</option>
+                                            <option value="" <?php if(isset($_POST['rechercher_del']) && $donneedelegue){ if (CompareAucun(17,20,$donneedelegue['ges_droit'])){}else {echo "selected";}}else {echo "selected";}?>>Aucun</option>
                                             <option value="17," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"17,")){echo "selected";}?>>Rechercher un compte délégué</option>
                                             <option value="18," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"18,")){echo "selected";}?>>Créer un compte délégué</option>
                                             <option value="19," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"19,")){echo "selected";}?>>Modifier un compte délégué</option>
@@ -118,7 +118,7 @@
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <select name="ges_droit[]" id="ges_etu" multiple  size="6">
-                                            <option value="" <?php if($donneedelegue){echo CompareAucun(21,25,$donneedelegue['ges_droit']);}else {echo "selected";} ?>>Aucun</option>
+                                            <option value="" <?php if(isset($_POST['rechercher_del']) && $donneedelegue){ if (CompareAucun(21,25,$donneedelegue['ges_droit'])){}else {echo "selected";}}else {echo "selected";}?>>Aucun</option>
                                             <option value="21," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"21,")){echo "selected";}?>>Rechercher un compte étudiant</option>
                                             <option value="22," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"22,")){echo "selected";}?>>Créer un compte étudiant</option>
                                             <option value="23," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"23,")){echo "selected";}?>>Modifier un compte étudiant</option>
@@ -131,7 +131,7 @@
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <select name="ges_droit[]" id="ges_can" multiple  size="10">
-                                            <option value="" <?php if($donneedelegue){echo CompareAucun(26,34,$donneedelegue['ges_droit']);}else {echo "selected";} ?>>Aucun</option>
+                                            <option value="" <?php if(isset($_POST['rechercher_del']) && $donneedelegue){ if (CompareAucun(26,34,$donneedelegue['ges_droit'])){}else {echo "selected";}}else {echo "selected";}?>>Aucun</option>
                                             <option value="26," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"26,")){echo "selected";}?>>Ajouter une offre à la wish-list</option>
                                             <option value="27," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"27,")){echo "selected";}?>>Retirer une offre à la wish-list</option>
                                             <option value="28," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"28,")){echo "selected";}?>>Postuler à une offre</option>
