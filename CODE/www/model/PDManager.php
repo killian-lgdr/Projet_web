@@ -2,6 +2,7 @@
     require_once("Manager.php");
     class PDManager extends Manager
     {
+//===============Délegué===============
         public function getDelegue($nom, $prenom)
         {
                 $db = $this->dbConnect();
@@ -9,7 +10,6 @@
                 $req->execute(array('nom1' => $nom, 'prenom1' => $prenom));
                 return $req;
         }
-
         public function addDelegue($nom, $prenom, $ville, $identifiant, $mdp, $droit)
         {
             $db = $this->dbConnect();
@@ -32,7 +32,28 @@
                 $req4->execute(array('identifiant1' => $identifiant, 'droit1' => $res));
             }
         }
+        public function updateDelegue($nom, $prenom, $identifiant, $ville, $droit)
+        {
+            $db = $this->dbConnect();
+            $req1 = $db->prepare("INSERT INTO localisation (nom_Localisation) Select :ville1 where not exists(SELECT nom_Localisation from localisation where nom_Localisation = :ville2 ) ;");
+            $req1->execute(array('ville1' => $ville, 'ville2' => $ville));
 
+            $req2 = $db->prepare("UPDATE delegue SET ID_Localisation = (SELECT localisation.ID_Localisation FROM localisation WHERE localisation.nom_Localisation = :ville1 ) WHERE delegue.nom_Delegue = :nom1 AND delegue.prenom_Delegue = :prenom1 ;");
+            $req2->execute(array('nom1' => $nom, 'prenom1' => $prenom, 'ville1' => $ville));
+
+            $req3 = $db->prepare("DELETE FROM attribue WHERE ID_Identifiant = (SELECT ID_Identifiant FROM identifiants Where identifiants.nom_Identifiant = :identifiant1 );");
+            $req3->execute(array('identifiant1' => $identifiant));
+
+            $req4 = $db->prepare("INSERT INTO attribue (ID_Identifiant, ID_droits) VALUES ((SELECT ID_Identifiant FROM identifiants Where identifiants.nom_Identifiant = :identifiant1 ),(SELECT ID_droits FROM droits Where droits.ID_droits= :droit1 ));");
+            for ($i=0; $i < strlen($droit)-1; $i+=3) { 
+                if ($droit[$i]==0){
+                    $res = $droit[$i+1];
+                }else{
+                    $res = $droit[$i].$droit[$i+1];
+                }
+                $req4->execute(array('identifiant1' => $identifiant, 'droit1' => $res));
+            }
+        }
         public function deleteDelegue($nom, $prenom, $identifiant)
         {
             $db = $this->dbConnect();
@@ -46,7 +67,7 @@
                 $req3 = $db->prepare("DELETE FROM identifiants WHERE nom_Identifiant = :identifiant1 ;");
                 $req3->execute(array('identifiant1' => $identifiant));
         }
-
+//===============Pilote===============
         public function getPilote($nom, $prenom)
         {
                 $db = $this->dbConnect();
@@ -54,8 +75,6 @@
                 $req->execute(array('nom' => $nom, 'prenom' => $prenom));
                 return $req;
         } 
-        
-        
         public function addPilote($nom, $prenom, $ville, $identifiant, $mdp, $promotion)
         {
 
@@ -74,6 +93,27 @@
             $req4 = $db->prepare("INSERT INTO enseigne_a (ID_Pilote, ID_NiveauEtudes) VALUES ((SELECT ID_Pilote FROM pilote Where pilote.nom_Pilote = :nom1 AND pilote.prenom_Pilote = :prenom1 ),(SELECT ID_NiveauEtudes FROM niveauetudes Where niveauetudes.promotion= :promotion1 ));");
             for ($i=0; $i < strlen($promotion)-1; $i+=2) { 
                 $req4->execute(array('nom1' => $nom, 'prenom1' => $prenom, 'promotion1' => ($promotion[$i].$promotion[$i+1])));
+            }
+        }
+
+        public function updatePilote($nom, $prenom, $ville, $promotion)
+        {
+
+            $db = $this->dbConnect();
+
+            $req1 = $db->prepare("INSERT INTO localisation (nom_Localisation) SELECT :ville1 WHERE NOT EXISTS (SELECT nom_Localisation FROM localisation WHERE nom_Localisation = :ville2 ) ;");
+            $req1->execute(array('ville1' => $ville, 'ville2' => $ville));
+                
+            $req2 = $db->prepare("UPDATE pilote SET ID_Localisation = (SELECT localisation.ID_Localisation FROM localisation WHERE localisation.nom_Localisation = :ville1 ) WHERE pilote.nom_Pilote = :nom1 AND pilote.prenom_Pilote = :prenom1 ;");
+            $req2->execute(array('ville1' => $ville, 'nom1' => $nom, 'prenom1' => $prenom));
+                
+
+            $req3 = $db->prepare("DELETE FROM enseigne_a WHERE ID_Pilote = (SELECT ID_Pilote FROM pilote WHERE pilote.nom_Pilote = :nom1 AND pilote.prenom_Pilote = :prenom1 );");
+            $req3->execute(array('nom1' => $nom, 'prenom1' => $prenom));
+            
+            $req4 = $db->prepare("INSERT INTO enseigne_a (ID_Pilote, ID_NiveauEtudes) VALUES ((SELECT ID_Pilote FROM pilote WHERE pilote.nom_Pilote = :nom1 AND pilote.prenom_Pilote = :prenom1 ),(SELECT ID_NiveauEtudes FROM niveauetudes Where niveauetudes.promotion = :promotion1 ));");
+            for ($i=0; $i < strlen($promotion)-1; $i+=2) { 
+                $req4->execute(array('nom1' => $nom, 'prenom1' => $prenom, 'promotion1' => $promotion[$i].$promotion[$i+1]));
             }
         }
 

@@ -281,28 +281,28 @@
                                 <div class="row justify-content-center">
                                     <div class="col-auto">
                                         <label for="nameGestion">Nom de l'Offre</label>
-                                        <input type="text" id="nameGestion" name="nameGestion">
+                                        <input type="text" id="nameGestion" name="nameGestion" value="<?php if(isset($_POST['rechercherGestion']) && $resultatOffre){echo $resultatOffre['nom_Offre'];}?>">
                                         <input type="submit" value="Rechercher" name="rechercherGestion">
                                     </div>
                                 </div>
                                 <div class="row justify-content-between">
                                     <div class="col-auto">
                                         <label for="domaineGestion">Domaine</label>
-                                        <input type="text" id="domaineGestion" name="domaineGestion">
+                                        <input type="text" id="domaineGestion" name="domaineGestion" value="<?php if(isset($_POST['rechercherGestion']) && $resultatOffre){echo $resultatOffre['nom_Competence'];}?>">
                                     </div>
                                     <div class="col-auto">
                                         <label for="dureeGestion">Durée du Stage</label>
-                                        <input type="text" id="dureeGestion" name="dureeGestion">
+                                        <input type="text" id="dureeGestion" name="dureeGestion" value="<?php if(isset($_POST['rechercherGestion']) && $resultatOffre){echo $resultatOffre['duree'];}?>">
                                     </div>
                                 </div>
                                 <div class="row justify-content-between">
                                     <div class="col-auto">
                                         <label for="adresseGestion">Adresse</label>
-                                        <input type="text" id="adresseGestion" name="adresseGestion">
+                                        <input type="text" id="adresseGestion" name="adresseGestion" value="<?php if(isset($_POST['rechercherGestion']) && $resultatOffre){echo $resultatOffre['nom_Localisation'];}?>">
                                     </div>
                                     <div class="col-auto">
                                         <label for="salaireGestion">Salaire /mois</label>
-                                        <input type="text" id="salaireGestion" name="salaireGestion">
+                                        <input type="text" id="salaireGestion" name="salaireGestion" value="<?php if(isset($_POST['rechercherGestion']) && $resultatOffre){echo $resultatOffre['salaire'];}?>">
                                     </div>
                                 </div>
                                 <div class="row justify-content-between">
@@ -318,13 +318,13 @@
                                     </div>
                                     <div class="col-auto">
                                         <label for="dateGestion">Date de Debut</label>
-                                        <input type="date" name="dateGestion" id="dateGestion">
+                                        <input type="date" name="dateGestion" id="dateGestion" value="<?php if(isset($_POST['rechercherGestion']) && $resultatOffre){echo $resultatOffre['date'];}?>">
                                     </div>
                                 </div>
                                 <div class="row justify-content-between">
                                     <div class="col-auto">
                                         <label for="placesGestion">Nombre de places</label>
-                                        <input type="text" id="placesGestion" name="placesGestion">
+                                        <input type="text" id="placesGestion" name="placesGestion" value="<?php if(isset($_POST['rechercherGestion']) && $resultatOffre){echo $resultatOffre['nombrePlace'];}?>">
                                     </div>
                                     <div class="col-auto">
                                         <label for="entrepriseGestion">Entreprise</label>
@@ -332,9 +332,7 @@
                                         <?php
                                             while ($donnees = $entrepriseSelect->fetch(PDO::FETCH_LAZY))
                                             {
-                                
                                                 echo '<option value="' . $donnees[0] . '">' . $donnees[0] . '</option>';
-                                        
                                             }
                                         ?>
                                         </select>
