@@ -43,6 +43,9 @@
                                     </div>
                                 </div>
                             <!--AFFICHER LE SYSTEME DE NOTATION-->
+                            {php}
+                                if (substr_count($_COOKIE['droits'], 'Evaluer une entreprise') == 1){
+                            {/php}
                                 <div class="rating col-4">
                                 <p class = "textnote">Notez cette entreprise<p>
                                 	<div id="note{$id}" class="starsnote">
@@ -53,6 +56,9 @@
                                         <i id="star5{$id}" class="fa fa-star"></i>
                                     </div>
                                 </div>
+                            {php}
+                                }
+                            {/php}
                             </div>
                             </div>
                         </div>
@@ -71,7 +77,9 @@
                         });
                         
                     </script>
-
+                    {php}
+                        if (substr_count($_COOKIE['droits'], 'Evaluer une entreprise') == 1){
+                    {/php}
                     <script>
                         $("#star5{$id}").click(function(){
                             $("#note{$id}").val("5");});
@@ -105,3 +113,6 @@
                                 console.log('error'+thrownError);}});
                         });
                     </script>
+                    {php}
+                        }
+                    {/php}

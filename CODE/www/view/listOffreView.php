@@ -347,21 +347,21 @@
                                 </div>
                                 <div class="row justify-content-around littleMarge">
                                 <?php
-                                    if (isset($_COOKIE['droits']) && substr_count($_COOKIE['droits'], 'Créer une offre') == 1){
+                                    if (substr_count($_COOKIE['droits'], 'Créer une offre') == 1){
                                 ?>
                                     <div class="col-auto">
                                         <input type="submit" value="Créer" name="creerGestion">
                                     </div>
                                 <?php
                                     }
-                                    if (isset($_COOKIE['droits']) && substr_count($_COOKIE['droits'], 'Modifier une offre') == 1){
+                                    if (substr_count($_COOKIE['droits'], 'Modifier une offre') == 1){
                                 ?>
                                     <div class="col-auto">
                                         <input type="submit" value="Modifier" name="modifierGestion">
                                     </div>
                                 <?php
                                     }
-                                    if (isset($_COOKIE['droits']) && substr_count($_COOKIE['droits'], 'Supprimer une offre') == 1){
+                                    if (substr_count($_COOKIE['droits'], 'Supprimer une offre') == 1){
                                 ?>
                                     <div class="col-auto">
                                         <input type="submit" value="Supprimer" name="supprimerGestion">
