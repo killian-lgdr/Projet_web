@@ -6,7 +6,7 @@
                 <div class="col-lg-3 col-sm-2 align-self-center">
                     <a class="active" href="index.php">Accueil</a>
                     <a href="?action=listEntrepriseView">Entreprises</a>
-                    <a href="#about">Etudiants</a>
+                    <a href="?action=EtuView">Etudiants</a>
                 </div>
                 <div class="col-lg-4 col-sm-4  align-self-center"><h1 id="titre">Le Bon Stage</h1></div>
                 <div class="col-lg-3 col-sm-2 align-self-center" id="navbar-right">
