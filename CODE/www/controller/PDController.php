@@ -7,10 +7,13 @@ function listPD(){
     $PDManager = new PDManager();
 //===============Délegué===============
 //rechercher
+$donneedelegue = null;
+
     if (isset($_POST['rechercher_del'])) {
         $nom = $_POST['nom_del'];
         $prenom = $_POST['prenom_del'];
-        $delegue = $PDManager->getDelegue($nom, $prenom);
+        $rechdelegue = $PDManager->getDelegue($nom, $prenom);
+        $donneedelegue =$rechdelegue->fetch(PDO::FETCH_LAZY);
     }
 //creer
     if (isset($_POST['creer_del']) && isset($_POST['nom_del']) && isset($_POST['prenom_del']) && isset($_POST['ville_del']) && isset($_POST['mdp_del'])&& isset($_POST['confmdp_del']) && $_POST['mdp_del'] == $_POST['confmdp_del']) {
@@ -34,14 +37,14 @@ function listPD(){
         }
         echo "droit : ";
         echo $droit;
-        $delegue = $PDManager->addDelegue($nom, $prenom, $ville, $identifiant, $mdp, $droit);
+        $ajoutdelegue = $PDManager->addDelegue($nom, $prenom, $ville, $identifiant, $mdp, $droit);
     }
 //suppression
     if (isset($_POST['supprimer_del'])&& isset($_POST['nom_del']) && isset($_POST['prenom_del'])) {
         $nom = $_POST['nom_del'];
         $prenom = $_POST['prenom_del'];
         $identifiant =  $_POST['nom_del'] . "." . $_POST['prenom_del'];
-        $pilote = $PDManager->deleteDelegue($nom, $prenom, $identifiant);
+        $supprdelegue = $PDManager->deleteDelegue($nom, $prenom, $identifiant);
     }
 //===============Pïlote===============
 //rechercher
@@ -79,21 +82,19 @@ function listPD(){
         $pilote = $PDManager->deletePilote($nom, $prenom, $identifiant);
     }
 //recherche des droits
-    function CompareAucun($test)
+    function CompareAucun($debut, $fin, $listdroit)
     {
-        if (isset($_POST['rechercher_del']) && isset($_POST['ges_droit'])) {
-            $listdroit = $_POST['ges_droit'];
-            for ($i=0; $i < strlen($listdroit)-1; $i+=3) { 
-                if ($listdroit[$i].$listdroit[$i+1]== $test){
-                    return "selected";
+            for ($i= $debut; $i <= $fin ; $i++) { 
+                if (substr_count($listdroit,"0".$i.",")){
+                    return TRUE;
                 }
+                return FALSE;
             }
-            return "";
-        }
-        else{
-            return 'selected';
-        }
     }
+
+
+
+
 
     require_once('./view/PDview.php');
 }
