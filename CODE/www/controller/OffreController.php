@@ -34,7 +34,7 @@ function listOffre(){
             }
         }
 
-        $offre = $OffreManager->getOffre($domaine, $ville, $date, $nivetudes, $dureemin, $dureemax, $salaire, $entreprisechoisie, $depart);
+        $offre = $OffreManager->getOffre($domaine, $ville, $date, $nivetudes, $dureemin, $dureemax, $salaire, $entreprisechoisie);
     }
 
     //gestion de la connexion
