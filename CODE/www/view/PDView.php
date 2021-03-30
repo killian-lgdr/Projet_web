@@ -129,13 +129,8 @@
                                         <label for="ges_can">Gestion des candidatures :</label>
                                     </div>
                                     <div class="col-auto align-self-center">
-                                        <select name="ges_droit[]" id="ges_can" multiple  size="10">
+                                        <select name="ges_droit[]" id="ges_can" multiple  size="5">
                                             <option value="" <?php if(isset($_POST['rechercher_del']) && $donneedelegue){ if (CompareAucun(25,33,$donneedelegue['ges_droit'])){}else {echo "selected";}}else {echo "selected";}?>>Aucun</option>
-                                            <option value="25," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"25")){echo "selected";}?>>Ajouter une offre à la wish-list</option>
-                                            <option value="26," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"26")){echo "selected";}?>>Retirer une offre à la wish-list</option>
-                                            <option value="27," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"27")){echo "selected";}?>>Postuler à une offre</option>
-                                            <option value="28," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"28")){echo "selected";}?>>Informer le système de l'avancement de la candidature step 1</option>
-                                            <option value="29," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"29")){echo "selected";}?>>Informer le système de l'avancement de la candidature step 2</option>
                                             <option value="30," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"30")){echo "selected";}?>>Informer le système de l'avancement de la candidature step 3</option>
                                             <option value="31," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"31")){echo "selected";}?>>Informer le système de l'avancement de la candidature step 4</option>
                                             <option value="32," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"32")){echo "selected";}?>>Informer le système de l'avancement de la candidature step 5</option>
