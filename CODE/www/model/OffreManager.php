@@ -143,14 +143,14 @@
         {
             $db = $this->dbConnect();
             $req = $db->query('delete from a_postule where ID_Etudiant = (select ID_Etudiant from etudiant WHERE nom_Etudiant =\'' . strtok($_COOKIE['userName'], '.') . '\' AND prenom_Etudiant =\'' . substr(strrchr($_COOKIE['userName'], "."), 1) . '\') AND ID_Offre = ' . $idOffre);
-            $req = $db->query('insert into a_postule(ID_Etudiant, ID_Offre, Etat) VALUES (select ID_Etudiant from etudiant WHERE nom_Etudiant =\'' . strtok($_COOKIE['userName'], '.') . '\' AND prenom_Etudiant =\'' . substr(strrchr($_COOKIE['userName'], "."), 1) . '\'), (' . $idOffre . '), 1');
+            $req = $db->query('insert into a_postule(ID_Etudiant, ID_Offre, Etat) VALUES ((select ID_Etudiant from etudiant WHERE nom_Etudiant =\'' . strtok($_COOKIE['userName'], '.') . '\' AND prenom_Etudiant =\'' . substr(strrchr($_COOKIE['userName'], "."), 1) . '\'), (' . $idOffre . '), 1)');
             return $req;
         }
         public function wishlistOffre($idOffre)
         {
             $db = $this->dbConnect();
             $req = $db->query('delete from a_wishlist where ID_Etudiant = (select ID_Etudiant from etudiant WHERE nom_Etudiant =\'' . strtok($_COOKIE['userName'], '.') . '\' AND prenom_Etudiant =\'' . substr(strrchr($_COOKIE['userName'], "."), 1) . '\') AND ID_Offre = ' . $idOffre);
-            $req = $db->query('insert into a_wishlist(ID_Offre, ID_Etudiant) VALUES ' . $idOffre . ', (select ID_Etudiant from etudiant WHERE nom_Etudiant =\'' . strtok($_COOKIE['userName'], '.') . '\' AND prenom_Etudiant =\'' . substr(strrchr($_COOKIE['userName'], "."), 1) . '\')');
+            $req = $db->query('insert into a_wishlist(ID_Offre, ID_Etudiant) VALUES (' . $idOffre . ', (select ID_Etudiant from etudiant WHERE nom_Etudiant =\'' . strtok($_COOKIE['userName'], '.') . '\' AND prenom_Etudiant =\'' . substr(strrchr($_COOKIE['userName'], "."), 1) . '\'))');
             return $req;
         }
 
