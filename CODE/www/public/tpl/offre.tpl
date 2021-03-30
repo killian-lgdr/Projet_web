@@ -50,12 +50,33 @@
 
                     <script>
                             
-                            $("#note{$id}").click(function(){
+                            $("#wishList{$id}").click(function(){
                             
                                 $.ajax({
-                                url: "./controller/NoteController.php",
+                                url: "./controller/CandidatureController.php",
                                 type:"GET",
-                                data: "function=noteEntreprise&note="+ $("#note{$id}").val() +"&entreprise={$entreprise}",
+                                data: "function=wishListOffre&offre=" + {$id},
+                                success: function(response, textStatus, xhr){
+                                    if( xhr.status == 200 ){
+                                        window.alert(xhr.responseText)
+                                    }
+                                
+                                
+                                },
+                                error: function (xhr, ajaxOptions, thrownError){
+                                console.log('Error: ' + xhr.status);
+                                console.log('error'+thrownError);}});
+                            });
+                    </script>
+
+                    <script>
+                            
+                            $("#wishList{$id}").click(function(){
+                            
+                                $.ajax({
+                                url: "./controller/CandidatureController.php",
+                                type:"GET",
+                                data: "function=wishListOffre&offre=" + {$id},
                                 success: function(response, textStatus, xhr){
                                     if( xhr.status == 200 ){
                                         window.alert(xhr.responseText)
