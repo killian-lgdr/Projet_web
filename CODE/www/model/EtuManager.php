@@ -24,9 +24,37 @@
         public function updateEtudiant($nom, $prenom, $ville, $promotion){
 
         }
-        public function deleteEtudiant($nom, $prenom, $identifiant){
-
+        public function deleteEtudiant($nom, $prenom)
+        {
+            $db = $this->dbConnect();
+            $req2 = $db->prepare('DELETE FROM identifiant WHERE ID_Identifiant = (SELECT ID_Identifiant FROM etudiant WHERE nom_Etudiant = :nom AND prenom_Etudiant = :prenom)');
+            $req2->execute(array('nom' => $nom, 'prenom' => $prenom));
+                
+            $req3 = $db->prepare("DELETE FROM etudiant WHERE nom_Etudiant = :nom AND prenom_Etudiant = :prenom");
+            $req3->execute(array('nom' => $nom, 'prenom' => $prenom));
         }
 
+        public function getWishlistPostule($prenom, $nom)
+        {
+            $db = $this->dbConnect();
+            $req = $db->prepare('SELECT nom_Offre,nom_Competence , duree, salaire, date, nombrePlace, nom_Localisation, nom_Entreprise, promotion FROM Offre
+                                inner join localisation on offre.ID_Localisation = localisation.ID_localisation 
+                                inner join entreprise on offre.ID_Entreprise = entreprise.ID_Entreprise
+                                inner join niveauetudes on offre.ID_NiveauEtudes = niveauetudes.ID_NiveauEtudes
+                                inner join requiert on offre.ID_Offre = requiert.ID_Offre
+                                inner join competence on requiert.ID_Competence = competence.ID_Competence
+                                inner join a_wishlist on offre.ID_Offre = a_wishlist.ID_Offre
+                                WHERE a_wishlist.ID_Etudiant = (SELECT ID_Etudiant FROM etudiant WHERE prenom_Etudiant = :prenom AND nom_Etudiant = :nom)');
+            $req->execute(array('prenom'=>$prenom, 'nom'=>$nom));
+            $req1 = $db->prepare('SELECT nom_Offre,nom_Competence , duree, salaire, date, nombrePlace, nom_Localisation, nom_Entreprise, promotion, a_postule.Etat FROM Offre
+                                inner join localisation on offre.ID_Localisation = localisation.ID_localisation 
+                                inner join entreprise on offre.ID_Entreprise = entreprise.ID_Entreprise
+                                inner join niveauetudes on offre.ID_NiveauEtudes = niveauetudes.ID_NiveauEtudes
+                                inner join requiert on offre.ID_Offre = requiert.ID_Offre
+                                inner join competence on requiert.ID_Competence = competence.ID_Competence
+                                inner join a_postule on offre.ID_Offre = a_postule.ID_Offre
+                                WHERE a_postule.ID_Etudiant = (SELECT ID_Etudiant FROM etudiant WHERE prenom_Etudiant = :prenom AND nom_Etudiant = :nom)');
+            $req1->execute(array('prenom'=>$prenom, 'nom'=>$nom));
+        }
     }
     ?>

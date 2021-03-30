@@ -90,11 +90,35 @@
             $req3->execute(array('nom1' => $nom, 'prenom1' => $prenom, 'ville1' => $ville, 'identifiant1' => $identifiant, 'mdp1' => $mdp, 'nom2' => $nom, 'prenom2' => $prenom));
 
             $req4 = $db->prepare("INSERT INTO enseigne_a (ID_Pilote, ID_NiveauEtudes) VALUES ((SELECT ID_Pilote FROM pilote Where pilote.nom_Pilote = :nom1 AND pilote.prenom_Pilote = :prenom1 ),(SELECT ID_NiveauEtudes FROM niveauetudes Where niveauetudes.promotion= :promotion1 ));");
-            for ($i=0; $i < strlen($promotion)-1; $i+=2) { 
+            for ($i=0; $i < strlen($promotion)-1; $i+=2) 
+            { 
                 $req4->execute(array('nom1' => $nom, 'prenom1' => $prenom, 'promotion1' => ($promotion[$i].$promotion[$i+1])));
-
-            $req5 = $db->query('insert into attribue(ID_Identifiant, ID_droits) VALUES ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),1),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),2),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),3),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),4),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),5),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),6),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),7),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),8),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),9),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),10),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),11),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),16),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),17),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),18),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),19),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),20),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),21),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),22),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),23),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),24),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),29),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),30),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),31),((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),32) ');
-        }
+            }
+            $req5 = $db->query('insert into attribue(ID_Identifiant, ID_droits) VALUES 
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),1),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),2),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),3),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),4),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),5),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),6),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),7),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),8),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),9),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),10),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),11),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),16),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),17),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),18),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),19),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),20),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),21),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),22),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),23),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),24),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),29),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),30),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),31),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),32)');
         }
 
         public function updatePilote($nom, $prenom, $ville, $promotion)
