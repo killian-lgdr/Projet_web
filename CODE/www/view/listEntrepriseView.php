@@ -108,7 +108,7 @@
                                 echo '<a class="page">' . $i . '</a>';
                             }
                             else {
-                                echo '<a class="page" href="index.php?page=' . $i . '">'. $i .'  </a>';
+                                echo '<a class="page" href="index.php?action=listEntrepriseView&page=' . $i . '">'. $i .'  </a>';
                             }
                         }
                     ?>

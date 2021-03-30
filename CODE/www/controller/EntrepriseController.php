@@ -9,7 +9,7 @@ function listEntreprise(){
 
     //pagination
     $EntreParPage = 5;
-    $EntreTotalReq =  $EntrepriseManager->totalOffre();
+    $EntreTotalReq =  $entrepriseManager->totalEntre();
     $EntreTotal = $EntreTotalReq->rowCount();
     $PagesTotal = ceil($EntreTotal/$EntreParPage);
 
@@ -21,11 +21,11 @@ function listEntreprise(){
         $pageCourante = 1;
     }
     
-    $depart = ($pageCourante-1)*$OffresParPage;
+    $depart = ($pageCourante-1)*$EntreParPage;
 
         $ville = $entrepriseManager->getAllville();
         $secteurAct = $entrepriseManager->getAllSecteurAct();
-        $entreprise = $entrepriseManager->getAllEntreprise();
+        $entreprise = $entrepriseManager->getAllEntreprise($depart, $EntreParPage);
 
     if(isset($_POST['creer_ent'])&& isset($_POST['nameEntreprise'])&& isset($_POST['nameSecteur'])&& isset($_POST['nameVille'])&& isset($_POST['nameNbStage']))
     {
