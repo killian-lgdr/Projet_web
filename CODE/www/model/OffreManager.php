@@ -13,7 +13,7 @@
             $req = $db->query('SELECT DISTINCT nom_Entreprise FROM entreprise');
             return $req;
         }
-        public function getOffre($domaine, $ville, $date, $nivetudes, $dureemin, $dureemax, $salaire, $entreprise){
+        public function getOffre($domaine, $ville, $date, $nivetudes, $dureemin, $dureemax, $salaire, $entreprise, $depart, $OffreParPage){
             $db = $this->dbConnect();
             $req = $db->prepare('Select offre.ID_Offre, nom_Offre, duree, salaire, date, nombrePlace, nom_Localisation, nom_Entreprise, GROUP_CONCAT(`nom_Competence` SEPARATOR ", ") AS nom_Competence, promotion, offre.ID_Offre from offre 
                                 inner join localisation on offre.ID_localisation=localisation.ID_localisation 
@@ -37,7 +37,7 @@
                                 AND salaire >= IF( :salaire =\'\', salaire, :salaire2 )
                                 AND nom_Entreprise = IF( :entreprise =\'\', nom_Entreprise, :entreprise2 )
 
-                                GROUP BY offre.ID_Offre ');
+                                GROUP BY offre.ID_Offre DESC LIMIT :depart , :OffreParPage');
             $req->execute(array('domaine' => $domaine,
                                 'domaine2' => $domaine,
                                 'ville' => $ville,
@@ -61,7 +61,9 @@
                                 'salaire' => $salaire,
                                 'salaire2' => $salaire,
                                 'entreprise' => $entreprise,
-                                'entreprise2' => $entreprise
+                                'entreprise2' => $entreprise,
+                                'depart' => $depart,
+                                'OffreParPage' => $OffreParPage
                                 ));
             return $req;
         }
