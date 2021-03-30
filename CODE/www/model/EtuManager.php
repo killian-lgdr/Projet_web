@@ -56,12 +56,5 @@
                                 WHERE a_postule.ID_Etudiant = (SELECT ID_Etudiant FROM etudiant WHERE prenom_Etudiant = :prenom AND nom_Etudiant = :nom)');
             $req1->execute(array('prenom'=>$prenom, 'nom'=>$nom));
         }
-        
-        public function getPostule($prenom, $nom)
-        {
-            $db = $this->dbConnect();
-
-        }
-
     }
     ?>
