@@ -25,6 +25,23 @@ function listEtu(){
 
     }
 
+    if(isset($_POST['supprimer_etu']) && isset($_POST['nom_etu']) && isset($_POST['prenom_etu']))
+    {
+        $sNom=$_POST['nom_etu'];
+        $sPrenom=$_POST['nom_etu'];
+        $supprimerEtu = $EtuManager->deleteEtudiant($sNom, $sPrenom);
+    }
+
+    if(isset($_POST['modifier_etu']) && isset($_POST['nom_etu']) && isset($_POST['prenom_etu']) && isset($_POST['ville_etu']) && isset($_POST['promotion']))
+    {
+        $mNom=$_POST['nom_etu'];
+        $mPrenom=$_POST['nom_etu'];
+        $mVille=$_POST['ville_etu'];
+        $mNEtudes=$_POST['promotion'];
+        $supprimerEtu = $EtuManager->updateEtudiant($mNom, $mPrenom, $mVille, $mNEtudes);
+    }
+    
+
     require_once('./view/EtuView.php');
 }
 ?>

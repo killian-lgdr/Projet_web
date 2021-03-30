@@ -88,7 +88,14 @@
                         </div>
                     </form>
 <!--FIN Gestion Etudiant -->
+<!--Afficher Wishlist -->
 
+
+<!--FIN Afficher Wishlist -->
+<!--Afficher Postuler -->
+
+
+<!--FIN Afficher Postuler -->
                 </div>
             </main>
 
