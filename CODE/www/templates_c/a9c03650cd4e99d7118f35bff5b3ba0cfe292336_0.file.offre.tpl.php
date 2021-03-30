@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-30 11:36:26
+/* Smarty version 3.1.39, created on 2021-03-30 11:49:54
   from 'D:\Ordinateur\CESI\A2\4_WEB\Projet\Projet_web\CODE\www\public\tpl\offre.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6062f11ad64715_74092153',
+  'unifunc' => 'content_6062f44207d0d5_13207479',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a9c03650cd4e99d7118f35bff5b3ba0cfe292336' => 
     array (
       0 => 'D:\\Ordinateur\\CESI\\A2\\4_WEB\\Projet\\Projet_web\\CODE\\www\\public\\tpl\\offre.tpl',
-      1 => 1617096940,
+      1 => 1617097257,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6062f11ad64715_74092153 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6062f44207d0d5_13207479 (Smarty_Internal_Template $_smarty_tpl) {
 ?>                        <div class="row littleMarge" id="division<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">
                         <div class="col-12 container brd blue">
@@ -66,7 +66,8 @@ function content_6062f11ad64715_74092153 (Smarty_Internal_Template $_smarty_tpl)
 ">
                                 <div class="col-auto"><button id="wishList<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">Ajouter à la wish-list</button></div>
-                                <div class="col-auto"><button>J'ai postulé</button></div>
+                                <div class="col-auto"><button id="postule<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+">J'ai postulé</button></div>
                             </div>
                         </div>
                         
@@ -97,7 +98,7 @@ function content_6062f11ad64715_74092153 (Smarty_Internal_Template $_smarty_tpl)
                     <?php echo '<script'; ?>
 >
                             
-                            $("#wishList<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+                            $("#postule<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ").click(function(){
                             
                                 $.ajax({
@@ -128,7 +129,7 @@ function content_6062f11ad64715_74092153 (Smarty_Internal_Template $_smarty_tpl)
                                 $.ajax({
                                 url: "./controller/CandidatureController.php",
                                 type:"GET",
-                                data: "function=wishListOffre&offre=" + <?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+                                data: "function=postulerOffre&offre=" + <?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ,
                                 success: function(response, textStatus, xhr){
                                     if( xhr.status == 200 ){
