@@ -95,11 +95,8 @@
                         $obj->display('./public/tpl/entreprise.tpl');
                     }
                 ?>
-                <!-- fin afficher ENTREPRISE -->
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
+                
+                <div class="row justify-content-center">
                     <?php
                         for ($i=1; $i<=$PagesTotal ; $i++)
                         {
@@ -113,10 +110,14 @@
                         }
                     ?>
                 </div>
+                <!-- fin afficher ENTREPRISE -->
+                </div>
+            </div>
+
                 <!-- fin resultats -->
 <?php
     }
-    if (isset($_COOKIE['droits']) && (substr_count($_COOKIE['droits'], 'Créer une entreprise') == 1 || substr_count($_COOKIE['droits'], 'Modifier une entreprise') == 1 || substr_count($_COOKIE['droits'], 'Supprimer une entreprise') == 1)){
+    if ((substr_count($_COOKIE['droits'], 'Créer une entreprise') == 1 || substr_count($_COOKIE['droits'], 'Modifier une entreprise') == 1 || substr_count($_COOKIE['droits'], 'Supprimer une entreprise') == 1)){
 ?>
                 <!-- Création des entreprises -->
         <div class="container marge">

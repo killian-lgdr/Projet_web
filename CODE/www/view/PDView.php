@@ -22,7 +22,9 @@
 <!--===============main================== -->
             <main class="row  justify-content-center marge">
                 <div class="col container-fluid">
-                   
+                <?php
+                    if (substr_count($_COOKIE['droits'], 'Créer un compte délégué') == 1 || substr_count($_COOKIE['droits'], 'Modifier un compte délégué') == 1 || substr_count($_COOKIE['droits'], 'Supprimer un compte délégué') == 1 || substr_count($_COOKIE['droits'], 'Rechercher un compte délégué') == 1){
+                ?>
                     <form action="?action=PDView" method="post">
                         <div class="row justify-content-center littleMarge brd">
                             <div class="col container-fluid">
@@ -38,8 +40,13 @@
                                         
                                         <label for="prenom_del">Prénom : </label>
                                         <input type="text" name="prenom_del" id="prenom_del" value="<?php if (isset($_POST['rechercher_del']) && $donneedelegue){echo $donneedelegue['prenom_Delegue'];}?>">                                
-                                        
+                                        <?php
+                                            if (substr_count($_COOKIE['droits'], 'Rechercher un compte délégué') == 1){
+                                        ?>
                                         <input type="submit" name="rechercher_del" value="Rechercher" ></input>
+                                        <?php
+                                            }
+                                        ?>
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <label for="mdp_del">Mot de passe : </label>
@@ -56,7 +63,10 @@
                                         <input type="password" name="confmdp_del" id="confmdp_del">
                                     </div>
                                 </div>
-                                <div class="row justify-content-center littleMarge">
+                                <?php
+                                    if (substr_count($_COOKIE['droits'], 'Assigner des droits à un délégué') == 1){
+                                ?>
+                                    <div class="row justify-content-center littleMarge">
                                     <div class="col-auto align-self-center">
                                         <label for="ges_entre">Gestion des entreprises :</label>
                                     </div>
@@ -138,20 +148,41 @@
                                         </select>
                                     </div>
                                 </div>
+                                <?php
+                                    }
+                                ?>
                                 <div class="row justify-content-center littleMarge">
+                                <?php
+                                    if (substr_count($_COOKIE['droits'], 'Créer un compte délégué') == 1){
+                                ?>
                                     <div class="col-auto">
                                         <input type="submit" name="creer_del" value="Créer délegué"></input>
                                     </div>
+                                <?php
+                                    }
+                                    if (substr_count($_COOKIE['droits'], 'Modifier un compte délégué') == 1){
+                                ?>
                                     <div class="col-auto">
                                         <input type="submit" name="modifier_del" value="Modifier délegué"></input>
                                     </div>
+                                <?php
+                                    }
+                                    if (substr_count($_COOKIE['droits'], 'Supprimer un compte délégué') == 1){
+                                ?>
                                     <div class="col-auto">
                                         <input type="submit" name="supprimer_del" value="Supprimer délegué"></input>
                                     </div>
+                                <?php
+                                    }
+                                ?>
                                 </div>
                             </div>  
                         </div>
                     </form>
+                    <?php
+                        }
+                        if (substr_count($_COOKIE['droits'], 'Créer un compte pilote') == 1 || substr_count($_COOKIE['droits'], 'Modifier un compte pilote') == 1 || substr_count($_COOKIE['droits'], 'Supprimer un compte pilote') == 1 || substr_count($_COOKIE['droits'], 'Rechercher un compte pilote') == 1){
+                    ?>
                     <form action="?action=PDView" method="post">
                         <div class="row justify-content-center littleMarge brd">
                             <div class="col container-fluid">
@@ -168,8 +199,13 @@
 
                                         <label for="prenom_pil">Prénom : </label>
                                         <input type="text" name="prenom_pil" id="prenom_pil" value="<?php if(isset($_POST['rechercher_pil']) && $donneepilote){echo $donneepilote['prenom_Pilote'];}?>"> 
-
+                                        <?php
+                                            if (substr_count($_COOKIE['droits'], 'Rechercher un compte pilote') == 1){
+                                        ?>
                                         <input type="submit" name="rechercher_pil" value="Rechercher"></input>
+                                        <?php
+                                            }
+                                        ?>
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <label for="mdp_pil">Mot de passe : </label>
@@ -215,19 +251,37 @@
                                     </div>
                                 </div>
                                 <div class="row justify-content-center littleMarge">
+                                    <?php
+                                        if (substr_count($_COOKIE['droits'], 'Créer un compte pilote') == 1){
+                                    ?>
                                     <div class="col-auto">
                                         <input type="submit" name="creer_pil" value="Créer pilote"></input>
                                     </div>
+                                    <?php
+                                        }
+                                        if (substr_count($_COOKIE['droits'], 'Modifier un compte pilote') == 1){
+                                    ?>
                                     <div class="col-auto">
                                         <input type="submit" name="modifier_pil" value="Modifier pilote"></input>
                                     </div>
+                                    <?php
+                                        }
+                                        if (substr_count($_COOKIE['droits'], 'Supprimer un compte pilote') == 1){
+                                    ?>
                                     <div class="col-auto">
                                         <input type="submit" name="supprimer_pil" value="Supprimer pilote"></input>
                                     </div>
+                                    <?php
+                                        }
+                                    ?>
                                 </div>
                             </div>
                         </div>
+                
                     </form>
+                    <?php
+                        }
+                    ?>
                 </div>
             </main>
 
