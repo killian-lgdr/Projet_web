@@ -20,9 +20,33 @@
             $req3 = $db->prepare("INSERT INTO etudiant (nom_Etudiant, prenom_Etudiant, ID_Localisation, ID_NiveauEtudes, ID_Identifiant) SELECT :nom1 , :prenom1 ,(SELECT ID_Localisation FROM localisation WHERE localisation.nom_Localisation = :ville1 ),(SELECT ID_NiveauEtudes FROM niveauetudes WHERE niveauetudes.promotion = :promotion1 ),(SELECT ID_Identifiant FROM identifiants WHERE identifiants.nom_Identifiant = :identifiant1 AND identifiants.mdp_Identifiant = :mdp1 ) WHERE NOT EXISTS (SELECT nom_Pilote, prenom_Pilote FROM pilote WHERE pilote.nom_Pilote = :nom2 AND pilote.prenom_Pilote = :prenom2 );");
             $req3->execute(array('nom1' => $nom, 'prenom1' => $prenom, 'ville1' => $ville,'promotion1' => $promotion,'identifiant1' => $identifiant, 'mdp1' => $mdp, 'nom2' => $nom, 'prenom2' => $prenom));
 
-        }
-        public function updateEtudiant($nom, $prenom, $ville, $promotion){
+            $req4 = $db->query('insert into attribue(ID_Identifiant, ID_droits) VALUES 
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),1),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),2),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),3),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),4),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),5),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),6),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),7),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),11),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),25),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),26),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),27),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),28),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),29),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),30),
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),31)');
 
+        }
+        public function updateEtudiant($nom, $prenom, $ville, $nEtudes)
+        {
+            $db = $this->dbConnect();
+
+            $req = $db->prepare("Insert into localisation (nom_Localisation) Select :ville1 where not exists(SELECT nom_Localisation from localisation where nom_Localisation = :ville2 ) ;");
+            $req->execute(array('ville1' => $ville, 'ville2' => $ville));
+
+            $req1 = $db->prepare("UPDATE etudiant SET ID_Localisation=(SELECT ID_Localisation FROM localisation WHERE nom_Localisation=:ville), ID_NiveauEtudes = (SELECT ID_NiveauEtudes FROM niveauetudes WHERE promotion = :promotion) WHERE prenom_Etudiant = :prenom AND nom_Etudiant = :nom;");
+            $req1->execute(array('ville' => $ville, 'promotion' => $nEtudes, 'nom' => $nom, 'prenom' => $prenom));
         }
         public function deleteEtudiant($nom, $prenom)
         {
@@ -46,7 +70,13 @@
                                 inner join a_wishlist on offre.ID_Offre = a_wishlist.ID_Offre
                                 WHERE a_wishlist.ID_Etudiant = (SELECT ID_Etudiant FROM etudiant WHERE prenom_Etudiant = :prenom AND nom_Etudiant = :nom)');
             $req->execute(array('prenom'=>$prenom, 'nom'=>$nom));
-            $req1 = $db->prepare('SELECT nom_Offre,nom_Competence , duree, salaire, date, nombrePlace, nom_Localisation, nom_Entreprise, promotion, a_postule.Etat FROM Offre
+            return $req;
+
+        }
+        public function getPostule($prenom, $nom)
+        {
+            $db = $this->dbConnect();    
+            $req = $db->prepare('SELECT nom_Offre,nom_Competence , duree, salaire, date, nombrePlace, nom_Localisation, nom_Entreprise, promotion, a_postule.Etat FROM Offre
                                 inner join localisation on offre.ID_Localisation = localisation.ID_localisation 
                                 inner join entreprise on offre.ID_Entreprise = entreprise.ID_Entreprise
                                 inner join niveauetudes on offre.ID_NiveauEtudes = niveauetudes.ID_NiveauEtudes
@@ -54,7 +84,8 @@
                                 inner join competence on requiert.ID_Competence = competence.ID_Competence
                                 inner join a_postule on offre.ID_Offre = a_postule.ID_Offre
                                 WHERE a_postule.ID_Etudiant = (SELECT ID_Etudiant FROM etudiant WHERE prenom_Etudiant = :prenom AND nom_Etudiant = :nom)');
-            $req1->execute(array('prenom'=>$prenom, 'nom'=>$nom));
+            $req->execute(array('prenom'=>$prenom, 'nom'=>$nom));
+            return $req;
         }
     }
     ?>
