@@ -57,6 +57,10 @@
                         });
                     </script>
 
+                    {php}
+                        if (substr_count($_COOKIE['droits'], 'Ajouter une offre à la wish-list') == 1){
+                    {/php}
+
                     <script>
                             
                             $("#postule{$id}").click(function(){
@@ -98,3 +102,6 @@
                                 console.log('error'+thrownError);}});
                             });
                     </script>
+                    {php}
+                        }
+                    {/php}
