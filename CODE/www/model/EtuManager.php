@@ -35,7 +35,7 @@
             ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),28),
             ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),29),
             ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),30),
-            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),31)');
+            ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),32)');
 
         }
         public function updateEtudiant($nom, $prenom, $ville, $nEtudes)
@@ -58,7 +58,7 @@
             $req3->execute(array('nom' => $nom, 'prenom' => $prenom));
         }
 
-        public function getWishlistPostule($prenom, $nom)
+        public function getWishlist($prenom, $nom)
         {
             $db = $this->dbConnect();
             $req = $db->prepare('SELECT nom_Offre,nom_Competence , duree, salaire, date, nombrePlace, nom_Localisation, nom_Entreprise, promotion FROM Offre

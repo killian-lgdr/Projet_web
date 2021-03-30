@@ -5,6 +5,10 @@ require_once('./model/EtuManager.php');
 function listEtu(){
 
     $EtuManager = new EtuManager();
+    $prenom = Null;
+    $nom = Null;
+    $wishlist = $EtuManager->getWishlist($prenom, $nom);
+    $postule = $EtuManager ->getPostule($prenom, $nom);
 
     if (isset($_POST['rechercher_etu'])) {
         $nom = $_POST['nom_etu'];
