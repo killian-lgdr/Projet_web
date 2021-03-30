@@ -24,6 +24,9 @@
                 <div class="col container-fluid">
 
 <!--Gestion Etudiant -->
+                    <?php
+                        if (substr_count($_COOKIE['droits'], 'Créer un compte étudiant') == 1 || substr_count($_COOKIE['droits'], 'Modifier un compte étudiant') == 1 || substr_count($_COOKIE['droits'], 'Supprimer un compte étudiant') == 1){
+                    ?>
                     <form action="?action=EtuView" method="post">
                         <div class="row justify-content-center littleMarge brd">
                             <div class="col container-fluid">
@@ -74,20 +77,40 @@
                                 </div>
 
                                 <div class="row justify-content-center littleMarge">
+                                <?php
+                                    if (substr_count($_COOKIE['droits'], 'Créer un compte étudiant') == 1){
+                                ?>
                                     <div class="col-auto">
                                         <input type="submit" name="creer_etu" value="Créer étudiant"></input>
                                     </div>
+                                <?php
+                                    }
+                                    if (substr_count($_COOKIE['droits'], 'Modifier un compte étudiant') == 1){
+                                ?>
                                     <div class="col-auto">
                                         <input type="submit" name="modifier_etu" value="Modifier étudiant"></input>
                                     </div>
+                                <?php
+                                    }
+                                    if (substr_count($_COOKIE['droits'], 'Supprimer un compte étudiant') == 1){
+                                ?>
                                     <div class="col-auto">
                                         <input type="submit" name="supprimer_etu" value="Supprimer étudiant"></input>
                                     </div>
+                                <?php
+                                    }
+                                ?>
                                 </div>
                             </div>  
                         </div>
                     </form>
+                    <?php
+                        }
+                    ?>
 <!--FIN Gestion Etudiant -->
+                    <?php
+                        if (substr_count($_COOKIE['droits'], 'Consulter les stats des étudiants') == 1 || substr_count($_COOKIE['droits'], 'Ajouter une offre à la wish-list') == 1){
+                    ?>
                 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <!--Afficher Postuler -->
                 <div class="container brd">
@@ -137,7 +160,9 @@
                 }
                 ?>
                 </div>
-
+                <?php
+                    }
+                ?>
 <!--FIN Afficher WL -->
                 </div>
             </main>

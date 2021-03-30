@@ -13,9 +13,15 @@
                     <a href="?action=PDView">Pilote/Délegué</a>
                     <a id="{$id}" class="active" href="#h">{$con}</a>
                 </div>
+                {php}
+                    if (isset($_COOKIE['droits'])){
+                {/php}
                 <div class="col-1 align-self-center">
                     <form method="post" action="index.php"><input type="submit" value="exit" name="exit"></form>
                 </div>
+                {php}
+                    }
+                {/php}
             </div>
           </div>
         </div>

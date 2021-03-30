@@ -1,6 +1,6 @@
 <?php
-    include_once('./public/vendors/libs/Smarty.class.php');
-    $obj = new smarty; 
+    include_once('./public/vendors/libs/SmartyBC.class.php');
+    $obj = new smartyBC; 
 ?>
 
 <!doctype html>
