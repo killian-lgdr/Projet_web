@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-26 14:19:37
+/* Smarty version 3.1.39, created on 2021-03-30 11:36:26
   from 'D:\Ordinateur\CESI\A2\4_WEB\Projet\Projet_web\CODE\www\public\tpl\offre.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_605ddf69eec378_99039057',
+  'unifunc' => 'content_6062f11ad64715_74092153',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a9c03650cd4e99d7118f35bff5b3ba0cfe292336' => 
     array (
       0 => 'D:\\Ordinateur\\CESI\\A2\\4_WEB\\Projet\\Projet_web\\CODE\\www\\public\\tpl\\offre.tpl',
-      1 => 1616764745,
+      1 => 1617096940,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_605ddf69eec378_99039057 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6062f11ad64715_74092153 (Smarty_Internal_Template $_smarty_tpl) {
 ?>                        <div class="row littleMarge" id="division<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">
                         <div class="col-12 container brd blue">
@@ -64,7 +64,8 @@ function content_605ddf69eec378_99039057 (Smarty_Internal_Template $_smarty_tpl)
                             </div>
                             <div class="row justify-content-center" id="buttonsHover<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">
-                                <div class="col-auto"><button>Ajouter à la wish-list</button></div>
+                                <div class="col-auto"><button id="wishList<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+">Ajouter à la wish-list</button></div>
                                 <div class="col-auto"><button>J'ai postulé</button></div>
                             </div>
                         </div>
@@ -90,6 +91,56 @@ function content_605ddf69eec378_99039057 (Smarty_Internal_Template $_smarty_tpl)
                         buttons<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 .style.display = "none";
                         });
+                    <?php echo '</script'; ?>
+>
+
+                    <?php echo '<script'; ?>
+>
+                            
+                            $("#wishList<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").click(function(){
+                            
+                                $.ajax({
+                                url: "./controller/CandidatureController.php",
+                                type:"GET",
+                                data: "function=wishListOffre&offre=" + <?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+,
+                                success: function(response, textStatus, xhr){
+                                    if( xhr.status == 200 ){
+                                        window.alert(xhr.responseText)
+                                    }
+                                
+                                
+                                },
+                                error: function (xhr, ajaxOptions, thrownError){
+                                console.log('Error: ' + xhr.status);
+                                console.log('error'+thrownError);}});
+                            });
+                    <?php echo '</script'; ?>
+>
+
+                    <?php echo '<script'; ?>
+>
+                            
+                            $("#wishList<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").click(function(){
+                            
+                                $.ajax({
+                                url: "./controller/CandidatureController.php",
+                                type:"GET",
+                                data: "function=wishListOffre&offre=" + <?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+,
+                                success: function(response, textStatus, xhr){
+                                    if( xhr.status == 200 ){
+                                        window.alert(xhr.responseText)
+                                    }
+                                
+                                
+                                },
+                                error: function (xhr, ajaxOptions, thrownError){
+                                console.log('Error: ' + xhr.status);
+                                console.log('error'+thrownError);}});
+                            });
                     <?php echo '</script'; ?>
 ><?php }
 }
