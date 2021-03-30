@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                             <div class="row justify-content-center" id="buttonsHover{$id}">
-                                <div class="col-auto"><button>Ajouter à la wish-list</button></div>
+                                <div class="col-auto"><button id="wishList{$id}">Ajouter à la wish-list</button></div>
                                 <div class="col-auto"><button>J'ai postulé</button></div>
                             </div>
                         </div>
@@ -46,4 +46,25 @@
                         division{$id}.addEventListener('mouseleave', function(){
                         buttons{$id}.style.display = "none";
                         });
+                    </script>
+
+                    <script>
+                            
+                            $("#note{$id}").click(function(){
+                            
+                                $.ajax({
+                                url: "./controller/NoteController.php",
+                                type:"GET",
+                                data: "function=noteEntreprise&note="+ $("#note{$id}").val() +"&entreprise={$entreprise}",
+                                success: function(response, textStatus, xhr){
+                                    if( xhr.status == 200 ){
+                                        window.alert(xhr.responseText)
+                                    }
+                                
+                                
+                                },
+                                error: function (xhr, ajaxOptions, thrownError){
+                                console.log('Error: ' + xhr.status);
+                                console.log('error'+thrownError);}});
+                            });
                     </script>

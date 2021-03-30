@@ -19,3 +19,10 @@ function wishListOffre($offre){
 
     echo 'offre ajoutée à la wish-list !';
 }
+
+function postulerOffre($offre){
+    $offreManager = new OffreManager();
+    $offreManager->postulerOffre($offre);
+
+    echo 'votre candidature est enregistrée !';
+}
