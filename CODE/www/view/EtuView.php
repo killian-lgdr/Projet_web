@@ -90,7 +90,22 @@
 <!--FIN Gestion Etudiant -->
 <!--Afficher Wishlist -->
 
-
+                <?php
+                    while ($donnees = $wishlist->fetch(PDO::FETCH_LAZY))
+                    {
+                        $obj->assign('id', $donnees['ID_Offre']);
+                        $obj->assign('titre', $donnees['nom_Offre']);
+                        $obj->assign('entreprise', $donnees['nom_Entreprise']);
+                        $obj->assign('domaine', $donnees['nom_Competence']);
+                        $obj->assign('nivetudes', $donnees['promotion']);
+                        $obj->assign('duree', $donnees['duree']);
+                        $obj->assign('date', $donnees['date']);
+                        $obj->assign('adresse', $donnees['nom_Localisation']);
+                        $obj->assign('salaire', $donnees['salaire']);
+                        $obj->assign('places', $donnees['nombreplace']);
+                        $obj->display('./public/tpl/offre.tpl');
+                    }
+                ?>
 <!--FIN Afficher Wishlist -->
 <!--Afficher Postuler -->
 
