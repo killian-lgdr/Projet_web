@@ -13,14 +13,14 @@
             $req = $db->query('SELECT DISTINCT secteurActivité FROM entreprise');
             return $req;
         }
-        public function getAllEntreprise(){
+        public function getAllEntreprise($debut, $EntreParPage){
             $db = $this->dbConnect();
             $req = $db->query('Select entreprise.ID_Entreprise, nom_Entreprise, SecteurActivité, nbStagiaireCesi, localisation.nom_Localisation, ROUND(AVG(valeur_NotePilote)) AS noteP, ROUND(AVG(valeur_NoteEtudiant)) AS noteE 
             from entreprise 
             LEFT join localisation on entreprise.ID_Localisation=localisation.ID_Localisation 
             LEFT join possedenotepilote on entreprise.ID_Entreprise=possedenotepilote.ID_Entreprise 
             LEFT join possedenoteetudiant on entreprise.ID_Entreprise=possedenoteetudiant.ID_Entreprise 
-            GROUP BY entreprise.ID_Entreprise');
+            GROUP BY entreprise.ID_Entreprise DESC LIMIT '.$debut.','. $EntreParPage .';');
             return $req;
         }
         public function getEntreprise($entreprise, $ville, $secteur){
@@ -116,6 +116,13 @@
             $req = $db->query('SELECT ID_Etudiant FROM `etudiant` WHERE nom_Etudiant = \'' . strtok($_COOKIE['userName'], '.') . '\' AND prenom_Etudiant =\'' . substr(strrchr($_COOKIE['userName'], "."), 1) . '\'');
             return $req->fetch();
 
+        }
+
+        public function totalEntre()
+        {
+            $db = $this->dbConnect();
+            $req = $db->query("SELECT ID_Entreprise FROM entreprise"); 
+            return $req;
         }
     }
 ?>

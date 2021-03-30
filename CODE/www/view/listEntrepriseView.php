@@ -20,7 +20,7 @@
 ?>
 <!-- debut recherche d'une offre -->
 <form action="?action=listEntrepriseView" method="post">
-                <div class="row marge">
+            <div class="row marge">
                 <div class="col-auto">
                     <label for="Entreprise">Nom de l'entreprise</label>
                     <input type="text" id="entreprise" name="entreprise">
@@ -97,6 +97,21 @@
                 ?>
                 <!-- fin afficher ENTREPRISE -->
                 </div>
+            </div>
+
+            <div class="row justify-content-center">
+                    <?php
+                        for ($i=1; $i<=$PagesTotal ; $i++)
+                        {
+                            if($i == $pageCourante)
+                            {
+                                echo '<a class="page">' . $i . '</a>';
+                            }
+                            else {
+                                echo '<a class="page" href="index.php?action=listEntrepriseView&page=' . $i . '">'. $i .'  </a>';
+                            }
+                        }
+                    ?>
                 </div>
                 <!-- fin resultats -->
 <?php
@@ -160,6 +175,7 @@
 <?php
     }
 ?>
+
 </main>
         <?php $obj->display('../public/tpl/footer.tpl');
         $obj->display('../public/tpl/script.tpl'); ?>
