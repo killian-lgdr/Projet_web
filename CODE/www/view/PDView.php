@@ -43,7 +43,7 @@
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <label for="mdp_del">Mot de passe : </label>
-                                        <input type="text" name="mdp_del" id="mdp_del">
+                                        <input type="password" name="mdp_del" id="mdp_del">
                                     </div>
                                 </div>
                                 <div class="row justify-content-center littleMarge">
@@ -53,7 +53,7 @@
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <label for="confmdp_del">Confirmer mot de passe : </label>
-                                        <input type="text" name="confmdp_del" id="confmdp_del">
+                                        <input type="password" name="confmdp_del" id="confmdp_del">
                                     </div>
                                 </div>
                                 <div class="row justify-content-center littleMarge">

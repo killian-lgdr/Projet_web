@@ -259,7 +259,20 @@
                         $obj->display('./public/tpl/offre.tpl');
                     }
                 ?>
-                
+                <div class="row justify-content-center">
+                    <?php
+                        for ($i=1; $i<=$PagesTotal ; $i++)
+                        {
+                            if($i == $pageCourante)
+                            {
+                                echo $i.' ';
+                            }
+                            else {
+                                echo '<a class="" href="index.php?page=' . $i . '">'. $i .'  </a>';
+                            }
+                        }
+                    ?>
+                </div>
 
 
                     
