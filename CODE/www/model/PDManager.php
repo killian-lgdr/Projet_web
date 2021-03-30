@@ -22,14 +22,17 @@
             $req3 = $db->prepare("INSERT INTO delegue (nom_Delegue, prenom_Delegue, ID_Localisation, ID_Identifiant) SELECT :nom1 , :prenom1 ,(SELECT ID_Localisation FROM localisation WHERE localisation.nom_Localisation = :ville1 ),(SELECT ID_Identifiant FROM identifiants WHERE identifiants.nom_Identifiant = :identifiant1 AND identifiants.mdp_Identifiant = :mdp1 ) WHERE NOT EXISTS (SELECT nom_Delegue, prenom_Delegue FROM delegue WHERE delegue.nom_Delegue = :nom2 AND delegue.prenom_Delegue = :prenom2 );");
             $req3->execute(array('nom1' => $nom, 'prenom1' => $prenom, 'ville1' => $ville, 'identifiant1' => $identifiant, 'mdp1' => $mdp, 'nom2' => $nom, 'prenom2' => $prenom));
 
-            $req4 = $db->prepare("INSERT INTO attribue (ID_Identifiant, ID_droits) VALUES ((SELECT ID_Identifiant FROM identifiants Where identifiants.nom_Identifiant = :identifiant1 ),(SELECT ID_droits FROM droits Where droits.ID_droits= :droit1 ));");
+            $req4 = $db->prepare("DELETE FROM attribue WHERE ID_Identifiant = (SELECT identifiants.ID_Identifiant FROM identifiants WHERE nom_Identifiant = :identifiant1) ;");
+            $req4->execute(array('identifiant1' => $identifiant));
+
+            $req5 = $db->prepare("INSERT INTO attribue (ID_Identifiant, ID_droits) VALUES ((SELECT ID_Identifiant FROM identifiants Where identifiants.nom_Identifiant = :identifiant1 ),(SELECT ID_droits FROM droits Where droits.ID_droits= :droit1 ));");
             for ($i=0; $i < strlen($droit)-1; $i+=3) { 
                 if ($droit[$i]==0){
                     $res = $droit[$i+1];
                 }else{
                     $res = $droit[$i].$droit[$i+1];
                 }
-                $req4->execute(array('identifiant1' => $identifiant, 'droit1' => $res));
+                $req5->execute(array('identifiant1' => $identifiant, 'droit1' => $res));
             }
         }
         public function updateDelegue($nom, $prenom, $identifiant, $ville, $droit)
@@ -89,12 +92,19 @@
             $req3 = $db->prepare("INSERT INTO pilote (nom_Pilote, prenom_Pilote, ID_Localisation, ID_Identifiant) SELECT :nom1 , :prenom1 ,(SELECT ID_Localisation FROM localisation WHERE localisation.nom_Localisation = :ville1 ),(SELECT ID_Identifiant FROM identifiants WHERE identifiants.nom_Identifiant = :identifiant1 AND identifiants.mdp_Identifiant = :mdp1 ) WHERE NOT EXISTS (SELECT nom_Pilote, prenom_Pilote FROM pilote WHERE pilote.nom_Pilote = :nom2 AND pilote.prenom_Pilote = :prenom2 );");
             $req3->execute(array('nom1' => $nom, 'prenom1' => $prenom, 'ville1' => $ville, 'identifiant1' => $identifiant, 'mdp1' => $mdp, 'nom2' => $nom, 'prenom2' => $prenom));
 
-            $req4 = $db->prepare("INSERT INTO enseigne_a (ID_Pilote, ID_NiveauEtudes) VALUES ((SELECT ID_Pilote FROM pilote Where pilote.nom_Pilote = :nom1 AND pilote.prenom_Pilote = :prenom1 ),(SELECT ID_NiveauEtudes FROM niveauetudes Where niveauetudes.promotion= :promotion1 ));");
+            $req4 = $db->prepare("DELETE FROM enseigne_a WHERE ID_Pilote = (SELECT pilote.ID_Pilote FROM pilote WHERE pilote.nom_Pilote = :nom1 AND pilote.prenom_Pilote = :prenom1 );");
+            $req4->execute(array('nom1' => $nom, 'prenom1' => $prenom));
+
+            $req5 = $db->prepare("INSERT INTO enseigne_a (ID_Pilote, ID_NiveauEtudes) VALUES ((SELECT ID_Pilote FROM pilote Where pilote.nom_Pilote = :nom1 AND pilote.prenom_Pilote = :prenom1 ),(SELECT ID_NiveauEtudes FROM niveauetudes Where niveauetudes.promotion= :promotion1 ));");
             for ($i=0; $i < strlen($promotion)-1; $i+=2) 
             { 
-                $req4->execute(array('nom1' => $nom, 'prenom1' => $prenom, 'promotion1' => ($promotion[$i].$promotion[$i+1])));
+                $req5->execute(array('nom1' => $nom, 'prenom1' => $prenom, 'promotion1' => ($promotion[$i].$promotion[$i+1])));
             }
-            $req5 = $db->query('insert into attribue(ID_Identifiant, ID_droits) VALUES 
+
+            $req6 = $db->prepare("DELETE FROM attribue WHERE ID_Identifiant = (SELECT identifiants.ID_Identifiant FROM identifiants WHERE nom_Identifiant = :identifiant1) ;");
+            $req6->execute(array('identifiant1' => $identifiant));
+
+            $req7 = $db->query('insert into attribue(ID_Identifiant, ID_droits) VALUES 
             ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),1),
             ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),2),
             ((Select ID_Identifiant from identifiants WHERE nom_Identifiant= \''.$identifiant.'\'),3),
