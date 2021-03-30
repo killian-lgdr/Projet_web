@@ -1,5 +1,5 @@
- <?php include_once('./public/vendors/libs/Smarty.class.php');
-    $obj = new smarty; ?>
+ <?php include_once('./public/vendors/libs/SmartyBC.class.php');
+    $obj = new smartyBC; ?>
 
 <!doctype html>
     <html lang="fr">
@@ -14,6 +14,10 @@
             ?>
 <div class="containter">
 <main>
+
+<?php
+    if (isset($_COOKIE['droits']) && substr_count($_COOKIE['droits'], 'Rechercher une entreprise') == 1){
+?>
 <!-- debut recherche d'une offre -->
 <form action="?action=listEntrepriseView" method="post">
                 <div class="row marge">
@@ -95,9 +99,12 @@
                 </div>
                 </div>
                 <!-- fin resultats -->
-
+<?php
+    }
+    if (isset($_COOKIE['droits']) && (substr_count($_COOKIE['droits'], 'Créer une entreprise') == 1 || substr_count($_COOKIE['droits'], 'Modifier une entreprise') == 1 || substr_count($_COOKIE['droits'], 'Supprimer une entreprise') == 1)){
+?>
                 <!-- Création des entreprises -->
-        <div class="container">
+        <div class="container marge">
         <div class="brd">
         <h1 class="text-center">GESTION DES ENTREPRISES</h1>
         <form action="index.php?action=listEntrepriseView" method="post">
@@ -123,19 +130,36 @@
                 </div>
                 </div>
                 <div class="row justify-content-center littleMarge">
+                <?php
+                    if (substr_count($_COOKIE['droits'], 'Créer une entreprise') == 1){
+                ?>
                 <div class="col-auto">
                 <input type="submit" name="creer_ent" value="Créer" ></input>
                 </div>
+                <?php
+                    }
+                    if (substr_count($_COOKIE['droits'], 'Modifier une entreprise') == 1){
+                ?>
                 <div class="col-auto">
                 <input type="submit" name="modifier_ent" value="modifier" ></input>
                 </div>
+                <?php
+                    }
+                    if (substr_count($_COOKIE['droits'], 'Supprimer une entreprise') == 1){
+                ?>
                 <div class="col-auto">
                 <input type="submit" name="supprimer_ent" value="supprimer" ></input>
                 </div>
+                <?php
+                    }
+                ?>
                 </div>
         </form>
         </div>
         </div>
+<?php
+    }
+?>
 </main>
         <?php $obj->display('../public/tpl/footer.tpl');
         $obj->display('../public/tpl/script.tpl'); ?>
