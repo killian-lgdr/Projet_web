@@ -6,19 +6,19 @@ function listEtu(){
 
     $EtuManager = new EtuManager();
 
-    $voirwishlist = false;
-
+    $voirPostule = false;
+    $voirWishList = false;
     if($EtuManager->testEtudiant() != null)
     {
-        $wishlist = $EtuManager->getWishlist(substr(strrchr($_COOKIE['userName'], "."), 1), strtok($_COOKIE['userName']));
-        $postule = $EtuManager ->getPostule(substr(strrchr($_COOKIE['userName'], "."), 1), strtok($_COOKIE['userName']));
-        $voirwishlist = true;
+        $wishList = $EtuManager->getWishlist(substr(strrchr($_COOKIE['userName'], "."), 1), strtok($_COOKIE['userName'], '.'));
+        $postule = $EtuManager->getPostule(substr(strrchr($_COOKIE['userName'], "."), 1), strtok($_COOKIE['userName'], '.'));
+        $voirWishList = true;
+        $voirPostule = true;
     }
-    else if(isset($_POST['rechercher_etu']) && isset($_POST['prenom_etu']) && isset($_POST['nom_etu']))
+    else if(isset($_POST['rechercher_etu']) && isset($_POST['prenom_etu']) && isset($_POST['nom_etu']) && $_POST['prenom_etu'] != null && $_POST['nom_etu'] != null)
     {
-
-        $postule = $EtuManager ->getPostule($_POST['prenom_etu'], $_POST['nom_etu']);   
-        $voirwishlist = true; 
+        $postule = $EtuManager->getPostule($_POST['prenom_etu'], $_POST['nom_etu']);
+        $voirPostule = true;
     }
 
     if (isset($_POST['rechercher_etu'])) {

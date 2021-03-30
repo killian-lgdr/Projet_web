@@ -255,7 +255,7 @@
                         $obj->assign('date', $donnees['date']);
                         $obj->assign('adresse', $donnees['nom_Localisation']);
                         $obj->assign('salaire', $donnees['salaire']);
-                        $obj->assign('places', $donnees['nombreplace']);
+                        $obj->assign('places', $donnees['nombrePlace']);
                         $obj->display('./public/tpl/offre.tpl');
                     }
                 ?>

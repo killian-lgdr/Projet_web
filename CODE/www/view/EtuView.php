@@ -1,6 +1,6 @@
 <?php
-    include_once('./public/vendors/libs/Smarty.class.php');
-    $obj = new smarty; 
+    include_once('./public/vendors/libs/SmartyBC.class.php');
+    $obj = new smartyBC;
 ?>
 
 <!doctype html>
@@ -88,12 +88,14 @@
                         </div>
                     </form>
 <!--FIN Gestion Etudiant -->
-<!--Afficher Wishlist -->
-
+                <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!--Afficher Postuler -->
+                <div class="container brd">
                 <?php
-                if($voirwishlist)
+                if($voirPostule)
                 {
-                    while ($donnees = $wishlist->fetch(PDO::FETCH_LAZY))
+                    echo "<div class=\"row justify-content-center\"><div class=\"col-auto\"><h2>Liste Candidatures</h2></div></div>";
+                    while ($donnees = $postule->fetch(PDO::FETCH_LAZY))
                     {
                         $obj->assign('id', $donnees['ID_Offre']);
                         $obj->assign('titre', $donnees['nom_Offre']);
@@ -104,16 +106,39 @@
                         $obj->assign('date', $donnees['date']);
                         $obj->assign('adresse', $donnees['nom_Localisation']);
                         $obj->assign('salaire', $donnees['salaire']);
-                        $obj->assign('places', $donnees['nombreplace']);
-                        $obj->display('./public/tpl/offre.tpl');
+                        $obj->assign('places', $donnees['nombrePlace']);
+                        $obj->assign('avancement', $donnees['Etat']);
+                        $obj->display('./public/tpl/postule.tpl');
                     }
                 }
                 ?>
-<!--FIN Afficher Wishlist -->
-<!--Afficher Postuler -->
-
-
+                </div>
 <!--FIN Afficher Postuler -->
+<!--Afficher WL -->
+                <div class="container brd">
+                <?php
+                if($voirWishList)
+                {
+                    echo "<div class=\"row justify-content-center\"><div class=\"col-auto\"><h2>Wish-List</h2></div></div>";
+                    while ($donnees = $wishList->fetch(PDO::FETCH_LAZY))
+                    {
+                        $obj->assign('id', $donnees['ID_Offre']);
+                        $obj->assign('titre', $donnees['nom_Offre']);
+                        $obj->assign('entreprise', $donnees['nom_Entreprise']);
+                        $obj->assign('domaine', $donnees['nom_Competence']);
+                        $obj->assign('nivetudes', $donnees['promotion']);
+                        $obj->assign('duree', $donnees['duree']);
+                        $obj->assign('date', $donnees['date']);
+                        $obj->assign('adresse', $donnees['nom_Localisation']);
+                        $obj->assign('salaire', $donnees['salaire']);
+                        $obj->assign('places', $donnees['nombrePlace']);
+                        $obj->display('./public/tpl/wish-list.tpl');
+                    }
+                }
+                ?>
+                </div>
+
+<!--FIN Afficher WL -->
                 </div>
             </main>
 

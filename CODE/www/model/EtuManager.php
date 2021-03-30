@@ -69,7 +69,7 @@
         public function getWishlist($prenom, $nom)
         {
             $db = $this->dbConnect();
-            $req = $db->prepare('SELECT nom_Offre,nom_Competence , duree, salaire, date, nombrePlace, nom_Localisation, nom_Entreprise, promotion FROM Offre
+            $req = $db->prepare('SELECT offre.ID_Offre, nom_Offre,nom_Competence , duree, salaire, date, nombrePlace, nom_Localisation, nom_Entreprise, promotion FROM Offre
                                 inner join localisation on offre.ID_Localisation = localisation.ID_localisation 
                                 inner join entreprise on offre.ID_Entreprise = entreprise.ID_Entreprise
                                 inner join niveauetudes on offre.ID_NiveauEtudes = niveauetudes.ID_NiveauEtudes
@@ -84,7 +84,7 @@
         public function getPostule($prenom, $nom)
         {
             $db = $this->dbConnect();    
-            $req = $db->prepare('SELECT nom_Offre,nom_Competence , duree, salaire, date, nombrePlace, nom_Localisation, nom_Entreprise, promotion, a_postule.Etat FROM Offre
+            $req = $db->prepare('SELECT offre.ID_Offre, nom_Offre,nom_Competence , duree, salaire, date, nombrePlace, nom_Localisation, nom_Entreprise, promotion, a_postule.Etat FROM Offre
                                 inner join localisation on offre.ID_Localisation = localisation.ID_localisation 
                                 inner join entreprise on offre.ID_Entreprise = entreprise.ID_Entreprise
                                 inner join niveauetudes on offre.ID_NiveauEtudes = niveauetudes.ID_NiveauEtudes

@@ -26,3 +26,15 @@ function postulerOffre($offre){
 
     echo 'votre candidature est enregistrée !';
 }
+
+function supprimerWishList($offre){
+    $offreManager = new OffreManager();
+    $offreManager->supprimerWishList($offre);
+    echo 'Offre supprimée de la Wish-List';
+}
+
+function avancerCandidature($offre){
+    $offreManager = new OffreManager();
+    $offreManager->avancerCandidature($offre);
+    echo 'etat Avancé';
+}

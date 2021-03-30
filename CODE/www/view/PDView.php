@@ -96,6 +96,9 @@
                                     </div>
                                 </div>
                                 <div class="row justify-content-center littleMarge">
+                                    <?php
+                                        if (substr_count($_COOKIE['droits'], 'Créer un compte pilote') == 1 || substr_count($_COOKIE['droits'], 'Modifier un compte pilote') == 1 || substr_count($_COOKIE['droits'], 'Supprimer un compte pilote') == 1 || substr_count($_COOKIE['droits'], 'Rechercher un compte pilote') == 1){
+                                    ?>
                                     <div class="col-auto align-self-center">
                                         <label for="ges_pil">Gestion des pilotes :</label>
                                     </div>
@@ -108,6 +111,9 @@
                                             <option value="15," <?php if(isset($_POST['rechercher_del']) && $donneedelegue && substr_count($donneedelegue['ges_droit'],"15")){echo "selected";}?>>Supprimer un compte pilote</option>
                                         </select>
                                     </div>
+                                    <?php
+                                        }
+                                    ?>
                                     <div class="col-auto align-self-center">
                                         <label for="ges_del">Gestion des délégués :</label>
                                     </div>
