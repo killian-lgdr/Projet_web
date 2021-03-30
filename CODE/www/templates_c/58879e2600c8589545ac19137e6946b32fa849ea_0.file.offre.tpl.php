@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-30 11:27:45
+/* Smarty version 3.1.39, created on 2021-03-30 14:15:33
   from 'C:\Users\killi\Desktop\A2\4- developpement Web\Projet_web\CODE\www\public\tpl\offre.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6062ef116932b9_13427047',
+  'unifunc' => 'content_60631665313745_19768164',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '58879e2600c8589545ac19137e6946b32fa849ea' => 
     array (
       0 => 'C:\\Users\\killi\\Desktop\\A2\\4- developpement Web\\Projet_web\\CODE\\www\\public\\tpl\\offre.tpl',
-      1 => 1617096450,
+      1 => 1617106167,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6062ef116932b9_13427047 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60631665313745_19768164 (Smarty_Internal_Template $_smarty_tpl) {
 ?>                        <div class="row littleMarge" id="division<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">
                         <div class="col-12 container brd blue">
@@ -62,6 +62,11 @@ function content_6062ef116932b9_13427047 (Smarty_Internal_Template $_smarty_tpl)
 </p>
                                 </div>
                             </div>
+
+                            <?php 
+                                if (substr_count($_COOKIE['droits'], 'Ajouter une offre à la wish-list') == 1){
+                            ?>
+
                             <div class="row justify-content-center" id="buttonsHover<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">
                                 <div class="col-auto"><div class="boutton" id="wishList<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
@@ -69,6 +74,10 @@ function content_6062ef116932b9_13427047 (Smarty_Internal_Template $_smarty_tpl)
                                 <div class="col-auto"><div class="boutton" id="postule<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">J'ai postulé</div></div>
                             </div>
+
+                            <?php 
+                                }
+                            ?>
                         </div>
                         
                     </div>
@@ -94,6 +103,10 @@ function content_6062ef116932b9_13427047 (Smarty_Internal_Template $_smarty_tpl)
                         });
                     <?php echo '</script'; ?>
 >
+
+                    <?php 
+                        if (substr_count($_COOKIE['droits'], 'Ajouter une offre à la wish-list') == 1){
+                    ?>
 
                     <?php echo '<script'; ?>
 >
@@ -143,5 +156,8 @@ function content_6062ef116932b9_13427047 (Smarty_Internal_Template $_smarty_tpl)
                                 console.log('error'+thrownError);}});
                             });
                     <?php echo '</script'; ?>
-><?php }
+>
+                    <?php 
+                        }
+}
 }

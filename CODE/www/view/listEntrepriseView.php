@@ -20,7 +20,7 @@
 ?>
 <!-- debut recherche d'une offre -->
 <form action="?action=listEntrepriseView" method="post">
-                <div class="row marge">
+            <div class="row marge">
                 <div class="col-auto">
                     <label for="Entreprise">Nom de l'entreprise</label>
                     <input type="text" id="entreprise" name="entreprise">
@@ -95,13 +95,29 @@
                         $obj->display('./public/tpl/entreprise.tpl');
                     }
                 ?>
+                
+                <div class="row justify-content-center">
+                    <?php
+                        for ($i=1; $i<=$PagesTotal ; $i++)
+                        {
+                            if($i == $pageCourante)
+                            {
+                                echo '<a class="page">' . $i . '</a>';
+                            }
+                            else {
+                                echo '<a class="page" href="index.php?action=listEntrepriseView&page=' . $i . '">'. $i .'  </a>';
+                            }
+                        }
+                    ?>
+                </div>
                 <!-- fin afficher ENTREPRISE -->
                 </div>
-                </div>
+            </div>
+
                 <!-- fin resultats -->
 <?php
     }
-    if (isset($_COOKIE['droits']) && (substr_count($_COOKIE['droits'], 'Créer une entreprise') == 1 || substr_count($_COOKIE['droits'], 'Modifier une entreprise') == 1 || substr_count($_COOKIE['droits'], 'Supprimer une entreprise') == 1)){
+    if ((substr_count($_COOKIE['droits'], 'Créer une entreprise') == 1 || substr_count($_COOKIE['droits'], 'Modifier une entreprise') == 1 || substr_count($_COOKIE['droits'], 'Supprimer une entreprise') == 1)){
 ?>
                 <!-- Création des entreprises -->
         <div class="container marge">
