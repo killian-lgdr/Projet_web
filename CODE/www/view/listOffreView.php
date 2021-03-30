@@ -268,7 +268,7 @@
                                 echo $i.' ';
                             }
                             else {
-                                echo '<a class="" href="index.php?page=' . $i . '">'. $i .'  </a>';
+                                echo '<a class="" href="index.php?page=' . $i . '">'. $i .'</a>';
                             }
                         }
                     ?>
