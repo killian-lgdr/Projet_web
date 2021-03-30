@@ -85,14 +85,34 @@ margin-top: 2em;
 background-color: #e2b286;
 }
 
-button{
+.boutton{
   background-color: #e2b286;
   border: 1px solid black;
   color: black;
   padding: 5px;
   margin: 5px;
   border-radius: 12px;
+  width: 10em;
+  text-align: center;
+  cursor: pointer;
 }
+
+.page{
+  background-color: #e2b286;
+  border: 1px solid black;
+  border-radius: 30px;
+  padding: 0.75em;
+  margin: 0.25em;
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+.page:hover{
+  color: black;
+}
+
+
 
 .fa-star {
   color: gray;

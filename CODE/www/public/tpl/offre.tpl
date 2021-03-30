@@ -29,10 +29,19 @@
                                     <p>Nombre de Places : {$places}</p>
                                 </div>
                             </div>
+
+                            {php}
+                                if (substr_count($_COOKIE['droits'], 'Ajouter une offre à la wish-list') == 1){
+                            {/php}
+
                             <div class="row justify-content-center" id="buttonsHover{$id}">
                                 <div class="col-auto"><div class="boutton" id="wishList{$id}">Ajouter à la wish-list</div></div>
                                 <div class="col-auto"><div class="boutton" id="postule{$id}">J'ai postulé</div></div>
                             </div>
+
+                            {php}
+                                }
+                            {/php}
                         </div>
                         
                     </div>

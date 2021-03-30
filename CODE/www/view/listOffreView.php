@@ -1,6 +1,6 @@
 <?php
-    include_once('./public/vendors/libs/Smarty.class.php');
-    $obj = new smarty; 
+    include_once('./public/vendors/libs/SmartyBC.class.php');
+    $obj = new smartyBC; 
 ?>
 
 <!doctype html>
@@ -265,10 +265,10 @@
                         {
                             if($i == $pageCourante)
                             {
-                                echo $i.' ';
+                                echo '<a class="page">' . $i . '</a>';
                             }
                             else {
-                                echo '<a class="" href="index.php?page=' . $i . '">'. $i .'  </a>';
+                                echo '<a class="page" href="index.php?page=' . $i . '">'. $i .'  </a>';
                             }
                         }
                     ?>
