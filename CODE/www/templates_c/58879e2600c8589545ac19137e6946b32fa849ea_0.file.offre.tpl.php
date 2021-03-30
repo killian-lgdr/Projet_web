@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-30 10:35:27
+/* Smarty version 3.1.39, created on 2021-03-30 11:00:42
   from 'C:\Users\killi\Desktop\A2\4- developpement Web\Projet_web\CODE\www\public\tpl\offre.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6062e2cf4ab0b7_23821995',
+  'unifunc' => 'content_6062e8baa8d296_34784999',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '58879e2600c8589545ac19137e6946b32fa849ea' => 
     array (
       0 => 'C:\\Users\\killi\\Desktop\\A2\\4- developpement Web\\Projet_web\\CODE\\www\\public\\tpl\\offre.tpl',
-      1 => 1617092815,
+      1 => 1617094402,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6062e2cf4ab0b7_23821995 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6062e8baa8d296_34784999 (Smarty_Internal_Template $_smarty_tpl) {
 ?>                        <div class="row littleMarge" id="division<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">
                         <div class="col-12 container brd blue">
@@ -66,7 +66,8 @@ function content_6062e2cf4ab0b7_23821995 (Smarty_Internal_Template $_smarty_tpl)
 ">
                                 <div class="col-auto"><button id="wishList<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">Ajouter à la wish-list</button></div>
-                                <div class="col-auto"><button>J'ai postulé</button></div>
+                                <div class="col-auto"><button id="postule<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+">J'ai postulé</button></div>
                             </div>
                         </div>
                         
@@ -97,15 +98,39 @@ function content_6062e2cf4ab0b7_23821995 (Smarty_Internal_Template $_smarty_tpl)
                     <?php echo '<script'; ?>
 >
                             
-                            $("#note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+                            $("#postule<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ").click(function(){
                             
                                 $.ajax({
-                                url: "./controller/NoteController.php",
+                                url: "./controller/CandidatureController.php",
                                 type:"GET",
-                                data: "function=noteEntreprise&note="+ $("#note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
-").val() +"&entreprise=<?php echo $_smarty_tpl->tpl_vars['entreprise']->value;?>
-",
+                                data: "function=wishListOffre&offre=" + <?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+,
+                                success: function(response, textStatus, xhr){
+                                    if( xhr.status == 200 ){
+                                        window.alert(xhr.responseText)
+                                    }
+                                
+                                
+                                },
+                                error: function (xhr, ajaxOptions, thrownError){
+                                console.log('Error: ' + xhr.status);
+                                console.log('error'+thrownError);}});
+                            });
+                    <?php echo '</script'; ?>
+>
+
+                    <?php echo '<script'; ?>
+>
+                            
+                            $("#wishList<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+").click(function(){
+                            
+                                $.ajax({
+                                url: "./controller/CandidatureController.php",
+                                type:"GET",
+                                data: "function=postulerOffre&offre=" + <?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+,
                                 success: function(response, textStatus, xhr){
                                     if( xhr.status == 200 ){
                                         window.alert(xhr.responseText)

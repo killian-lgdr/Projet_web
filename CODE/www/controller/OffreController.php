@@ -3,11 +3,28 @@ require_once('./model/OffreManager.php');
 require_once('./model/ConnectUserManager.php');
 require_once('functions.php');
 
+
+
 function listOffre(){
     $OffreManager = new OffreManager();
 
+    //pagination
+    $OffresParPage = 5;
+    $OffresTotalReq =  $OffreManager->totalOffre();
+    $OffresTotal = $OffresTotalReq->rowCount();
+
+    if(isset($_GET['page']) AND !empty($_GET['page'])){
+        $_GET['page'] = intval($_GET['page']);
+        $pageCourante = $_GET['page'];
+    }
+    else {
+        $pageCourante = 1;
+    }
+    
+    $depart = ($pageCourante-1)*$OffresParPage;
+
     //gestion de l'affichage
-    $offre = $OffreManager->getAllOffres();
+    $offre = $OffreManager->getAllOffres($depart, $OffresParPage);
     $entreprise = $OffreManager->getAllEntreprise();
     $entrepriseSelect = $OffreManager->getAllEntreprise();
 
@@ -95,20 +112,6 @@ function listOffre(){
         $mOffre=$OffreManager->updateOffre($mville, $mdomaine, $moffre, $mduree, $msalaire, $mnivetudes, $mdate, $mplaces, $mentreprise);
 
     }
-//pagination
-    $OffresParPage = 5;
-    $OffresTotalReq =  $OffreManager->totalOffre();
-    $OffresTotal = $OffresTotalReq->rowCount();
-
-    if(isset($_GET['page']) AND !empty($_GET['page'])){
-        $_GET['page'] = intval($_GET['page']);
-        $pageCourante = $_GET['page'];
-    }
-    else {
-        $pageCourante = 1;
-    }
-    
-    $depart = ($pageCourante-1)*$OffresParPage;
 
     require_once('./view/listOffreView.php');
 }
