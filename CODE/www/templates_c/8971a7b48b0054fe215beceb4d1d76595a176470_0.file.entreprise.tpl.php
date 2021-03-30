@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-29 17:40:21
+/* Smarty version 3.1.39, created on 2021-03-30 10:40:19
   from 'C:\Users\killi\Desktop\A2\4- developpement Web\Projet_web\CODE\www\public\tpl\entreprise.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6061f4e54dde75_88203039',
+  'unifunc' => 'content_6062e3f39d2da2_91656300',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8971a7b48b0054fe215beceb4d1d76595a176470' => 
     array (
       0 => 'C:\\Users\\killi\\Desktop\\A2\\4- developpement Web\\Projet_web\\CODE\\www\\public\\tpl\\entreprise.tpl',
-      1 => 1617026064,
+      1 => 1617090204,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6061f4e54dde75_88203039 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6062e3f39d2da2_91656300 (Smarty_Internal_Template $_smarty_tpl) {
 ?>                        <!-- AFFICHER ENTREPRISE-->
                         <div class="row littleMarge" id="division<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 ">
@@ -82,6 +82,9 @@ function content_6061f4e54dde75_88203039 (Smarty_Internal_Template $_smarty_tpl)
                                     </div>
                                 </div>
                             <!--AFFICHER LE SYSTEME DE NOTATION-->
+                            <?php 
+                                if (substr_count($_COOKIE['droits'], 'Evaluer une entreprise') == 1){
+                            ?>
                                 <div class="rating col-4">
                                 <p class = "textnote">Notez cette entreprise<p>
                                 	<div id="note<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
@@ -98,6 +101,9 @@ function content_6061f4e54dde75_88203039 (Smarty_Internal_Template $_smarty_tpl)
 " class="fa fa-star"></i>
                                     </div>
                                 </div>
+                            <?php 
+                                }
+                            ?>
                             </div>
                             </div>
                         </div>
@@ -127,7 +133,9 @@ function content_6061f4e54dde75_88203039 (Smarty_Internal_Template $_smarty_tpl)
                         
                     <?php echo '</script'; ?>
 >
-
+                    <?php 
+                        if (substr_count($_COOKIE['droits'], 'Evaluer une entreprise') == 1){
+                    ?>
                     <?php echo '<script'; ?>
 >
                         $("#star5<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
@@ -177,5 +185,8 @@ function content_6061f4e54dde75_88203039 (Smarty_Internal_Template $_smarty_tpl)
                                 console.log('error'+thrownError);}});
                         });
                     <?php echo '</script'; ?>
-><?php }
+>
+                    <?php 
+                        }
+}
 }

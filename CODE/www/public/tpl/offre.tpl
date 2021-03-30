@@ -31,7 +31,7 @@
                             </div>
                             <div class="row justify-content-center" id="buttonsHover{$id}">
                                 <div class="col-auto"><button id="wishList{$id}">Ajouter à la wish-list</button></div>
-                                <div class="col-auto"><button>J'ai postulé</button></div>
+                                <div class="col-auto"><button id="postule{$id}">J'ai postulé</button></div>
                             </div>
                         </div>
                         
@@ -50,7 +50,7 @@
 
                     <script>
                             
-                            $("#wishList{$id}").click(function(){
+                            $("#postule{$id}").click(function(){
                             
                                 $.ajax({
                                 url: "./controller/CandidatureController.php",
@@ -76,7 +76,7 @@
                                 $.ajax({
                                 url: "./controller/CandidatureController.php",
                                 type:"GET",
-                                data: "function=wishListOffre&offre=" + {$id},
+                                data: "function=postulerOffre&offre=" + {$id},
                                 success: function(response, textStatus, xhr){
                                     if( xhr.status == 200 ){
                                         window.alert(xhr.responseText)
