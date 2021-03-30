@@ -5,10 +5,21 @@ require_once('./model/EtuManager.php');
 function listEtu(){
 
     $EtuManager = new EtuManager();
-    $prenom = Null;
-    $nom = Null;
-    $wishlist = $EtuManager->getWishlist($prenom, $nom);
-    $postule = $EtuManager ->getPostule($prenom, $nom);
+
+    $voirwishlist = false;
+
+    if($EtuManager->testEtudiant() != null)
+    {
+        $wishlist = $EtuManager->getWishlist(substr(strrchr($_COOKIE['userName'], "."), 1), strtok($_COOKIE['userName']));
+        $postule = $EtuManager ->getPostule(substr(strrchr($_COOKIE['userName'], "."), 1), strtok($_COOKIE['userName']));
+        $voirwishlist = true;
+    }
+    else if(isset($_POST['rechercher_etu']) && isset($_POST['prenom_etu']) && isset($_POST['nom_etu']))
+    {
+
+        $postule = $EtuManager ->getPostule($_POST['prenom_etu'], $_POST['nom_etu']);   
+        $voirwishlist = true; 
+    }
 
     if (isset($_POST['rechercher_etu'])) {
         $nom = $_POST['nom_etu'];
@@ -32,8 +43,10 @@ function listEtu(){
     if(isset($_POST['supprimer_etu']) && isset($_POST['nom_etu']) && isset($_POST['prenom_etu']))
     {
         $sNom=$_POST['nom_etu'];
-        $sPrenom=$_POST['nom_etu'];
-        $supprimerEtu = $EtuManager->deleteEtudiant($sNom, $sPrenom);
+        $sPrenom=$_POST['prenom_etu'];
+        $sIdentifiant =  $_POST['nom_etu'] . "." . $_POST['prenom_etu'];
+        echo $sIdentifiant;
+        $supprimerEtu = $EtuManager->deleteEtudiant($sNom, $sPrenom, $sIdentifiant);
     }
 
     if(isset($_POST['modifier_etu']) && isset($_POST['nom_etu']) && isset($_POST['prenom_etu']) && isset($_POST['ville_etu']) && isset($_POST['promotion']))
@@ -42,7 +55,7 @@ function listEtu(){
         $mPrenom=$_POST['nom_etu'];
         $mVille=$_POST['ville_etu'];
         $mNEtudes=$_POST['promotion'];
-        $supprimerEtu = $EtuManager->updateEtudiant($mNom, $mPrenom, $mVille, $mNEtudes);
+        $modifierEtu = $EtuManager->updateEtudiant($mNom, $mPrenom, $mVille, $mNEtudes);
     }
     
 

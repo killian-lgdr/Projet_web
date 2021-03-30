@@ -91,6 +91,8 @@
 <!--Afficher Wishlist -->
 
                 <?php
+                if($voirwishlist)
+                {
                     while ($donnees = $wishlist->fetch(PDO::FETCH_LAZY))
                     {
                         $obj->assign('id', $donnees['ID_Offre']);
@@ -105,6 +107,7 @@
                         $obj->assign('places', $donnees['nombreplace']);
                         $obj->display('./public/tpl/offre.tpl');
                     }
+                }
                 ?>
 <!--FIN Afficher Wishlist -->
 <!--Afficher Postuler -->
