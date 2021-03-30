@@ -65,11 +65,11 @@
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <label for="mdp_del">Mot de passe : </label>
-                                        <input type="text" name="mdp_etu" id="mdp_etu">
+                                        <input type="password" name="mdp_etu" id="mdp_etu">
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <label for="confmdp_etu">Confirmer mot de passe : </label>
-                                        <input type="text" name="confmdp_etu" id="confmdp_etu">
+                                        <input type="password" name="confmdp_etu" id="confmdp_etu">
                                     </div>
                                 </div>
 

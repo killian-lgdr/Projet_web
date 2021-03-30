@@ -12,6 +12,7 @@ function listOffre(){
     $OffresParPage = 5;
     $OffresTotalReq =  $OffreManager->totalOffre();
     $OffresTotal = $OffresTotalReq->rowCount();
+    $PagesTotal = ceil($OffresTotal/$OffresParPage);
 
     if(isset($_GET['page']) AND !empty($_GET['page'])){
         $_GET['page'] = intval($_GET['page']);
