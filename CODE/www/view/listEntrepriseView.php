@@ -160,6 +160,7 @@
 <?php
     }
 ?>
+
 </main>
         <?php $obj->display('../public/tpl/footer.tpl');
         $obj->display('../public/tpl/script.tpl'); ?>
