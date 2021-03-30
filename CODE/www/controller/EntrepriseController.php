@@ -7,6 +7,22 @@ function listEntreprise(){
 
     $entrepriseManager = new EntrepriseManager();
 
+    //pagination
+    $EntreParPage = 5;
+    $EntreTotalReq =  $EntrepriseManager->totalOffre();
+    $EntreTotal = $EntreTotalReq->rowCount();
+    $PagesTotal = ceil($EntreTotal/$EntreParPage);
+
+    if(isset($_GET['page']) AND !empty($_GET['page'])){
+        $_GET['page'] = intval($_GET['page']);
+        $pageCourante = $_GET['page'];
+    }
+    else {
+        $pageCourante = 1;
+    }
+    
+    $depart = ($pageCourante-1)*$OffresParPage;
+
         $ville = $entrepriseManager->getAllville();
         $secteurAct = $entrepriseManager->getAllSecteurAct();
         $entreprise = $entrepriseManager->getAllEntreprise();
