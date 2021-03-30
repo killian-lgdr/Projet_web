@@ -5,7 +5,7 @@
     {
         public function getAllOffres(){
             $db = $this->dbConnect();
-            $req = $db->query('Select offre.ID_Offre, nom_Offre, duree, salaire, date, nombreplace, nom_Localisation, nom_Entreprise, GROUP_CONCAT(`nom_Competence` SEPARATOR ", ") AS nom_Competence, promotion, offre.ID_Offre from offre inner join localisation on offre.ID_localisation=localisation.ID_localisation inner Join entreprise on offre.ID_entreprise = entreprise.ID_entreprise inner join requiert on offre.Id_offre = requiert.ID_offre inner join competence on requiert.ID_competence = competence.ID_competence inner join niveauetudes on niveauetudes.ID_NiveauEtudes = offre.ID_NiveauEtudes GROUP BY offre.ID_Offre ');
+            $req = $db->query('Select nom_Offre, duree, salaire, date, nombreplace, nom_Localisation, nom_Entreprise, GROUP_CONCAT(`nom_Competence` SEPARATOR ", ") AS nom_Competence, promotion, offre.ID_Offre from offre inner join localisation on offre.ID_localisation=localisation.ID_localisation inner Join entreprise on offre.ID_entreprise = entreprise.ID_entreprise inner join requiert on offre.Id_offre = requiert.ID_offre inner join competence on requiert.ID_competence = competence.ID_competence inner join niveauetudes on niveauetudes.ID_NiveauEtudes = offre.ID_NiveauEtudes GROUP BY offre.ID_Offre ');
             return $req;
         }
         public function getAllEntreprise(){
@@ -13,9 +13,9 @@
             $req = $db->query('SELECT DISTINCT nom_Entreprise FROM entreprise');
             return $req;
         }
-        public function getOffre($domaine, $ville, $date, $nivetudes, $dureemin, $dureemax, $salaire, $entreprise){
+        public function getOffre($domaine, $ville, $date, $nivetudes, $dureemin, $dureemax, $salaire, $entreprise, $depart, $OffreParPage){
             $db = $this->dbConnect();
-            $req = $db->prepare('Select offre.ID_Offre, nom_Offre, duree, salaire, date, nombrePlace, nom_Localisation, nom_Entreprise, GROUP_CONCAT(`nom_Competence` SEPARATOR ", ") AS nom_Competence, promotion, offre.ID_Offre from offre 
+            $req = $db->prepare('Select nom_Offre, duree, salaire, date, nombrePlace, nom_Localisation, nom_Entreprise, GROUP_CONCAT(`nom_Competence` SEPARATOR ", ") AS nom_Competence, promotion, offre.ID_Offre from offre 
                                 inner join localisation on offre.ID_localisation=localisation.ID_localisation 
                                 inner Join entreprise on offre.ID_entreprise = entreprise.ID_entreprise 
                                 inner join requiert on offre.Id_offre = requiert.ID_offre 
@@ -37,7 +37,7 @@
                                 AND salaire >= IF( :salaire =\'\', salaire, :salaire2 )
                                 AND nom_Entreprise = IF( :entreprise =\'\', nom_Entreprise, :entreprise2 )
 
-                                GROUP BY offre.ID_Offre ');
+                                GROUP BY offre.ID_Offre DESC LIMIT :depart , :OffreParPage');
             $req->execute(array('domaine' => $domaine,
                                 'domaine2' => $domaine,
                                 'ville' => $ville,
@@ -61,7 +61,9 @@
                                 'salaire' => $salaire,
                                 'salaire2' => $salaire,
                                 'entreprise' => $entreprise,
-                                'entreprise2' => $entreprise
+                                'entreprise2' => $entreprise,
+                                'depart' => $depart,
+                                'OffreParPage' => $OffreParPage
                                 ));
             return $req;
         }
@@ -151,6 +153,13 @@
             $db = $this->dbConnect();
             $req = $db->query('delete from a_wishlist where ID_Etudiant = (select ID_Etudiant from etudiant WHERE nom_Etudiant =\'' . strtok($_COOKIE['userName'], '.') . '\' AND prenom_Etudiant =\'' . substr(strrchr($_COOKIE['userName'], "."), 1) . '\') AND ID_Offre = ' . $idOffre);
             $req = $db->query('insert into a_wishlist(ID_Offre, ID_Etudiant) VALUES ' . $idOffre . ', (select ID_Etudiant from etudiant WHERE nom_Etudiant =\'' . strtok($_COOKIE['userName'], '.') . '\' AND prenom_Etudiant =\'' . substr(strrchr($_COOKIE['userName'], "."), 1) . '\')');
+            return $req;
+        }
+
+        public function totalOffre()
+        {
+            $db = $this->dbConnect();
+            $req = $db->query("SELECT ID_Offre FROM offre"); 
             return $req;
         }
     }

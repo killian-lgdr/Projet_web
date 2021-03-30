@@ -95,6 +95,20 @@ function listOffre(){
         $mOffre=$OffreManager->updateOffre($mville, $mdomaine, $moffre, $mduree, $msalaire, $mnivetudes, $mdate, $mplaces, $mentreprise);
 
     }
+//pagination
+    $OffresParPage = 5;
+    $OffresTotalReq =  $OffreManager->totalOffre();
+    $OffresTotal = $OffresTotalReq->rowCount();
+
+    if(isset($_GET['page']) AND !empty($_GET['page'])){
+        $_GET['page'] = intval($_GET['page']);
+        $pageCourante = $_GET['page'];
+    }
+    else {
+        $pageCourante = 1;
+    }
     
+    $depart = ($pageCourante-1)*$OffresParPage;
+
     require_once('./view/listOffreView.php');
 }

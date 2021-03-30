@@ -239,7 +239,7 @@
                     </div>
                     </form>
                 </div>
-                
+                <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
                 <!-- fin choix filtres -->
                 <div class="container col-9 littleMarge">
                 <!-- AFFICHER LES OFFRES -->
