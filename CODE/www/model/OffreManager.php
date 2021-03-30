@@ -155,5 +155,12 @@
             $req = $db->query('insert into a_wishlist(ID_Offre, ID_Etudiant) VALUES ' . $idOffre . ', (select ID_Etudiant from etudiant WHERE nom_Etudiant =\'' . strtok($_COOKIE['userName'], '.') . '\' AND prenom_Etudiant =\'' . substr(strrchr($_COOKIE['userName'], "."), 1) . '\')');
             return $req;
         }
+
+        public function totalOffre()
+        {
+            $db = $this->dbConnect();
+            $req = $db->query("SELECT ID_Offre FROM offre"); 
+            return $req;
+        }
     }
 ?>

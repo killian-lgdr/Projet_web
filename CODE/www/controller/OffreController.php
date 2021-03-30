@@ -97,8 +97,8 @@ function listOffre(){
     }
 //pagination
     $OffresParPage = 5;
-    $OffresTotalReq = $bdd->query("SELECT ID_Offre FROM offre");
-    $OffresTotal = $offresTotalReq->rowCount();
+    $OffresTotalReq =  $OffreManager->totalOffre();
+    $OffresTotal = $OffresTotalReq->rowCount();
 
     if(isset($_GET['page']) AND !empty($_GET['page'])){
         $_GET['page'] = intval($_GET['page']);
