@@ -1,0 +1,4 @@
+    AuthName "Ceci est du contenu securise"
+    AuthType Basic
+	AuthUserFile "C:\Users\33610\Desktop\CESI\Cours CESI\A2\4. Web\Projet\Projet Git\Projet_web\CODE\www\.htpasswd"
+	Require valid-user
