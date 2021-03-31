@@ -1,4 +1,4 @@
-    <FilesMatch "/index.php">
+    <FilesMatch "\.(htm|html|php)$">
         AuthName "Ceci est du contenu securise"
         AuthType Basic
         AuthUserFile "D:\Ordinateur\CESI\A2\4_WEB\Projet\Projet_web\CODE\www\.htpasswd"
