@@ -1,4 +1,12 @@
-<?php
+
+<!doctype html> 
+<html lang="fr"> 
+   <head> 
+   <link rel="manifest" href="/public/pwa/manifest.JSON">
+   </head> 
+
+   <body> 
+   <?php
     require_once("./controller/OffreController.php");
     require_once("./controller/PDController.php");
     require_once("./controller/EntrepriseController.php");
@@ -22,3 +30,6 @@
         listOffre();
     }
 ?>
+<script type="module" src="/public/pwa/app.js"></script>
+   </body>
+</html> 

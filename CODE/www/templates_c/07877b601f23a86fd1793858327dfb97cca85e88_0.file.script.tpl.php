@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-03-29 13:03:54
+/* Smarty version 3.1.39, created on 2021-03-31 16:54:11
   from 'D:\Ordinateur\CESI\A2\4_WEB\Projet\Projet_web\CODE\www\public\tpl\script.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6061b41a3bbbe6_02812420',
+  'unifunc' => 'content_60648d13e3c670_15899421',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '07877b601f23a86fd1793858327dfb97cca85e88' => 
     array (
       0 => 'D:\\Ordinateur\\CESI\\A2\\4_WEB\\Projet\\Projet_web\\CODE\\www\\public\\tpl\\script.tpl',
-      1 => 1617015831,
+      1 => 1617202436,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6061b41a3bbbe6_02812420 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60648d13e3c670_15899421 (Smarty_Internal_Template $_smarty_tpl) {
 ?>            <?php echo '<script'; ?>
+ type="module" src="/public/pwa/app.js"><?php echo '</script'; ?>
+>
+            <?php echo '<script'; ?>
  src="https://code.jquery.com/jquery-3.5.1.min.js"><?php echo '</script'; ?>
 >
             <?php echo '<script'; ?>
