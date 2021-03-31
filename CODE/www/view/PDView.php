@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <label for="mdp_del">Mot de passe : </label>
-                                        <input type="password" name="mdp_del" id="mdp_del">
+                                        <input type="password" name="mdp_del" id="mdp_del" title="Entre 8 et 16 caractères, 1 chiffre, 1 Majuscule et 1 minuscule" required pattern="(?=^.{8,16}$)((?=.*[0-9])|(?=.*W+))(?![.n])(?=.*[A-Z])(?=.*[a-z]).*">
                                     </div>
                                 </div>
                                 <div class="row justify-content-center littleMarge">
@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <label for="confmdp_del">Confirmer mot de passe : </label>
-                                        <input type="password" name="confmdp_del" id="confmdp_del">
+                                        <input type="password" name="confmdp_del" id="confmdp_del" title="Entre 8 et 16 caractères, 1 chiffre, 1 Majuscule et 1 minuscule" required pattern="(?=^.{8,16}$)((?=.*[0-9])|(?=.*W+))(?![.n])(?=.*[A-Z])(?=.*[a-z]).*">
                                     </div>
                                 </div>
                                 <?php
@@ -215,7 +215,7 @@
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <label for="mdp_pil">Mot de passe : </label>
-                                        <input type="password" name ="mdp_pil" id="mdp_pil">
+                                        <input type="password" name ="mdp_pil" id="mdp_pil" title="Entre 8 et 16 caractères, 1 chiffre, 1 Majuscule et 1 minuscule" required pattern="(?=^.{8,16}$)((?=.*[0-9])|(?=.*W+))(?![.n])(?=.*[A-Z])(?=.*[a-z]).*">
                                     </div>
                                 </div>
 
@@ -227,7 +227,7 @@
 
                                     <div class="col-auto align-self-center">
                                         <label for="confmdp_pil">Confirmer mot de passe : </label>
-                                        <input type="password" name ="confmdp_pil" id="confmdp_pil">
+                                        <input type="password" name ="confmdp_pil" id="confmdp_pil" title="Entre 8 et 16 caractères, 1 chiffre, 1 Majuscule et 1 minuscule" required pattern="(?=^.{8,16}$)((?=.*[0-9])|(?=.*W+))(?![.n])(?=.*[A-Z])(?=.*[a-z]).*">
                                     </div>
                                 </div>
 

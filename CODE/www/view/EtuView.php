@@ -68,11 +68,11 @@
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <label for="mdp_del">Mot de passe : </label>
-                                        <input type="password" name="mdp_etu" id="mdp_etu">
+                                        <input type="password" name="mdp_etu" id="mdp_etu" title="Entre 8 et 16 caractères, 1 chiffre, 1 Majuscule et 1 minuscule" required pattern="(?=^.{8,16}$)((?=.*[0-9])|(?=.*W+))(?![.n])(?=.*[A-Z])(?=.*[a-z]).*">
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <label for="confmdp_etu">Confirmer mot de passe : </label>
-                                        <input type="password" name="confmdp_etu" id="confmdp_etu">
+                                        <input type="password" name="confmdp_etu" id="confmdp_etu" title="Entre 8 et 16 caractères, 1 chiffre, 1 Majuscule et 1 minuscule" required pattern="(?=^.{8,16}$)((?=.*[0-9])|(?=.*W+))(?![.n])(?=.*[A-Z])(?=.*[a-z]).*">
                                     </div>
                                 </div>
 
