@@ -30,6 +30,6 @@
         listOffre();
     }
 ?>
-<script type="module" src="/public/pwa/app.js"></script>
+<script type="module" src="/public/pwa/app.JS"></script>
    </body>
 </html> 
