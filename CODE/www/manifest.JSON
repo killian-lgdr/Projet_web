@@ -1,19 +1,19 @@
 {
     "name": "LeBonStage",
     "short_name": "LBS",
-    "start_url": "../index.php",
+    "start_url": "./index.php",
     "display": "standalone",
     "background-color": "#FFFF",
     "theme_color" : "#03a9f4",
     "orientation": "portrait-primary", 
     "icons": [
     {
-      "src": "../img/icon192.png",
+      "src": "./public/img/icon192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "../img/icon512.png",
+      "src": "./public/img/icon512.png",
       "type": "image/png",
       "sizes": "512x512"
     }

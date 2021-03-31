@@ -2,8 +2,12 @@
 <!doctype html> 
 <html lang="fr"> 
    <head> 
-   <link rel="manifest" href="/pwa/manifest.JSON">
-   <script src="./pwa/app.JS"></script>
+   <link rel="manifest" href="./manifest.JSON">
+   <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="https://www.idphoto.app/apple-touch-icon-180x180.png"
+    />
    </head> 
 
    <body> 
@@ -31,5 +35,6 @@
         listOffre();
     }
 ?>
+        <script src="./app.JS"></script>
    </body>
 </html> 
