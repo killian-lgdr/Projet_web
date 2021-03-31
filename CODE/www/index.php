@@ -2,7 +2,8 @@
 <!doctype html> 
 <html lang="fr"> 
    <head> 
-   <link rel="manifest" href="/public/pwa/manifest.JSON">
+   <link rel="manifest" href="/pwa/manifest.JSON">
+   <script src="./pwa/app.JS"></script>
    </head> 
 
    <body> 
@@ -30,6 +31,5 @@
         listOffre();
     }
 ?>
-<script type="module" src="/public/pwa/app.JS"></script>
    </body>
 </html> 
