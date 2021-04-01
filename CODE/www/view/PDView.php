@@ -6,6 +6,7 @@
 <!doctype html>
     <html lang="fr">
 
+<!-- Génération du head -->
         <?php
             $obj->assign('titre','gestion pilote et délegué');
             $obj->display('./public/tpl/head.tpl');
@@ -13,18 +14,19 @@
 
 
         <body class="container-fluid">
-
+<!-- Génération du header -->
             <?php  
                 $obj->assign('con', $_COOKIE['userName']);
                 $obj->assign('id', '');
                 $obj->display('./public/tpl/header.tpl');
             ?>
-<!--===============main================== -->
+            
             <main class="row  justify-content-center marge">
                 <div class="col container-fluid">
                 <?php
                     if (substr_count($_COOKIE['droits'], 'Créer un compte délégué') == 1 || substr_count($_COOKIE['droits'], 'Modifier un compte délégué') == 1 || substr_count($_COOKIE['droits'], 'Supprimer un compte délégué') == 1 || substr_count($_COOKIE['droits'], 'Rechercher un compte délégué') == 1){
                 ?>
+<!-- Création du formulaire de gestion Délégué -->
                     <form action="?action=PDView" method="post">
                         <div class="row justify-content-center littleMarge brd">
                             <div class="col container-fluid">
@@ -33,6 +35,7 @@
                                         <h1>Gestion Délegué</h1>
                                     </div>
                                 </div>
+            <!-- Création des principales données de gestion Délégué -->
                                 <div class="row justify-content-center littleMarge">
                                     <div class="col-auto align-self-center">
                                         <label for="nom_del">Nom : </label>
@@ -63,6 +66,7 @@
                                         <input type="password" name="confmdp_del" id="confmdp_del" title="Entre 8 et 16 caractères, 1 chiffre, 1 Majuscule et 1 minuscule" pattern="(?=^.{8,16}$)((?=.*[0-9])|(?=.*W+))(?![.n])(?=.*[A-Z])(?=.*[a-z]).*">
                                     </div>
                                 </div>
+                <!-- Création des droits de gestion Délégué -->
                                 <?php
                                     if (substr_count($_COOKIE['droits'], 'Assigner des droits à un délégué') == 1){
                                 ?>
@@ -157,26 +161,27 @@
                                 <?php
                                     }
                                 ?>
+                <!-- Création des boutons de gestion Délégué -->
                                 <div class="row justify-content-center littleMarge">
                                 <?php
                                     if (substr_count($_COOKIE['droits'], 'Créer un compte délégué') == 1){
                                 ?>
                                     <div class="col-auto">
-                                        <input type="submit" name="creer_del" value="Créer délegué"></input>
+                                        <input type="submit" name="creer_del" value="Créer délégué"></input>
                                     </div>
                                 <?php
                                     }
                                     if (substr_count($_COOKIE['droits'], 'Modifier un compte délégué') == 1){
                                 ?>
                                     <div class="col-auto">
-                                        <input type="submit" name="modifier_del" value="Modifier délegué"></input>
+                                        <input type="submit" name="modifier_del" value="Modifier délégué"></input>
                                     </div>
                                 <?php
                                     }
                                     if (substr_count($_COOKIE['droits'], 'Supprimer un compte délégué') == 1){
                                 ?>
                                     <div class="col-auto">
-                                        <input type="submit" name="supprimer_del" value="Supprimer délegué"></input>
+                                        <input type="submit" name="supprimer_del" value="Supprimer délégué"></input>
                                     </div>
                                 <?php
                                     }
@@ -189,6 +194,7 @@
                         }
                         if (substr_count($_COOKIE['droits'], 'Créer un compte pilote') == 1 || substr_count($_COOKIE['droits'], 'Modifier un compte pilote') == 1 || substr_count($_COOKIE['droits'], 'Supprimer un compte pilote') == 1 || substr_count($_COOKIE['droits'], 'Rechercher un compte pilote') == 1){
                     ?>
+<!-- Création du formulaire de gestion Pilote -->
                     <form action="?action=PDView" method="post">
                         <div class="row justify-content-center littleMarge brd">
                             <div class="col container-fluid">
@@ -197,7 +203,7 @@
                                         <h1>Gestion Pilote</h1>
                                     </div>
                                 </div>
-
+            <!-- Création des principales données de gestion Pilote -->
                                 <div class="row justify-content-center littleMarge">
                                     <div class="col-auto align-self-center">
                                         <label for="nom_pil">Nom : </label>
@@ -256,6 +262,7 @@
                                         <label for="A5_pil">5ème Année</label>
                                     </div>
                                 </div>
+            <!-- Création des boutons de gestion Pilote -->
                                 <div class="row justify-content-center littleMarge">
                                     <?php
                                         if (substr_count($_COOKIE['droits'], 'Créer un compte pilote') == 1){
@@ -290,7 +297,7 @@
                     ?>
                 </div>
             </main>
-
+<!-- Génération du footer -->
             <?php
                 $obj->display('./public/tpl/footer.tpl');
                 $obj->display('./public/tpl/script.tpl');

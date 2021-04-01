@@ -1,7 +1,8 @@
 
 <!doctype html> 
 <html lang="fr"> 
-   <head> 
+   <head>
+   <!-- lien du manifest -->
    <link rel="manifest" href="./manifest.JSON">
    <link
         rel="apple-touch-icon"
@@ -35,6 +36,7 @@
         listOffre();
     }
 ?>
+    <!-- lien du fichier appelant le SW -->
         <script src="./app.JS"></script>
    </body>
 </html> 

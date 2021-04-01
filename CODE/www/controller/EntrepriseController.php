@@ -20,13 +20,15 @@ function listEntreprise(){
     else {
         $pageCourante = 1;
     }
-    
     $depart = ($pageCourante-1)*$EntreParPage;
 
-        $ville = $entrepriseManager->getAllville();
-        $secteurAct = $entrepriseManager->getAllSecteurAct();
-        $entreprise = $entrepriseManager->getAllEntreprise($depart, $EntreParPage);
+    //affichage entreprises
 
+    $ville = $entrepriseManager->getAllville();
+    $secteurAct = $entrepriseManager->getAllSecteurAct();
+    $entreprise = $entrepriseManager->getAllEntreprise($depart, $EntreParPage);
+
+    // créer une entreprise
     if(isset($_POST['creer_ent'])&& isset($_POST['nameEntreprise'])&& isset($_POST['nameSecteur'])&& isset($_POST['nameVille'])&& isset($_POST['nameNbStage']))
     {
         $cVille = $_POST['nameVille'];
@@ -35,11 +37,13 @@ function listEntreprise(){
         $cNbstage = $_POST['nameNbStage'];
         $createEnt = $entrepriseManager->createEntreprise($cVille, $cEntreprise, $cSecteur, $cNbstage);
     }
+    //supprimer une entreprise
     if(isset($_POST['supprimer_ent'])&& isset($_POST['nameEntreprise']))
     {
         $sEntreprise = $_POST['nameEntreprise'];
         $supprEnt = $entrepriseManager->supprimerEntreprise($sEntreprise);
     }
+    // rechercher une entreprise
     $rechercheResultat = NULL;
     if(isset($_POST['rechercher_ent'])&& isset($_POST['nameEntreprise']))
     { 
@@ -48,6 +52,7 @@ function listEntreprise(){
         $rechercheResultat = $rechercheEnt->fetch(PDO::FETCH_LAZY);
     }
     
+    //afficher note des entreprises
     function createTabNote($note){
         switch ($note){
             case 1: 
@@ -67,15 +72,15 @@ function listEntreprise(){
                 break;
         }     
     }
-
-    if (isset($_POST['entreprise']) || isset($_POST['ville'])){
+    // afficher une entreprise selon filtres
+    if (isset($_POST['entreprise']) || isset($_POST['ville']) || isset($_POST['secteur'])){
         $nomEntreprise = $_POST['entreprise'];
         $nomVille = verif("ville");
         $nomSecteur = verif("secteur");
         $entreprise = $entrepriseManager->getEntreprise($nomEntreprise, $nomVille, $nomSecteur);
 
     }
-
+    //modifier une entreprise
     if(isset($_POST['modifier_ent'])&& isset($_POST['nameEntreprise'])&& isset($_POST['nameSecteur'])&& isset($_POST['nameVille'])&& isset($_POST['nameNbStage']))
     {
         $mVille = $_POST['nameVille'];
